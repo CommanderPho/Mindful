@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F7072FA2499BA6100DE2BDD /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7072F92499BA6100DE2BDD /* CalendarVC.swift */; };
+		7F958CC724998D6A001B3427 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F958CC624998D6A001B3427 /* Persistence.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
-		7FF1B5BF24895E9A00A3CC95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BE24895E9A00A3CC95 /* ViewController.swift */; };
-		7FF1B5C224895E9A00A3CC95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C024895E9A00A3CC95 /* Main.storyboard */; };
+		7FF1B5BF24895E9A00A3CC95 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BE24895E9A00A3CC95 /* TimerVC.swift */; };
 		7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */; };
 		7FF1B5C724895E9C00A3CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */; };
+		7FFB45CD2497A44F00C078EF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB45CC2497A44F00C078EF /* TabBarController.swift */; };
+		7FFB45D12497A57200C078EF /* BadgesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB45D02497A57200C078EF /* BadgesVC.swift */; };
+		7FFB45D32497A5AD00C078EF /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB45D22497A5AD00C078EF /* BadgeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F7072F92499BA6100DE2BDD /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		7F958CC624998D6A001B3427 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7FF1B5BE24895E9A00A3CC95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7FF1B5C124895E9A00A3CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7FF1B5BE24895E9A00A3CC95 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FF1B5C624895E9C00A3CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FF1B5C824895E9C00A3CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FFB45CC2497A44F00C078EF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7FFB45D02497A57200C078EF /* BadgesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesVC.swift; sourceTree = "<group>"; };
+		7FFB45D22497A5AD00C078EF /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +64,17 @@
 		7FF1B5B924895E9A00A3CC95 /* Mindful */ = {
 			isa = PBXGroup;
 			children = (
-				7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */,
-				7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */,
-				7FF1B5BE24895E9A00A3CC95 /* ViewController.swift */,
-				7FF1B5C024895E9A00A3CC95 /* Main.storyboard */,
 				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7FF1B5C824895E9C00A3CC95 /* Info.plist */,
+				7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */,
+				7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */,
+				7FFB45CC2497A44F00C078EF /* TabBarController.swift */,
+				7FF1B5BE24895E9A00A3CC95 /* TimerVC.swift */,
+				7FFB45D02497A57200C078EF /* BadgesVC.swift */,
+				7F7072F92499BA6100DE2BDD /* CalendarVC.swift */,
+				7FFB45D22497A5AD00C078EF /* BadgeCell.swift */,
+				7F958CC624998D6A001B3427 /* Persistence.swift */,
 			);
 			path = Mindful;
 			sourceTree = "<group>";
@@ -127,7 +139,6 @@
 			files = (
 				7FF1B5C724895E9C00A3CC95 /* LaunchScreen.storyboard in Resources */,
 				7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */,
-				7FF1B5C224895E9A00A3CC95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +149,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FF1B5BF24895E9A00A3CC95 /* ViewController.swift in Sources */,
+				7FF1B5BF24895E9A00A3CC95 /* TimerVC.swift in Sources */,
+				7FFB45CD2497A44F00C078EF /* TabBarController.swift in Sources */,
+				7FFB45D12497A57200C078EF /* BadgesVC.swift in Sources */,
+				7F958CC724998D6A001B3427 /* Persistence.swift in Sources */,
 				7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */,
 				7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */,
+				7F7072FA2499BA6100DE2BDD /* CalendarVC.swift in Sources */,
+				7FFB45D32497A5AD00C078EF /* BadgeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7FF1B5C024895E9A00A3CC95 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7FF1B5C124895E9A00A3CC95 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
