@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import GRDB
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    private func setupDatabase(in application: UIApplication) {
+        let databaseURL = try! FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("db.sqlite")
+        
+        dbQueue = try! Database.openDatabase(atPath: databaseURL.path)
+        // dbQueue!.setupMemoryManagement(in: application)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupDatabase(in: application)
+        insert()
         return true
     }
 
