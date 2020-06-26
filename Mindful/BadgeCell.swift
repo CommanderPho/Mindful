@@ -50,41 +50,4 @@ class Badge {
     static func storeBadges(badges: [Badge]){
         storeInDefaults(value: badges, atKey: EARNED_BADGES_PERSIST_KEY)
     }
-    
-//    func isEarned() -> Bool{
-//        let defaults = UserDefaults.standard
-//        let badgeDict =
-//            defaults.object(forKey: EARNED_BADGES_PERSIST_KEY)
-//                as? Dictionary<String, Any> ?? [String : Any]()
-//
-//        return badgeDict[self.title] != nil
-//    }
-//
-//    func store(){
-//        let defaults = UserDefaults.standard
-//        var badgeDict =
-//            defaults.object(forKey: EARNED_BADGES_PERSIST_KEY)
-//                as? Dictionary<String, Any> ?? [String : Any]()
-//
-//        if badgeDict[self.title] == nil || (badgeDict[self.title] as! Dictionary<String,Any>).isEmpty {
-//            badgeDict[self.title] = self.toDict()
-//        } else {
-//            badgeDict[self.title] = nil
-//        }
-//        storeInDefaults(value: badgeDict, atKey: EARNED_BADGES_PERSIST_KEY)
-//    }
-//
-//    func toDict() -> Dictionary<String, Any> {
-//        return [
-//            "title": self.title,
-//            "description": self.description,
-//            "iconName": self.iconName
-//        ]
-//    }
-//
-//    static func loadFromDict(dict: Dictionary<String, Any>) -> Badge {
-//        return Badge(title: dict["title"] as! String,
-//                     description: dict["description"] as! String,
-//                     iconName: dict["iconName"] as! String)
-//    }
 }

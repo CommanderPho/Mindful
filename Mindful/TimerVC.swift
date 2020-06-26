@@ -170,6 +170,7 @@ class TimerVC: UIViewController {
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         titleLabel.numberOfLines = 10
         
+        
         //swipe direction label
         //        let swipeMsgFrame = CGRect(origin: CGPoint.zero, size: titleSize)
         self.swipeDirMsgLabel = UILabel(frame: titleFrame)

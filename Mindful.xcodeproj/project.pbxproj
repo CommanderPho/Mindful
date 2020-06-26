@@ -21,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		7F7072F92499BA6100DE2BDD /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		7F71E81F24A4E4FC00A60ADF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7F958CC624998D6A001B3427 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +46,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F71E81B24A4E4C400A60ADF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7F71E81C24A4E4CC00A60ADF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FD2D72C24A4EA4100D8CDA9 /* Cells */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F71E81D24A4E4D300A60ADF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7F71E81E24A4E4DB00A60ADF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7FD2D72C24A4EA4100D8CDA9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7FF1B5AE24895E9A00A3CC95 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +101,10 @@
 		7FF1B5B924895E9A00A3CC95 /* Mindful */ = {
 			isa = PBXGroup;
 			children = (
+				7F71E81E24A4E4DB00A60ADF /* Controllers */,
+				7F71E81D24A4E4D300A60ADF /* Views */,
+				7F71E81C24A4E4CC00A60ADF /* Models */,
+				7F71E81B24A4E4C400A60ADF /* Resources */,
 				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7FF1B5C824895E9C00A3CC95 /* Info.plist */,
@@ -75,6 +116,7 @@
 				7F7072F92499BA6100DE2BDD /* CalendarVC.swift */,
 				7FFB45D22497A5AD00C078EF /* BadgeCell.swift */,
 				7F958CC624998D6A001B3427 /* Persistence.swift */,
+				7F71E81F24A4E4FC00A60ADF /* README.md */,
 			);
 			path = Mindful;
 			sourceTree = "<group>";
