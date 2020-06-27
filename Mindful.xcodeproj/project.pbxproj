@@ -18,6 +18,9 @@
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
 		7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F89E7E024A6BAB9006EB824 /* createDays.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
+		7FB9D0E024A705100021773A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0DF24A705100021773A /* TabBarController.swift */; };
+		7FB9D0E224A706A10021773A /* BadgesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0E124A706A10021773A /* BadgesController.swift */; };
+		7FB9D0E424A707530021773A /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0E324A707530021773A /* BadgeCell.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
 		7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7F89E7E024A6BAB9006EB824 /* createDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDays.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
+		7FB9D0DF24A705100021773A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7FB9D0E124A706A10021773A /* BadgesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesController.swift; sourceTree = "<group>"; };
+		7FB9D0E324A707530021773A /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				7F742CC424A597BF00C11E79 /* CalendarDaysController.swift */,
+				7FB9D0E124A706A10021773A /* BadgesController.swift */,
+				7FB9D0DF24A705100021773A /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				7F742CD024A59F2700C11E79 /* DayCell.swift */,
+				7FB9D0E324A707530021773A /* BadgeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -282,8 +291,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */,
+				7FB9D0E024A705100021773A /* TabBarController.swift in Sources */,
 				7F742CCA24A5999400C11E79 /* Day.swift in Sources */,
 				7F30378A24A6C90200E50950 /* createGoals.swift in Sources */,
+				7FB9D0E424A707530021773A /* BadgeCell.swift in Sources */,
 				7F742CCE24A599E400C11E79 /* Badge.swift in Sources */,
 				7F742CC624A597BF00C11E79 /* CalendarDaysController.swift in Sources */,
 				7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */,
@@ -293,6 +304,7 @@
 				7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */,
 				7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */,
 				7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */,
+				7FB9D0E224A706A10021773A /* BadgesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

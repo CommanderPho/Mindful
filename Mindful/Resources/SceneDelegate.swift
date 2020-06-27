@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = CalendarDaysController(collectionViewLayout: UICollectionViewFlowLayout())
+//        window?.rootViewController = CalendarDaysController(collectionViewLayout: UICollectionViewFlowLayout())
+        window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 

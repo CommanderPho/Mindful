@@ -1,38 +1,36 @@
 //
-//  CalendarDaysController.swift
+//  BadgesController.swift
 //  Mindful
 //
-//  Created by William Shelley on 6/25/20.
+//  Created by William Shelley on 6/27/20.
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "dayCell"
+private let reuseIdentifier = "badgeCell"
 
-class CalendarDaysController: UICollectionViewController {
-    private var days = [Day]()
+class BadgesController: UICollectionViewController {
+    var badges = [Badge]()
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
-        self.tabBarItem = UITabBarItem(title: "Calendar", image: UIImage(systemName: "rosette"), tag: 0)
+        self.tabBarItem = UITabBarItem(title: "Badges", image: UIImage(systemName: "rosette"), tag: 0)
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.collectionView!.register(DayCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+
+        self.collectionView!.register(BadgeCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
         self.collectionView.backgroundColor = .cyan
         
-        try? dbQueue?.read({ db in self.days = try Day.fetchAll(db) })
+        try? dbQueue?.read({ db in self.badges = try Badge.fetchAll(db) })
     }
-
-    // MARK: - Navigation
 
     // MARK: UICollectionViewDataSource
 
@@ -40,18 +38,19 @@ class CalendarDaysController: UICollectionViewController {
         return 1
     }
 
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return days.count
+        return badges.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DayCell
-//        cell.button.setBackgroundImage(UIImage(named: ), for: .normal)
-//        cell.button.setBackgroundImage(UIImage(named: days![indexPath.row].imageName), for: .normal)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BadgeCell
+    
+        cell.button.setBackgroundImage(UIImage(named: badges[indexPath.row].imageName), for: .normal)
         cell.button.setTitle(String(indexPath.row), for: .normal)
+        
         return cell
     }
 
     // MARK: UICollectionViewDelegate
-    
 }

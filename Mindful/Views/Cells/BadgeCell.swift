@@ -1,14 +1,14 @@
 //
-//  DayCell.swift
+//  BadgeCell.swift
 //  Mindful
 //
-//  Created by William Shelley on 6/25/20.
+//  Created by William Shelley on 6/27/20.
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
 import UIKit
 
-class DayCell: UICollectionViewCell {
+class BadgeCell: UICollectionViewCell {
     var button: UIButton!
     
     override init(frame: CGRect) {
@@ -22,7 +22,7 @@ class DayCell: UICollectionViewCell {
     }
         
     func loadViewFromNib() -> UIView {
-        let nib = UINib(nibName: "DayCell", bundle: nil)
+        let nib = UINib(nibName: "BadgeCell", bundle: nil)
         let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
         return view
     }
