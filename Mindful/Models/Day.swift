@@ -9,38 +9,24 @@
 import Foundation
 import GRDB
 
-class Day: Record {
-
-    var id: Int64?
-    var date: String
-
-    enum Columns: String, ColumnExpression {
-        case id, date
+struct Day: ApplicationRecord {
+    var id: Int64? = nil
+    var date: String = ""
+    
+    static let goalsDue = hasMany(Goal.self, using: Goal.deadlineForeignKey)
+    static let goalsCompleted = hasMany(Goal.self, using: Goal.completedForeignKey)
+    static let goalsCreated = hasMany(Goal.self, using: Goal.createdForeignKey)
+    
+    var goalsDue: QueryInterfaceRequest<Goal> {
+        request(for: Day.goalsDue)
     }
-
-    override class var databaseTableName: String { "days" }
-
-    init(id: Int64?, date: String) {
-        self.id = id
-        self.date = date
-        super.init()
+    
+    var goalsCompleted: QueryInterfaceRequest<Goal> {
+        request(for: Day.goalsCompleted)
     }
-
-    required init(row: Row) {
-        id = row[Columns.id]
-        date = row[Columns.date]
-        super.init(row: row)
+    
+    var goalsCreated: QueryInterfaceRequest<Goal> {
+        request(for: Day.goalsCreated)
     }
-
-
-    override func encode(to container: inout PersistenceContainer) {
-        container[Columns.id] = id
-        container[Columns.date] = date
-    }
-
-    override func didInsert(with rowID: Int64, for column: String?) {
-        id = rowID
-    }
-
 }
 

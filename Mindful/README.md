@@ -24,24 +24,26 @@
     - belongs to a Goal
     
 ### Goal
-    - id: Integer
-    - userId: Integer // If we will allow for sign-in
-    - dayId: Integer
-    
-    - description: String
-    - status: [INCOMPLETE, PAUSED, COMPLETE]: String
-    - deadline: Date: nil
-    - createdAt: Date
-    - completedAt: Date
+    - var id: Int64?
+    - var userId: Int
+    - var description: String
+    - var status: String
+
+    - var createdDayId: Int
+    - var completedDayId: Int
+    - var deadlineDayId: Int
     
     - has many badges
     - belongs to a User
-    - belongs to a Day
+    - belongs to dayCreated
+    - belongs to dayCompleted
+    - belongs to dueDate
     
     - Goal#timeRemaining -> Integer
     - Goal#objectivesMet -> [Badge]
     
 ### Day
+    - id: Integer
     - date: Date
     
     - has many Goals

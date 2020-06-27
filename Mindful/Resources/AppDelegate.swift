@@ -12,19 +12,20 @@ import GRDB
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private func setupDatabase(in application: UIApplication) {
+    private func initializeDB(in application: UIApplication) {
         let databaseURL = try! FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            .appendingPathComponent("db.sqlite")
+            .appendingPathComponent(dbName)
         
-        dbQueue = try! Database.openDatabase(atPath: databaseURL.path)
-        // dbQueue!.setupMemoryManagement(in: application)
+        migrations = [createDays, createGoals, createBadges]
+        dbQueue = try? DBManager.connectDB(atPath: databaseURL.path, withMigrations: migrations)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        setupDatabase(in: application)
-        insert()
+        initializeDB(in: application)
+        
+//        insert()
         return true
     }
 
