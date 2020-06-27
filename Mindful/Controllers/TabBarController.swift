@@ -12,22 +12,10 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let calendarLayout = UICollectionViewFlowLayout()
-        let numColumns = 4
-        let itemWidth = view.bounds.width / CGFloat(numColumns + 1)
-        let itemHeight = itemWidth
-        let itemSize = CGSize(width: itemWidth, height: itemHeight)
-        let spacing = 3
-        let spacingAsFloat = CGFloat(spacing)
-        let inset = itemWidth / 4
-        calendarLayout.minimumInteritemSpacing = spacingAsFloat
-        calendarLayout.minimumLineSpacing = spacingAsFloat
-        calendarLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-        calendarLayout.itemSize = itemSize
-        
-        let badgesLayout = UICollectionViewFlowLayout()
 
+        let calendarLayout = GridLayout(numColumns: 5, spacing: 5)
+        let badgesLayout = GridLayout(numColumns: 4, spacing: 5)
+        
         self.viewControllers = [
             CalendarDaysController(collectionViewLayout: calendarLayout),
             BadgesController(collectionViewLayout: badgesLayout),

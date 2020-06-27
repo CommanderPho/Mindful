@@ -10,6 +10,7 @@ import UIKit
 
 class DayCell: UICollectionViewCell {
     var button: UIButton!
+    var day: Day?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,12 +22,6 @@ class DayCell: UICollectionViewCell {
         commonInit()
     }
         
-    func loadViewFromNib() -> UIView {
-        let nib = UINib(nibName: "DayCell", bundle: nil)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        return view
-    }
-    
     func commonInit() {
         button = UIButton(frame: bounds)
         button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
@@ -37,11 +32,10 @@ class DayCell: UICollectionViewCell {
     }
     
     @objc func onTap() {
-//        print(button.currentTitle ?? "empty")
-        
+        guard let day = day else { return }
+        print(button.currentTitle ?? "empty")
         try? dbQueue?.write({ db in
             let goal = try Goal.fetchAll(db).last!
-            let day = try goal.dayCreated.fetchOne(db)!
             let badge = Badge(id: nil, goalId: goal.id, dayId: day.id,
                               description: "badge " + String(button.currentTitle ?? "empty"),
                               imageName: "badge")

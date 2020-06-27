@@ -24,6 +24,7 @@ class BadgesController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         try? dbQueue?.read({ db in self.badges = try Badge.fetchAll(db) })
         self.collectionView.reloadData()
     }
@@ -34,7 +35,6 @@ class BadgesController: UICollectionViewController {
         self.collectionView!.register(BadgeCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         self.collectionView.backgroundColor = .cyan
-        
     }
 
     // MARK: UICollectionViewDataSource
@@ -50,6 +50,7 @@ class BadgesController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BadgeCell
         let badge = badges[indexPath.row]
+        cell.badge = badge
         cell.button.setBackgroundImage(UIImage(named: badge.imageName), for: .normal)
         cell.button.setTitle(badge.description, for: .normal)
         cell.button.titleLabel?.font = UIFont.systemFont(ofSize: 10)

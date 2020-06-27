@@ -51,6 +51,7 @@ class CalendarDaysController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DayCell
         let day = days[indexPath.row]
+        cell.day = day
         cell.button.setTitle(String(day.id!), for: .normal)
         cell.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return cell

@@ -10,6 +10,7 @@ import UIKit
 
 class BadgeCell: UICollectionViewCell {
     var button: UIButton!
+    var badge: Badge?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,22 +22,20 @@ class BadgeCell: UICollectionViewCell {
         commonInit()
     }
         
-    func loadViewFromNib() -> UIView {
-        let nib = UINib(nibName: "BadgeCell", bundle: nil)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        return view
-    }
-    
     func commonInit() {
         button = UIButton(frame: bounds)
-        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
+        let holdGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.onHold(_:)))
+        button.addGestureRecognizer(holdGesture)
 
         addSubview(button)
         
         backgroundColor = .systemTeal
     }
     
-    @objc func onTap() {
+    @objc func onHold(_ sender: UILongPressGestureRecognizer) {
+        guard let badge = badge else { return }
         print(button.currentTitle ?? "empty")
+        _ = try? dbQueue?.write({ db in try badge.delete(db) })
+        button.setBackgroundImage(button.backgroundImage(for: .normal)?.withTintColor(.red), for: .normal)
     }
 }
