@@ -19,6 +19,7 @@ class TabBarController: UITabBarController {
         self.viewControllers = [
             CalendarDaysController(collectionViewLayout: calendarLayout),
             BadgesController(collectionViewLayout: badgesLayout),
+            TimerController(),
             ProfileController()
         ]
     }
