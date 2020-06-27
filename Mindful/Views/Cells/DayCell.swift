@@ -37,6 +37,15 @@ class DayCell: UICollectionViewCell {
     }
     
     @objc func onTap() {
-        print(button.currentTitle ?? "empty")
+//        print(button.currentTitle ?? "empty")
+        
+        try? dbQueue?.write({ db in
+            let goal = try Goal.fetchAll(db).last!
+            let day = try goal.dayCreated.fetchOne(db)!
+            let badge = Badge(id: nil, goalId: goal.id, dayId: day.id,
+                              description: "badge " + String(button.currentTitle ?? "empty"),
+                              imageName: "badge")
+            try badge.insert(db)
+        })
     }
 }

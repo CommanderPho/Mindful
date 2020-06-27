@@ -22,14 +22,18 @@ class CalendarDaysController: UICollectionViewController {
         super.init(coder: coder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        try? dbQueue?.read({ db in self.days = try Day.fetchAll(db) })
+        self.collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView!.register(DayCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.collectionView.backgroundColor = .cyan
-        
-        try? dbQueue?.read({ db in self.days = try Day.fetchAll(db) })
     }
 
     // MARK: - Navigation
@@ -43,12 +47,12 @@ class CalendarDaysController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return days.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DayCell
-//        cell.button.setBackgroundImage(UIImage(named: ), for: .normal)
-//        cell.button.setBackgroundImage(UIImage(named: days![indexPath.row].imageName), for: .normal)
-        cell.button.setTitle(String(indexPath.row), for: .normal)
+        let day = days[indexPath.row]
+        cell.button.setTitle(String(day.id!), for: .normal)
+        cell.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return cell
     }
 

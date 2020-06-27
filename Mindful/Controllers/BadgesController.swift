@@ -22,6 +22,12 @@ class BadgesController: UICollectionViewController {
         super.init(coder: coder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        try? dbQueue?.read({ db in self.badges = try Badge.fetchAll(db) })
+        self.collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +35,6 @@ class BadgesController: UICollectionViewController {
 
         self.collectionView.backgroundColor = .cyan
         
-        try? dbQueue?.read({ db in self.badges = try Badge.fetchAll(db) })
     }
 
     // MARK: UICollectionViewDataSource
@@ -38,17 +43,17 @@ class BadgesController: UICollectionViewController {
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return badges.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BadgeCell
-    
-        cell.button.setBackgroundImage(UIImage(named: badges[indexPath.row].imageName), for: .normal)
-        cell.button.setTitle(String(indexPath.row), for: .normal)
-        
+        let badge = badges[indexPath.row]
+        cell.button.setBackgroundImage(UIImage(named: badge.imageName), for: .normal)
+        cell.button.setTitle(badge.description, for: .normal)
+        cell.button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        cell.button.contentVerticalAlignment = .bottom
         return cell
     }
 
