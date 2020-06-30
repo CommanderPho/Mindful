@@ -6,7 +6,6 @@
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
-import Foundation
 import GRDB
 
 struct Goal: ApplicationRecord {

@@ -12,7 +12,7 @@ import GRDB
 let createDays: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator in
     let tableName = Day.databaseTableName
     
-    if try DBManager.inDatabase(table: tableName) { return }
+    if try DBM.inDatabase(table: tableName) { return }
     
     print("createDays migration performed")
     

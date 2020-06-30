@@ -6,8 +6,6 @@
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
-import Foundation
 import GRDB
 
-protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord {}
-
+protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord, Identifiable {}

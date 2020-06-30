@@ -12,7 +12,7 @@ import GRDB
 let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator in
     let tableName = Goal.databaseTableName
     
-    if try DBManager.inDatabase(table: tableName) { return }
+    if try DBM.inDatabase(table: tableName) { return }
     
     print("createGoals migration performed")
     

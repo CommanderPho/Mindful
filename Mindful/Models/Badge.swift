@@ -6,7 +6,6 @@
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
-import Foundation
 import GRDB
 
 struct Badge: ApplicationRecord {
@@ -16,12 +15,15 @@ struct Badge: ApplicationRecord {
     var description: String
     var imageName: String
     
+    static let dayForeignKey = ForeignKey(["dayId"])
+    
     static let goal = belongsTo(Goal.self)
+    static let dayEarned = belongsTo(Day.self)
+    
     var goal: QueryInterfaceRequest<Goal> {
         request(for: Badge.goal)
     }
     
-    static let dayEarned = belongsTo(Day.self)
     var dayEarned: QueryInterfaceRequest<Day> {
         request(for: Badge.dayEarned)
     }

@@ -6,7 +6,6 @@
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
-import Foundation
 import GRDB
 
 struct Day: ApplicationRecord {
@@ -16,6 +15,7 @@ struct Day: ApplicationRecord {
     static let goalsDue = hasMany(Goal.self, using: Goal.deadlineForeignKey)
     static let goalsCompleted = hasMany(Goal.self, using: Goal.completedForeignKey)
     static let goalsCreated = hasMany(Goal.self, using: Goal.createdForeignKey)
+    static let badgesEarnedToday = hasMany(Badge.self, using: Badge.dayForeignKey)
     
     var goalsDue: QueryInterfaceRequest<Goal> {
         request(for: Day.goalsDue)
@@ -28,5 +28,8 @@ struct Day: ApplicationRecord {
     var goalsCreated: QueryInterfaceRequest<Goal> {
         request(for: Day.goalsCreated)
     }
+    
+    var badgesEarnedToday: QueryInterfaceRequest<Badge> {
+        request(for: Day.badgesEarnedToday)
+    }
 }
-

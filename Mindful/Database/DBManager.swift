@@ -6,12 +6,13 @@
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
-import Foundation
 import GRDB
 
 let dbName = "db.sqlite"
 var dbQueue: DatabaseQueue?
 var migrations: [(inout DatabaseMigrator) throws ->Void]? = nil
+
+typealias DBM = DBManager
 
 class DBManager {
     enum DBError: Error {
@@ -39,6 +40,20 @@ class DBManager {
             tableExists = try db.tableExists(table)
         })
         return tableExists
+    }
+    
+    // returns an array of objects retrieved from DB via a hasMany association
+    static func hasMany<T: ApplicationRecord>(_ hasMany: QueryInterfaceRequest<T>) -> [T]{
+        var records: [T] = []
+        try? dbQueue?.read({ db in records = try hasMany.fetchAll(db) })
+        return records
+    }
+    
+    // returns an array of all objects of a given AR type from the DB
+    static func all<T: ApplicationRecord>(_ type: T.Type) -> [T]{
+        var records: [T] = []
+        try? dbQueue?.read({ db in records = try T.fetchAll(db) })
+        return records
     }
  
     // migrates an array of migrations ( Mindful/Models/Migrations )

@@ -7,79 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F12656924AA5E4500AFF4E8 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F12656824AA5E4500AFF4E8 /* ViewHelpers.swift */; };
-		7F1C4EA824AAE02300B9D4EC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C4EA724AAE02300B9D4EC /* DayController.swift */; };
+		7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0024ABED6100FA412E /* GoalCell.swift */; };
+		7F09AC0324ABEE0A00FA412E /* GoalsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */; };
+		7F10E72324ABD51A009E3131 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72224ABD51A009E3131 /* Cell.swift */; };
+		7F10E72524ABD57A009E3131 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72424ABD57A009E3131 /* AppView.swift */; };
+		7F10E72724ABDE28009E3131 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72624ABDE28009E3131 /* ProfileView.swift */; };
+		7F10E72924ABE111009E3131 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72824ABE111009E3131 /* Constants.swift */; };
+		7F10E72B24ABE5DA009E3131 /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72A24ABE5DA009E3131 /* ProfileRow.swift */; };
+		7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72C24ABEA4F009E3131 /* GoalView.swift */; };
 		7F30378A24A6C90200E50950 /* createGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378924A6C90200E50950 /* createGoals.swift */; };
 		7F30378C24A6E73100E50950 /* createBadges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378B24A6E73100E50950 /* createBadges.swift */; };
-		7F4692FB24A7F36D00F502CF /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4692FA24A7F36D00F502CF /* GridLayout.swift */; };
-		7F50C2A324AB931100DE3CD6 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F50C2A224AB931100DE3CD6 /* GoalCell.xib */; };
-		7F67AEEE24AAE52700CD45C7 /* GoalsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */; };
 		7F742CC324A5961900C11E79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F742CC224A5961900C11E79 /* README.md */; };
-		7F742CC624A597BF00C11E79 /* DaysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CC424A597BF00C11E79 /* DaysController.swift */; };
 		7F742CCA24A5999400C11E79 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CC924A5999400C11E79 /* Day.swift */; };
 		7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCB24A599DA00C11E79 /* Goal.swift */; };
 		7F742CCE24A599E400C11E79 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCD24A599E400C11E79 /* Badge.swift */; };
-		7F742CD224A59F2700C11E79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD024A59F2700C11E79 /* DayCell.swift */; };
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
-		7F8225D524AA249A00160171 /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8225D424AA249A00160171 /* ProfileTableView.swift */; };
 		7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F89E7E024A6BAB9006EB824 /* createDays.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
-		7F988AF724AAF6FF00AAC795 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F988AF624AAF6FF00AAC795 /* GoalCell.swift */; };
-		7FA4657C24A7F9170012071F /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4657B24A7F9170012071F /* TimerController.swift */; };
-		7FAC0F0224A70CE00059B41E /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC0F0124A70CE00059B41E /* ProfileCell.swift */; };
-		7FAC0F0424A70D5A0059B41E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC0F0324A70D5A0059B41E /* ProfileController.swift */; };
-		7FACB4CA24AA7DB60062B16B /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACB4C924AA7DB60062B16B /* TableViewHelpers.swift */; };
-		7FACB4CC24AA7DCC0062B16B /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACB4CB24AA7DCC0062B16B /* CollectionViewHelpers.swift */; };
-		7FACB4CE24AA9F740062B16B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACB4CD24AA9F740062B16B /* Protocols.swift */; };
-		7FACB4D124AAA0700062B16B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACB4D024AAA0700062B16B /* Enums.swift */; };
-		7FACB4D624AAA1C50062B16B /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACB4D524AAA1C50062B16B /* ProfilePictureView.swift */; };
-		7FB9D0E024A705100021773A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0DF24A705100021773A /* TabBarController.swift */; };
-		7FB9D0E224A706A10021773A /* BadgesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0E124A706A10021773A /* BadgesController.swift */; };
-		7FB9D0E424A707530021773A /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9D0E324A707530021773A /* BadgeCell.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
 		7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */; };
 		7FF1B5C724895E9C00A3CC95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */; };
+		7FFA90D824ABC4640054FFD3 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA90D724ABC4640054FFD3 /* TableView.swift */; };
 		DB2FA4E129016824261CF76D /* Pods_Mindful.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD49CE7D8BCC8DE6134437AB /* Pods_Mindful.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EFCB8E225D0F69898189F7D /* Pods-Mindful.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mindful.release.xcconfig"; path = "Target Support Files/Pods-Mindful/Pods-Mindful.release.xcconfig"; sourceTree = "<group>"; };
-		7F12656824AA5E4500AFF4E8 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
-		7F1C4EA724AAE02300B9D4EC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
+		7F09AC0024ABED6100FA412E /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTable.swift; sourceTree = "<group>"; };
+		7F10E72224ABD51A009E3131 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		7F10E72424ABD57A009E3131 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		7F10E72624ABDE28009E3131 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7F10E72824ABE111009E3131 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F10E72A24ABE5DA009E3131 /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
+		7F10E72C24ABEA4F009E3131 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7F30378924A6C90200E50950 /* createGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createGoals.swift; sourceTree = "<group>"; };
 		7F30378B24A6E73100E50950 /* createBadges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createBadges.swift; sourceTree = "<group>"; };
-		7F4692FA24A7F36D00F502CF /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
-		7F50C2A224AB931100DE3CD6 /* GoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
-		7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableView.swift; sourceTree = "<group>"; };
 		7F742CC224A5961900C11E79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7F742CC424A597BF00C11E79 /* DaysController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysController.swift; sourceTree = "<group>"; };
 		7F742CC924A5999400C11E79 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		7F742CCB24A599DA00C11E79 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		7F742CCD24A599E400C11E79 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
-		7F742CD024A59F2700C11E79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		7F8225D424AA249A00160171 /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		7F89E7E024A6BAB9006EB824 /* createDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDays.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
-		7F988AF624AAF6FF00AAC795 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
-		7FA4657B24A7F9170012071F /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
-		7FAC0F0124A70CE00059B41E /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		7FAC0F0324A70D5A0059B41E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		7FACB4C924AA7DB60062B16B /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
-		7FACB4CB24AA7DCC0062B16B /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelpers.swift; sourceTree = "<group>"; };
-		7FACB4CD24AA9F740062B16B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		7FACB4D024AAA0700062B16B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		7FACB4D524AAA1C50062B16B /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
-		7FB9D0DF24A705100021773A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		7FB9D0E124A706A10021773A /* BadgesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesController.swift; sourceTree = "<group>"; };
-		7FB9D0E324A707530021773A /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FF1B5C624895E9C00A3CC95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FF1B5C824895E9C00A3CC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FFA90D724ABC4640054FFD3 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Mindful/Views/TableView.swift; sourceTree = SOURCE_ROOT; };
 		8A27AC1F710246A830AC6134 /* Pods-Mindful.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mindful.debug.xcconfig"; path = "Target Support Files/Pods-Mindful/Pods-Mindful.debug.xcconfig"; sourceTree = "<group>"; };
 		BD49CE7D8BCC8DE6134437AB /* Pods_Mindful.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mindful.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,21 +82,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7F50C2A124AB92A800DE3CD6 /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-				7F50C2A224AB931100DE3CD6 /* GoalCell.xib */,
-			);
-			path = Xibs;
-			sourceTree = "<group>";
-		};
 		7F742CBE24A594E500C11E79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7FACB4CF24AAA05F0062B16B /* Shared */,
 				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
-				7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
+				7F742CC224A5961900C11E79 /* README.md */,
+				7F10E72824ABE111009E3131 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -136,13 +106,11 @@
 		7F742CC024A594F000C11E79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F50C2A124AB92A800DE3CD6 /* Xibs */,
-				7FB1CBBA24AADCCD00B30069 /* ViewControllers */,
-				7FACB4D424AAA1500062B16B /* Layouts */,
+				7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */,
+				7F10E72C24ABEA4F009E3131 /* GoalView.swift */,
 				7F742CCF24A59F0200C11E79 /* Cells */,
-				7F8225D424AA249A00160171 /* ProfileTableView.swift */,
-				7FACB4D524AAA1C50062B16B /* ProfilePictureView.swift */,
-				7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */,
+				7FFA90D724ABC4640054FFD3 /* TableView.swift */,
+				7F10E72624ABDE28009E3131 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,12 +118,7 @@
 		7F742CC124A594F600C11E79 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7F1C4EA724AAE02300B9D4EC /* DayController.swift */,
-				7FAC0F0324A70D5A0059B41E /* ProfileController.swift */,
-				7FB9D0E124A706A10021773A /* BadgesController.swift */,
-				7F742CC424A597BF00C11E79 /* DaysController.swift */,
-				7FA4657B24A7F9170012071F /* TimerController.swift */,
-				7FB9D0DF24A705100021773A /* TabBarController.swift */,
+				7F10E72424ABD57A009E3131 /* AppView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,10 +126,9 @@
 		7F742CCF24A59F0200C11E79 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7F742CD024A59F2700C11E79 /* DayCell.swift */,
-				7FB9D0E324A707530021773A /* BadgeCell.swift */,
-				7FAC0F0124A70CE00059B41E /* ProfileCell.swift */,
-				7F988AF624AAF6FF00AAC795 /* GoalCell.swift */,
+				7F10E72224ABD51A009E3131 /* Cell.swift */,
+				7F10E72A24ABE5DA009E3131 /* ProfileRow.swift */,
+				7F09AC0024ABED6100FA412E /* GoalCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -191,33 +153,6 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		7FACB4CF24AAA05F0062B16B /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				7F12656824AA5E4500AFF4E8 /* ViewHelpers.swift */,
-				7FACB4CB24AA7DCC0062B16B /* CollectionViewHelpers.swift */,
-				7FACB4C924AA7DB60062B16B /* TableViewHelpers.swift */,
-				7FACB4CD24AA9F740062B16B /* Protocols.swift */,
-				7FACB4D024AAA0700062B16B /* Enums.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		7FACB4D424AAA1500062B16B /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				7F4692FA24A7F36D00F502CF /* GridLayout.swift */,
-			);
-			path = Layouts;
-			sourceTree = "<group>";
-		};
-		7FB1CBBA24AADCCD00B30069 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		7FF1B5AE24895E9A00A3CC95 = {
 			isa = PBXGroup;
 			children = (
@@ -240,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */,
+				7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */,
 				7FF1B5C824895E9C00A3CC95 /* Info.plist */,
-				7F742CC224A5961900C11E79 /* README.md */,
 				7FAC0F0524A725D70059B41E /* Database */,
 				7F742CC124A594F600C11E79 /* Controllers */,
 				7F742CC024A594F000C11E79 /* Views */,
@@ -320,7 +255,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F50C2A324AB931100DE3CD6 /* GoalCell.xib in Resources */,
 				7FF1B5C724895E9C00A3CC95 /* LaunchScreen.storyboard in Resources */,
 				7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */,
 				7F742CC324A5961900C11E79 /* README.md in Resources */,
@@ -376,35 +310,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FAC0F0224A70CE00059B41E /* ProfileCell.swift in Sources */,
-				7FACB4D624AAA1C50062B16B /* ProfilePictureView.swift in Sources */,
+				7F09AC0324ABEE0A00FA412E /* GoalsTable.swift in Sources */,
 				7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */,
-				7FA4657C24A7F9170012071F /* TimerController.swift in Sources */,
-				7F1C4EA824AAE02300B9D4EC /* DayController.swift in Sources */,
-				7FB9D0E024A705100021773A /* TabBarController.swift in Sources */,
+				7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */,
+				7F10E72324ABD51A009E3131 /* Cell.swift in Sources */,
 				7F742CCA24A5999400C11E79 /* Day.swift in Sources */,
-				7FACB4CE24AA9F740062B16B /* Protocols.swift in Sources */,
+				7FFA90D824ABC4640054FFD3 /* TableView.swift in Sources */,
+				7F10E72B24ABE5DA009E3131 /* ProfileRow.swift in Sources */,
 				7F30378A24A6C90200E50950 /* createGoals.swift in Sources */,
-				7FAC0F0424A70D5A0059B41E /* ProfileController.swift in Sources */,
-				7FB9D0E424A707530021773A /* BadgeCell.swift in Sources */,
-				7FACB4CC24AA7DCC0062B16B /* CollectionViewHelpers.swift in Sources */,
+				7F10E72924ABE111009E3131 /* Constants.swift in Sources */,
 				7F742CCE24A599E400C11E79 /* Badge.swift in Sources */,
-				7F8225D524AA249A00160171 /* ProfileTableView.swift in Sources */,
-				7F742CC624A597BF00C11E79 /* DaysController.swift in Sources */,
 				7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */,
-				7F742CD224A59F2700C11E79 /* DayCell.swift in Sources */,
 				7F30378C24A6E73100E50950 /* createBadges.swift in Sources */,
-				7FACB4CA24AA7DB60062B16B /* TableViewHelpers.swift in Sources */,
 				7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */,
 				7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */,
-				7FACB4D124AAA0700062B16B /* Enums.swift in Sources */,
-				7F67AEEE24AAE52700CD45C7 /* GoalsTableView.swift in Sources */,
-				7F988AF724AAF6FF00AAC795 /* GoalCell.swift in Sources */,
+				7F10E72524ABD57A009E3131 /* AppView.swift in Sources */,
+				7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */,
 				7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */,
-				7F12656924AA5E4500AFF4E8 /* ViewHelpers.swift in Sources */,
-				7F4692FB24A7F36D00F502CF /* GridLayout.swift in Sources */,
+				7F10E72724ABDE28009E3131 /* ProfileView.swift in Sources */,
 				7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */,
-				7FB9D0E224A706A10021773A /* BadgesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

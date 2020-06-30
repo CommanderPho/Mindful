@@ -13,7 +13,7 @@ import GRDB
 let createBadges: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator in
     let tableName = Badge.databaseTableName
     
-    if try DBManager.inDatabase(table: tableName) { return }
+    if try DBM.inDatabase(table: tableName) { return }
     
     print("createBadges migration performed")
     

@@ -1,5 +1,5 @@
 //
-//  GoalCell.swift
+//  GoalView.swift
 //  Mindful
 //
 //  Created by William Shelley on 6/30/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GoalCell: View {
+struct GoalView: View {
     let goal: Goal
     
     var body: some View {
@@ -16,11 +16,8 @@ struct GoalCell: View {
             Text(goal.description)
             Text(goal.status)
         }
-    }
-}
-
-struct GoalCell_Previews: PreviewProvider {
-    static var previews: some View {
-        GoalCell(goal: Goal(id: nil, userId: nil, description: "Description", status: "COMPLETE", createdDayId: nil, completedDayId: nil, deadlineDayId: nil))
+        .aspectRatio(contentMode: .fit)
+        .foregroundColor(.blue)
+        .navigationBarTitle(Text(goal.description), displayMode: .inline)
     }
 }
