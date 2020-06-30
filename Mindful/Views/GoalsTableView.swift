@@ -8,15 +8,19 @@
 
 import UIKit
 
-class DayTableView: UITableView {
-    static let reuseIdentifier = "dayTableCell"
+// Change to GoalsPerDayTableView
+
+class GoalsTableView: UITableView {
+    
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         guard let _ = superview else { return }
         
-        register(GoalCell.self, forCellReuseIdentifier: DayTableView.reuseIdentifier)
+        let nib = UINib(nibName: "GoalCell", bundle: nil)
+        
+        register(nib, forCellReuseIdentifier: GoalCell.reuseIdentifier)
         
         _ = try! self.requiredSetup()
         

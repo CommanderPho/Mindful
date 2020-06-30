@@ -12,7 +12,8 @@
 		7F30378A24A6C90200E50950 /* createGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378924A6C90200E50950 /* createGoals.swift */; };
 		7F30378C24A6E73100E50950 /* createBadges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378B24A6E73100E50950 /* createBadges.swift */; };
 		7F4692FB24A7F36D00F502CF /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4692FA24A7F36D00F502CF /* GridLayout.swift */; };
-		7F67AEEE24AAE52700CD45C7 /* DayTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67AEED24AAE52700CD45C7 /* DayTableView.swift */; };
+		7F50C2A324AB931100DE3CD6 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F50C2A224AB931100DE3CD6 /* GoalCell.xib */; };
+		7F67AEEE24AAE52700CD45C7 /* GoalsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */; };
 		7F742CC324A5961900C11E79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F742CC224A5961900C11E79 /* README.md */; };
 		7F742CC624A597BF00C11E79 /* DaysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CC424A597BF00C11E79 /* DaysController.swift */; };
 		7F742CCA24A5999400C11E79 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CC924A5999400C11E79 /* Day.swift */; };
@@ -49,7 +50,8 @@
 		7F30378924A6C90200E50950 /* createGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createGoals.swift; sourceTree = "<group>"; };
 		7F30378B24A6E73100E50950 /* createBadges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createBadges.swift; sourceTree = "<group>"; };
 		7F4692FA24A7F36D00F502CF /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
-		7F67AEED24AAE52700CD45C7 /* DayTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableView.swift; sourceTree = "<group>"; };
+		7F50C2A224AB931100DE3CD6 /* GoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
+		7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableView.swift; sourceTree = "<group>"; };
 		7F742CC224A5961900C11E79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7F742CC424A597BF00C11E79 /* DaysController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysController.swift; sourceTree = "<group>"; };
 		7F742CC924A5999400C11E79 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F50C2A124AB92A800DE3CD6 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				7F50C2A224AB931100DE3CD6 /* GoalCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		7F742CBE24A594E500C11E79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,12 +136,13 @@
 		7F742CC024A594F000C11E79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F50C2A124AB92A800DE3CD6 /* Xibs */,
 				7FB1CBBA24AADCCD00B30069 /* ViewControllers */,
 				7FACB4D424AAA1500062B16B /* Layouts */,
 				7F742CCF24A59F0200C11E79 /* Cells */,
 				7F8225D424AA249A00160171 /* ProfileTableView.swift */,
 				7FACB4D524AAA1C50062B16B /* ProfilePictureView.swift */,
-				7F67AEED24AAE52700CD45C7 /* DayTableView.swift */,
+				7F67AEED24AAE52700CD45C7 /* GoalsTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F50C2A324AB931100DE3CD6 /* GoalCell.xib in Resources */,
 				7FF1B5C724895E9C00A3CC95 /* LaunchScreen.storyboard in Resources */,
 				7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */,
 				7F742CC324A5961900C11E79 /* README.md in Resources */,
@@ -386,7 +398,7 @@
 				7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */,
 				7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */,
 				7FACB4D124AAA0700062B16B /* Enums.swift in Sources */,
-				7F67AEEE24AAE52700CD45C7 /* DayTableView.swift in Sources */,
+				7F67AEEE24AAE52700CD45C7 /* GoalsTableView.swift in Sources */,
 				7F988AF724AAF6FF00AAC795 /* GoalCell.swift in Sources */,
 				7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */,
 				7F12656924AA5E4500AFF4E8 /* ViewHelpers.swift in Sources */,
