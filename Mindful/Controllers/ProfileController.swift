@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "profileCell"
-
 class ProfileController: UIViewController  {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -22,23 +20,24 @@ class ProfileController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let table = UITableView(frame: view.bounds)
-        table.register(ProfileCell.self, forCellReuseIdentifier: reuseIdentifier)
-        table.delegate = self
-        table.dataSource = self
-        table.translatesAutoresizingMaskIntoConstraints = false
-        table.sizeToFit()
-        self.view.addSubview(table)
         
-        let tabBarHeight = tabBarController?.tabBar.bounds.height
+        let table = ProfileTableView(frame: view.bounds)
+        let profilePic = ProfilePictureView(frame: view.bounds)
+        
+        let vStack = UIStackView(frame: view.bounds)
+        vStack.axis = .vertical
         
         
+        try? table.requiredSetup()
+        self.view.addSubview(vStack)
+        vStack.addArrangedSubview(profilePic)
+        vStack.addArrangedSubview(table)
+        
+        let safeArea = self.view.safeAreaLayoutGuide
+        vStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            table.widthAnchor.constraint(equalToConstant: view.bounds.width),
-            table.heightAnchor.constraint(equalToConstant: table.bounds.height),
-            table.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarHeight!),
-            table.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            vStack.heightAnchor.constraint(equalTo: safeArea.heightAnchor),
+            vStack.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
         ])
     }
 }
@@ -51,7 +50,7 @@ extension ProfileController: UITableViewDataSource {
 
 extension ProfileController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ProfileCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableView.reuseIdentifier, for: indexPath) as! ProfileCell
         
         return cell
     }

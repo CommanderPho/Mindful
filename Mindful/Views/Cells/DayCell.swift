@@ -22,7 +22,7 @@ class DayCell: UICollectionViewCell {
         commonInit()
     }
         
-    func commonInit() {
+    private func commonInit() {
         button = UIButton(frame: bounds)
         button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
 
@@ -33,13 +33,27 @@ class DayCell: UICollectionViewCell {
     
     @objc func onTap() {
         guard let day = day else { return }
-        print(button.currentTitle ?? "empty")
+        
+        guard let vc = self.findViewController() else { return }
+
+        let dayVC = DayController()
+        dayVC.day = self.day
+        dayVC.view.backgroundColor = .systemPink
+        
+        vc.present(dayVC, animated: true)
+        
         try? dbQueue?.write({ db in
             let goal = try Goal.fetchAll(db).last!
             let badge = Badge(id: nil, goalId: goal.id, dayId: day.id,
                               description: "badge " + String(button.currentTitle ?? "empty"),
                               imageName: "badge")
             try badge.insert(db)
+            
+            
+//            let new_goal = Goal(id: nil, userId: 1, description: "this is a new goal", status: "IN-PROGRESS",
+//                                createdDayId: day.id, completedDayId: day.id, deadlineDayId: day.id)
+//            
+//            try new_goal.insert(db)
         })
     }
 }

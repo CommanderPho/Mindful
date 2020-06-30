@@ -22,7 +22,7 @@ class BadgeCell: UICollectionViewCell {
         commonInit()
     }
         
-    func commonInit() {
+    private func commonInit() {
         button = UIButton(frame: bounds)
         let holdGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.onHold(_:)))
         button.addGestureRecognizer(holdGesture)
@@ -34,7 +34,7 @@ class BadgeCell: UICollectionViewCell {
     
     @objc func onHold(_ sender: UILongPressGestureRecognizer) {
         guard let badge = badge else { return }
-        print(button.currentTitle ?? "empty")
+        
         _ = try? dbQueue?.write({ db in try badge.delete(db) })
         button.setBackgroundImage(button.backgroundImage(for: .normal)?.withTintColor(.red), for: .normal)
     }

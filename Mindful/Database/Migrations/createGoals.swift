@@ -14,6 +14,8 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
     
     if try DBManager.inDatabase(table: tableName) { return }
     
+    print("createGoals migration performed")
+    
     migrator.registerMigration("create" + tableName.capitalized) { db in
         
         try db.create(table: tableName) { tableDefinition in

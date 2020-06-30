@@ -8,6 +8,8 @@
 
 import UIKit
 
+// potentially change TimerController to a View
+
 func activateCenteredConstraints(parent: UIView, view: UIView, width: CGFloat, height: CGFloat, xOffset: CGFloat = 0, yOffset: CGFloat = 0){
     
     //allows for autolayout
@@ -60,7 +62,9 @@ class TimerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // uncomment and use to make sure nothing is behind navigation bars
+        // use safeArea's constraints
+        // let safeArea = self.view.safeAreaLayoutGuide
         
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white

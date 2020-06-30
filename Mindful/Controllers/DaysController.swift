@@ -10,12 +10,12 @@ import UIKit
 
 private let reuseIdentifier = "dayCell"
 
-class CalendarDaysController: UICollectionViewController {
+class DaysController: UICollectionViewController {
     private var days = [Day]()
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
-        self.tabBarItem = UITabBarItem(title: "Calendar", image: UIImage(systemName: "rosette"), tag: 0)
+        self.tabBarItem = UITabBarItem(title: "Calendar", image: UIImage(systemName: "calendar"), tag: 0)
     }
 
     required init?(coder: NSCoder) {
@@ -32,8 +32,6 @@ class CalendarDaysController: UICollectionViewController {
         super.viewDidLoad()
         
         self.collectionView!.register(DayCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        self.collectionView.backgroundColor = .cyan
     }
 
     // MARK: - Navigation

@@ -82,7 +82,7 @@ class GridLayout: UICollectionViewFlowLayout {
         commonInit()
     }
     
-    func commonInit(){
+    private func commonInit(){
         
         let extraSpace = viewWidth - (CGFloat(numColumns) * (itemWidth + hSpacing))
         let hInsetExtra = extraSpace > 0 ? (extraSpace / CGFloat(numColumns)) : 0

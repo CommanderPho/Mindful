@@ -1,4 +1,23 @@
-
+# Todo
+    - Make all view controllers/views subclassed to a style 
+    view so there is no need to write .backgroundcolor etc. for every page
+    - DaysCell onTap should redirect to list of goals due that day and all goals
+    due that day and goals in progress (INCOMPLETE/IN-PROGRESS -> decide which one) 
+        - ex: 
+            Due today:
+                - goal 1
+                - goal 2
+            
+            In Progress:
+                - goal 3
+                - goal 4
+    - GoalCell should be made, onTap should redirect to goal description or
+    /present/ the goal description and status
+        - ex:
+            Title
+            IN-PROGRESS due May 12, 2020
+            Description
+    
 
 # Resources
     - Storyboards

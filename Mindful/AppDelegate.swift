@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .appendingPathComponent(dbName)
         
         migrations = [createDays, createGoals, createBadges]
-        dbQueue = try? DBManager.connectDB(atPath: databaseURL.path, withMigrations: migrations)
+        dbQueue = try! DBManager.connectDB(atPath: databaseURL.path, withMigrations: migrations)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

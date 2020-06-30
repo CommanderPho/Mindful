@@ -33,8 +33,6 @@ class BadgesController: UICollectionViewController {
         super.viewDidLoad()
 
         self.collectionView!.register(BadgeCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        self.collectionView.backgroundColor = .cyan
     }
 
     // MARK: UICollectionViewDataSource

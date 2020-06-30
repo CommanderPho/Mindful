@@ -14,6 +14,8 @@ let createDays: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator i
     
     if try DBManager.inDatabase(table: tableName) { return }
     
+    print("createDays migration performed")
+    
     migrator.registerMigration("create" + tableName.capitalized) { db in
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
