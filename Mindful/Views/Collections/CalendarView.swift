@@ -13,10 +13,13 @@ struct CalendarView: View {
     // each month has 5 rows with 7 columns (5 weeks and 7 days per week)
     // each week will have 7 slots [Sa,M,T,W,Th,F,Su]
     // each day will be 1 unit
+    // possible fix to slow loading:
+    //  have currentWeeks be a @State variable [[Date]]
+    //  on scroll up, remove last week and add previous week ?
     
     let focusDate: Date = Date()
     let rangeOfMonths: Int = 12 // n / 2 behind, n / 2 forward -> ideally, now it is just n in the future
-    let spacing: CGFloat = 25
+    let spacing: CGFloat = 5
     
     private var monthStartDates: [Date] {
         var dates: [Date] = []
@@ -31,22 +34,30 @@ struct CalendarView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false){
-                VStack { // Needs to be LazyVStack
-                ForEach(self.monthStartDates, id: \.self) { date in
-                    MonthView(focusDate: date, spacing: self.spacing)
-                }.padding(.bottom, self.spacing * 2)
-                }
-            }.navigationBarTitle( Text("Calendar") )
-        }
+        
+//        List(self.monthStartDates, id: \.self){ date in
+                        NavigationView {
+//            Section {
+//                HStack {
+//                    MonthView(focusDate: date, spacing: self.spacing)
+//                    }
+//                }
+//            }
+//             slow loading:
+                        ScrollView(showsIndicators: false){
+                                ForEach(self.monthStartDates, id: \.self) { date in
+                                    MonthView(focusDate: date, spacing: self.spacing)
+                                }.padding(.bottom, self.spacing * 2)
+                        }.navigationBarTitle( Text("Calendar") )
+            
+                        }
     }
 }
 
 struct MonthView: View {
     let focusDate: Date
     let spacing: CGFloat
-
+    
     private var month: [[Date]] {
         var dates: [[Date]] = [[Date]()]
         let daysInMonth = focusDate.numDays(in: .month)
@@ -78,7 +89,7 @@ struct MonthView: View {
         VStack(alignment: .center){
             Text(String(focusDate.components().month!.month())).padding(.bottom, self.spacing).foregroundColor(.black)
             VStack(alignment: .trailing) {
-                WeekView(week: self.month.first!, spacing: self.spacing).padding(.bottom, self.spacing)
+                WeekView(week: self.month.first!, spacing: self.spacing)
                 VStack(alignment: .leading, spacing: self.spacing) {
                     ForEach(self.month[1..<self.month.count], id: \.self) { week in
                         WeekView(week: week, spacing: self.spacing)
@@ -94,44 +105,23 @@ struct WeekView: View {
     let week: [Date]
     let spacing: CGFloat
     var body: some View {
-        HStack(spacing: self.spacing) {
+        
+        
+        HStack(spacing: 3) {
+            
             ForEach(self.week, id: \.self) { day in
                 NavigationLink(destination: GoalsView(date: day)) {
                     // blue if some goals red if no goals
                     DateCell(date: day).foregroundColor(day.goals().isEmpty ? .red : .blue)
+                    //                        .frame(width: 25, height: 25)
+                    //                        .frame(width: 25 + 10, height: 25 + 10)
+                    
                 }
+                    //                }.listStyle(PlainListStyle())
+                    //                .buttonStyle(PlainButtonStyle())
+                    //                .padding(10)
+                    .border(Color.black)
             }
         }
     }
-}
-
-
-
-
-
-
-//private func firstDateInMonth(_ date: Date) -> Date {
-//    let offset = 1-date.components().day!
-//    let firstDayInMonth = date.offsetBy(offset, withUnit: .day)
-////    print(firstDayInMonth)
-//    return firstDayInMonth
-//}
-
-//private func numDaysInMonth(_ dateToCheck: Date) -> Int {
-//    let cal = Calendar(identifier: .gregorian)
-//    let range = cal.range(of: .day, in: .month, for: Date())
-//    return range!.count
-//}
-
-private func ordinality(_ date: Date) -> Int {
-    let cal = Calendar(identifier: .gregorian)
-//    print(cal.weekdaySymbols)
-//    let ord = cal.ordinality(of: .day, in: .month, for: Calendar.current.date(byAdding: .day, value: -7, to: date)!)
-    let ord = cal.ordinality(of: .day, in: .weekOfYear, for: date)
-    return ord!
-}
-
-private func advanceDate(n days: Int, from date: Date) -> String {
-    let newDay = Calendar.current.date(byAdding: .day, value: days, to: date)!.str()
-    return newDay
 }

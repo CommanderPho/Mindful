@@ -23,6 +23,7 @@
 		7F742CCE24A599E400C11E79 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCD24A599E400C11E79 /* Badge.swift */; };
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
 		7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7462C324AC5716007E5C03 /* Helpers.swift */; };
+		7F7D5B2824AD3C0700F0E660 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D5B2724AD3C0700F0E660 /* TestViewController.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		7F742CCD24A599E400C11E79 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7F7462C324AC5716007E5C03 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		7F7D5B2724AD3C0700F0E660 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */,
 				7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */,
 				7FF1B5C824895E9C00A3CC95 /* Info.plist */,
+				7F7D5B2724AD3C0700F0E660 /* TestViewController.swift */,
 				7FAC0F0524A725D70059B41E /* Database */,
 				7F742CC124A594F600C11E79 /* Controllers */,
 				7F742CC024A594F000C11E79 /* Views */,
@@ -229,7 +232,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "William Shelley";
 				TargetAttributes = {
 					7FF1B5B624895E9A00A3CC95 = {
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F09AC0324ABEE0A00FA412E /* GoalsView.swift in Sources */,
+				7F7D5B2824AD3C0700F0E660 /* TestViewController.swift in Sources */,
 				7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */,
 				7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */,
 				7F09AC2624AC3B0D00FA412E /* CalendarView.swift in Sources */,
@@ -376,6 +380,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -436,6 +441,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

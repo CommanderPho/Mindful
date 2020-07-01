@@ -22,6 +22,9 @@
     - Use Calendar to find 'n' number of days in a month
     - Render 'n' days in one view
     - Days line up with day of week [S,M,T,W,Th,F,Su]
+    - Slow with SCrollView wrapping ForEach
+    - Fast with List, but navigation is different (each month is its own cell and the navigation is botched)
+    - Currently optimal is using iOS 14 and wrapping a scrollview->ForEach with a LazyVStack
     
 
 # Resources

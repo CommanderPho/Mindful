@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+private let action: ()->Void = {
+    print("pressed")
+}
+
 struct GoalsView: View {
     @State var date: Date
     private var goals: [Goal] {
@@ -19,5 +23,17 @@ struct GoalsView: View {
             GoalCell(goal: goal)
         }
         .navigationBarTitle(Text(date.formatted()), displayMode: .inline)
+        .navigationBarItems(trailing:
+            NavigationLink(destination: TView()){
+                Text("Add a Goal")
+        });
+    }
+}
+
+struct InputView: View {
+    var body: some View {
+        VStack {
+            
+        }
     }
 }

@@ -11,29 +11,18 @@ import SwiftUI
 struct DateCell: View {
     
     let date: Date //= DBM.all(Day.self).first!
+    let pad: CGFloat = 10
     
     var body: some View {
+        
+        GeometryReader { g in
+            HStack(alignment: .center){
         VStack {
-//            Text(String(date.components().month!.month()))
-            Text(String(date.components().weekday!.weekday()))
-            Text(String(date.components().day!))
-//            Text(String(numDaysInMonth(date)))
-            
-//            Text(String(ordinality(date).weekday()))
-            
-//            Text(String(numDaysInMonth(date)))
-//            Text("Day")
-//            Text(date.toStr())
-            
-//            Text(Date().toStr())
-//            Text(advanceDate(n: -1, from: Date()))
-//            Text(String(Date().components().month!))
-//            Text(String(Date().components().day!))
-//            Text(String(Date().components().year!))
-//            Text(String(Date().offsetBy(0, withUnit: .day).components().weekday!.weekday()))
-//            Text(String(Date().offsetBy(0, withUnit: .day).components().month!.month()))
-//            Text(String(Date().components().weekdayOrdinal!))
-            
+            Text(String(self.date.components().weekday!.weekday()))
+                .font(.system(size: max(g.size.width * 0.4, g.size.height * 0.4)))
+            Text(String(self.date.components().day!))
         }
+            }
+        }.frame(width: screenWidth / 8, height: screenWidth / 8)
     }
 }

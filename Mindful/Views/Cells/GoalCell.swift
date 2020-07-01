@@ -24,15 +24,3 @@ struct GoalCell: View {
         }
     }
 }
-//
-//struct GoalCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GoalCell(goal:
-//            Goal(id: nil, title: "Goal Title", description: "Goal Description",
-//                 status: "COMPLETE",
-//                 dateCreated: Date().str(),
-//                 dateCompleted: Date().offsetBy(-1, withUnit: .day).str(),
-//                 dateDue: Date().offsetBy(1, withUnit: .day).str()
-//            ))
-//    }
-//}
