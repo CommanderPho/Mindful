@@ -15,6 +15,7 @@ struct ContentView: View {
     
     var goals: [Goal] = DBM.all(Goal.self)
     var badges: [Badge] = DBM.all(Badge.self)
+    let chosenDay: Date = Date()
     
     var body: some View {
         TabView {
@@ -24,7 +25,8 @@ struct ContentView: View {
             // Badges
             // Timer
 
-            MonthView(focusDate: Date())
+//            MonthView(focusDate: Date(), spacing: 25)
+            CalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")
@@ -36,12 +38,12 @@ struct ContentView: View {
                     Text("Profile")
             }
             
-            GoalsTable(goals: DBM.all(Goal.self))
-                .tabItem {
-                    Image(systemName: "rosette")
-                    Text("Badges")
-            }
-            
+//            GoalsView(date: chosenDay)
+//                .tabItem {
+//                    Image(systemName: "rosette")
+//                    Text("Badges")
+//            }
+//
             
         }
         .foregroundColor(.blue)

@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let dateFormat = "yyyy-MM-dd" //' 'HH:mm:ss"
+
 extension Int {
     func month() -> String {
         var calendar = Calendar(identifier: .gregorian)
@@ -27,26 +29,59 @@ extension String {
     func toDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        dateFormatter.dateFormat = dateFormat
         return dateFormatter.date(from: self)!
     }
 }
 
 extension Date {
+    func firstInMonth() -> Date {
+        let offset = 1-self.components().day!
+        let firstDayInMonth = self.offsetBy(offset, withUnit: .day)
+        return firstDayInMonth
+    }
+    
+    func numDays(in component: Calendar.Component) -> Int {
+        let cal = Calendar(identifier: .gregorian)
+        let range = cal.range(of: .day, in: component, for: self)
+        return range!.count
+    }
+    
     func components() -> DateComponents {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second, .weekday, .weekdayOrdinal], from: self)
         return components
     }
     
-    func toStr() -> String {
+    func str() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        dateFormatter.dateFormat = dateFormat
         return dateFormatter.string(from: self)
     }
     
     func offsetBy(_ value: Int, withUnit: Calendar.Component) -> Date {
         return Calendar.current.date(byAdding: withUnit, value: value, to: self)!
+    }
+    
+    func goals() -> [Goal] {
+        var found: [Goal] = []
+        let string = self.str()
+        try? dbQueue?.read({ db in
+            found = try Goal
+                .filter(sql: "(dateCreated = ?) OR (dateCompleted = ?) OR (dateDue = ?)",
+                        arguments: [string, string, string])
+                .fetchAll(db)
+        })
+        return found
+    }
+    
+    func formatted() -> String {
+        let components = self.components()
+        let weekday = components.weekday!.weekday()
+        let month = components.month!.month()
+        let dayInMonth = components.day!
+        let year = components.year!
+        return weekday + ", " + month + " " + String(dayInMonth) + ", " + String(year)
     }
 }

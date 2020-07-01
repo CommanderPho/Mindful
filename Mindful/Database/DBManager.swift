@@ -70,40 +70,41 @@ class DBManager {
         }
         try migrator.migrate(dbQueue)
         
-//        try! DBM.seed(15)
+        
+//        try! DBM.seed(Date().numDays(in: .month), nTimes: 5)
+        
     }
     
     // seed database
-    private static func seed(_ numSeeds: Int) throws {
+    private static func seed(_ numSeeds: Int, nTimes num: Int = 1) throws {
         guard let dbQueue = dbQueue else { throw DBError.queueError("Invalid Database Connection") }
-        let idx = DBM.all(Goal.self).count
         
-        try dbQueue.write({ db in
-            
-            
-            for i in idx..<(idx+numSeeds) {
-                let dayOffset: Int = 5
+        for _ in 0..<num{
+        let idx = DBM.all(Goal.self).count
+            try dbQueue.write({ db in
+                for i in idx..<(idx+numSeeds) {
+                let dayOffset: Int = i - idx
+                    let goal = Goal(id: nil,
+                          title: "Title " + String(i),
+                          description: "Description " + String(i),
+                          status: "INCOMPLETE",
+                          dateCreated: Date().offsetBy(dayOffset, withUnit: .day).str(),
+                          dateCompleted: "",
+                          dateDue: Date().offsetBy(dayOffset, withUnit: .day).str())
 
-                let goal = Goal(id: nil,
-                      title: "Title " + String(i),
-                      description: "Description " + String(i),
-                      status: "INCOMPLETE",
-                      dateCreated: Date().toStr(),
-                      dateCompleted: "",
-                      dateDue: Date().offsetBy(dayOffset, withUnit: .day).toStr())
-
-                try goal.insert(db)
-                let goalId = try Goal.fetchAll(db).last!.id
-                
-                let badge = Badge(id: nil,
-                      goalId: goalId,
-                      title: "Title " + String(i),
-                      description: "Description " + String(i),
-                      imageName: "badge",
-                      dateEarned: Date().offsetBy(dayOffset, withUnit: .day).toStr())
-                
-                try badge.insert(db)
-            }
-        })
+                    try goal.insert(db)
+                    let goalId = try Goal.fetchAll(db).last!.id
+                    
+                    let badge = Badge(id: nil,
+                          goalId: goalId,
+                          title: "Title " + String(i),
+                          description: "Description " + String(i),
+                          imageName: "badge",
+                          dateEarned: Date().offsetBy(dayOffset, withUnit: .day).str())
+                    
+                    try badge.insert(db)
+                }
+            })
+        }
     }
 }

@@ -14,22 +14,43 @@ struct CalendarView: View {
     // each week will have 7 slots [Sa,M,T,W,Th,F,Su]
     // each day will be 1 unit
     
+    let focusDate: Date = Date()
+    let rangeOfMonths: Int = 12 // n / 2 behind, n / 2 forward -> ideally, now it is just n in the future
+    let spacing: CGFloat = 25
+    
+    private var monthStartDates: [Date] {
+        var dates: [Date] = []
+        var date = focusDate
+        let futurerRange = 0..<rangeOfMonths
+        for _ in futurerRange {
+            dates.append(date)
+            date = date.offsetBy(1, withUnit: .month) // go to next month
+        }
+        
+        return dates
+    }
     
     var body: some View {
-        Text("Calendar")
+        NavigationView {
+            ScrollView(showsIndicators: false){
+                VStack { // Needs to be LazyVStack
+                ForEach(self.monthStartDates, id: \.self) { date in
+                    MonthView(focusDate: date, spacing: self.spacing)
+                }.padding(.bottom, self.spacing * 2)
+                }
+            }.navigationBarTitle( Text("Calendar") )
+        }
     }
 }
 
 struct MonthView: View {
-    
     let focusDate: Date
-    
-    let spacing: CGFloat = 25
+    let spacing: CGFloat
 
     private var month: [[Date]] {
         var dates: [[Date]] = [[Date]()]
-        let daysInMonth = numDaysInMonth(focusDate)
-        var day = firstDateInMonth(focusDate)
+        let daysInMonth = focusDate.numDays(in: .month)
+        var day = focusDate.firstInMonth()
         var calendar = Calendar(identifier: .gregorian)
         calendar.locale = Locale.autoupdatingCurrent
         
@@ -43,7 +64,7 @@ struct MonthView: View {
         
         if daysAhead > 0 { dates.append([]) }
         
-        for i in 0..<daysInMonth {
+        for i in 0..<daysInMonth-daysAhead {
             if i % 7 == 0 && i > 0 {
                 dates.append([])
             }
@@ -55,7 +76,7 @@ struct MonthView: View {
     
     var body: some View {
         VStack(alignment: .center){
-            Text(String(focusDate.components().month!.month())).padding(.bottom, self.spacing * 2)
+            Text(String(focusDate.components().month!.month())).padding(.bottom, self.spacing).foregroundColor(.black)
             VStack(alignment: .trailing) {
                 WeekView(week: self.month.first!, spacing: self.spacing).padding(.bottom, self.spacing)
                 VStack(alignment: .leading, spacing: self.spacing) {
@@ -75,7 +96,10 @@ struct WeekView: View {
     var body: some View {
         HStack(spacing: self.spacing) {
             ForEach(self.week, id: \.self) { day in
-                DayView(date: day)
+                NavigationLink(destination: GoalsView(date: day)) {
+                    // blue if some goals red if no goals
+                    DateCell(date: day).foregroundColor(day.goals().isEmpty ? .red : .blue)
+                }
             }
         }
     }
@@ -83,49 +107,21 @@ struct WeekView: View {
 
 
 
-struct DayView: View {
-    
-    let date: Date //= DBM.all(Day.self).first!
-    
-    var body: some View {
-        VStack {
-//            Text(String(date.components().month!.month()))
-            Text(String(date.components().weekday!.weekday()))
-            Text(String(date.components().day!))
-//            Text(String(numDaysInMonth(date)))
-            
-//            Text(String(ordinality(date).weekday()))
-            
-//            Text(String(numDaysInMonth(date)))
-//            Text("Day")
-//            Text(date.toStr())
-            
-//            Text(Date().toStr())
-//            Text(advanceDate(n: -1, from: Date()))
-//            Text(String(Date().components().month!))
-//            Text(String(Date().components().day!))
-//            Text(String(Date().components().year!))
-//            Text(String(Date().offsetBy(0, withUnit: .day).components().weekday!.weekday()))
-//            Text(String(Date().offsetBy(0, withUnit: .day).components().month!.month()))
-//            Text(String(Date().components().weekdayOrdinal!))
-            
-            }
-    }
-}
 
 
-private func firstDateInMonth(_ date: Date) -> Date {
-    let offset = 1-date.components().day!
-    let firstDayInMonth = date.offsetBy(offset, withUnit: .day)
-//    print(firstDayInMonth)
-    return firstDayInMonth
-}
 
-private func numDaysInMonth(_ dateToCheck: Date) -> Int {
-    let cal = Calendar(identifier: .gregorian)
-    let range = cal.range(of: .day, in: .month, for: Date())
-    return range!.count
-}
+//private func firstDateInMonth(_ date: Date) -> Date {
+//    let offset = 1-date.components().day!
+//    let firstDayInMonth = date.offsetBy(offset, withUnit: .day)
+////    print(firstDayInMonth)
+//    return firstDayInMonth
+//}
+
+//private func numDaysInMonth(_ dateToCheck: Date) -> Int {
+//    let cal = Calendar(identifier: .gregorian)
+//    let range = cal.range(of: .day, in: .month, for: Date())
+//    return range!.count
+//}
 
 private func ordinality(_ date: Date) -> Int {
     let cal = Calendar(identifier: .gregorian)
@@ -136,6 +132,6 @@ private func ordinality(_ date: Date) -> Int {
 }
 
 private func advanceDate(n days: Int, from date: Date) -> String {
-    let newDay = Calendar.current.date(byAdding: .day, value: days, to: date)!.toStr()
+    let newDay = Calendar.current.date(byAdding: .day, value: days, to: date)!.str()
     return newDay
 }

@@ -12,25 +12,27 @@ struct GoalCell: View {
     let goal: Goal
     
     var body: some View {
-        HStack {
-            Text(goal.title)
-            Spacer()
-            VStack(alignment: .center) {
-                Text(goal.description)
-                Text(goal.status)
+        NavigationLink(destination: GoalView(goal: goal)){
+            HStack {
+                Text(goal.title)
+                Spacer()
+                VStack(alignment: .center) {
+                    Text(goal.description)
+                    Text(goal.status)
+                }
             }
         }
     }
 }
-
-struct GoalCell_Previews: PreviewProvider {
-    static var previews: some View {
-        GoalCell(goal:
-            Goal(id: nil, title: "Goal Title", description: "Goal Description",
-                 status: "COMPLETE",
-                 dateCreated: Date().toStr(),
-                 dateCompleted: Date().offsetBy(-1, withUnit: .day).toStr(),
-                 dateDue: Date().offsetBy(1, withUnit: .day).toStr()
-            ))
-    }
-}
+//
+//struct GoalCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GoalCell(goal:
+//            Goal(id: nil, title: "Goal Title", description: "Goal Description",
+//                 status: "COMPLETE",
+//                 dateCreated: Date().str(),
+//                 dateCompleted: Date().offsetBy(-1, withUnit: .day).str(),
+//                 dateDue: Date().offsetBy(1, withUnit: .day).str()
+//            ))
+//    }
+//}

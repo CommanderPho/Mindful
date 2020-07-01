@@ -23,7 +23,7 @@ struct GoalView: View {
         }
         .aspectRatio(contentMode: .fit)
         .foregroundColor(.blue)
-        .navigationBarTitle(Text(goal.description), displayMode: .inline)
+        .navigationBarTitle(Text(goal.title), displayMode: .inline)
     }
 }
 
