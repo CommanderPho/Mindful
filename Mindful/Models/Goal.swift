@@ -9,32 +9,16 @@
 import GRDB
 
 struct Goal: ApplicationRecord {
+    
     var id: Int64?
-    var userId: Int64?
+    
+    var title: String
     var description: String
     var status: String
+    var dateCreated: String
+    var dateCompleted: String
+    var dateDue: String
     
-    var createdDayId: Int64?
-    var completedDayId: Int64?
-    var deadlineDayId: Int64?
-    
-    static let createdForeignKey = ForeignKey(["createdDayId"])
-    static let completedForeignKey = ForeignKey(["completedDayId"])
-    static let deadlineForeignKey = ForeignKey(["deadlineDayId"])
-    
-    static let dayCreated = belongsTo(Day.self, using: createdForeignKey)
-    static let dayCompleted = belongsTo(Day.self, using: completedForeignKey)
-    static let dueDate = belongsTo(Day.self, using: deadlineForeignKey)
-    
-    var dayCreated: QueryInterfaceRequest<Day> {
-        request(for: Goal.dayCreated)
-    }
-    
-    var dayCompleted: QueryInterfaceRequest<Day> {
-        request(for: Goal.dayCompleted)
-    }
-    
-    var dueDate: QueryInterfaceRequest<Day> {
-        request(for: Goal.dueDate)
-    }
+    static let badges = hasMany(Badge.self, using: Badge.goalForeignKey)
+    var badges: QueryInterfaceRequest<Badge> { request(for: Goal.badges) }
 }

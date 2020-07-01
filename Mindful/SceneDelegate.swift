@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let appView = ContentView(days: DBM.all(Day.self))
+        let appView = ContentView()
         
         window.rootViewController = UIHostingController(rootView: appView)
         self.window = window

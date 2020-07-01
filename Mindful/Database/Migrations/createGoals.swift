@@ -19,25 +19,13 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
     migrator.registerMigration("create" + tableName.capitalized) { db in
         
         try db.create(table: tableName) { tableDefinition in
-            
             tableDefinition.column("id", .integer).primaryKey()
-            
-            tableDefinition.column("userId", .integer).notNull()
-            
-            tableDefinition.column("createdDayId", .integer)
-                .references(Day.databaseTableName, column: "id", onDelete: .cascade)
-                .notNull()
-            
-            tableDefinition.column("completedDayId", .integer)
-                .references(Day.databaseTableName, column: "id", onDelete: .cascade)
-            
-            tableDefinition.column("deadlineDayId", .integer)
-                .references(Day.databaseTableName, column: "id", onDelete: .cascade)
-            
+            tableDefinition.column("title", .text).notNull()
+            tableDefinition.column("dateCreated", .text).notNull()
+            tableDefinition.column("dateCompleted", .text)
+            tableDefinition.column("dateDue", .text).notNull()
             tableDefinition.column("description", .text).notNull()
-            
-            tableDefinition.column("status", .text).defaults(to: "INCOMPLETE")
-            
+            tableDefinition.column("status", .text).defaults(to: "INCOMPLETE").notNull()
         }
     }
 }

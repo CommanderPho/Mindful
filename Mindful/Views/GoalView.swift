@@ -12,12 +12,25 @@ struct GoalView: View {
     let goal: Goal
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 10) {
+            Text(goal.title)
             Text(goal.description)
-            Text(goal.status)
+            Text("Status: " + goal.status)
+            Text("Created At: " + goal.dateCreated)
+            Text("Completed At: " + (goal.dateCompleted.isEmpty ? "---" : goal.dateCompleted))
+            Text("Due: " + goal.dateDue)
+            Text("Badges: " + titles(DBM.hasMany(goal.badges)).joined(separator: ", "))
         }
         .aspectRatio(contentMode: .fit)
         .foregroundColor(.blue)
         .navigationBarTitle(Text(goal.description), displayMode: .inline)
     }
+}
+
+private func titles(_ badges: [Badge]) -> [String] {
+    var list: [String] = []
+    for badge in badges {
+        list.append(badge.title)
+    }
+    return list
 }

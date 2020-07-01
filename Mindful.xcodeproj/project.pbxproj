@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0024ABED6100FA412E /* GoalCell.swift */; };
 		7F09AC0324ABEE0A00FA412E /* GoalsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */; };
-		7F09AC0624ABF25C00FA412E /* DaysCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0524ABF25C00FA412E /* DaysCollection.swift */; };
-		7F09AC0C24AC011D00FA412E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0B24AC011D00FA412E /* GridView.swift */; };
-		7F09AC0E24AC0BD100FA412E /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0D24AC0BD100FA412E /* GridCell.swift */; };
-		7F09AC1024AC20A500FA412E /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC0F24AC20A500FA412E /* DayCell.swift */; };
 		7F09AC2624AC3B0D00FA412E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09AC2524AC3B0D00FA412E /* CalendarView.swift */; };
 		7F10E72524ABD57A009E3131 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72424ABD57A009E3131 /* AppView.swift */; };
 		7F10E72724ABDE28009E3131 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72624ABDE28009E3131 /* ProfileView.swift */; };
@@ -22,11 +18,10 @@
 		7F30378A24A6C90200E50950 /* createGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378924A6C90200E50950 /* createGoals.swift */; };
 		7F30378C24A6E73100E50950 /* createBadges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378B24A6E73100E50950 /* createBadges.swift */; };
 		7F742CC324A5961900C11E79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F742CC224A5961900C11E79 /* README.md */; };
-		7F742CCA24A5999400C11E79 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CC924A5999400C11E79 /* Day.swift */; };
 		7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCB24A599DA00C11E79 /* Goal.swift */; };
 		7F742CCE24A599E400C11E79 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCD24A599E400C11E79 /* Badge.swift */; };
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
-		7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F89E7E024A6BAB9006EB824 /* createDays.swift */; };
+		7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7462C324AC5716007E5C03 /* Helpers.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
@@ -39,10 +34,6 @@
 		4EFCB8E225D0F69898189F7D /* Pods-Mindful.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mindful.release.xcconfig"; path = "Target Support Files/Pods-Mindful/Pods-Mindful.release.xcconfig"; sourceTree = "<group>"; };
 		7F09AC0024ABED6100FA412E /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTable.swift; sourceTree = "<group>"; };
-		7F09AC0524ABF25C00FA412E /* DaysCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollection.swift; sourceTree = "<group>"; };
-		7F09AC0B24AC011D00FA412E /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		7F09AC0D24AC0BD100FA412E /* GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
-		7F09AC0F24AC20A500FA412E /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		7F09AC2524AC3B0D00FA412E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		7F10E72424ABD57A009E3131 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		7F10E72624ABDE28009E3131 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -52,11 +43,10 @@
 		7F30378924A6C90200E50950 /* createGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createGoals.swift; sourceTree = "<group>"; };
 		7F30378B24A6E73100E50950 /* createBadges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createBadges.swift; sourceTree = "<group>"; };
 		7F742CC224A5961900C11E79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7F742CC924A5999400C11E79 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		7F742CCB24A599DA00C11E79 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		7F742CCD24A599E400C11E79 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		7F89E7E024A6BAB9006EB824 /* createDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDays.swift; sourceTree = "<group>"; };
+		7F7462C324AC5716007E5C03 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				7F09AC0224ABEE0A00FA412E /* GoalsTable.swift */,
-				7F09AC0524ABF25C00FA412E /* DaysCollection.swift */,
-				7F09AC0B24AC011D00FA412E /* GridView.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -105,6 +93,7 @@
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7F742CC224A5961900C11E79 /* README.md */,
 				7F10E72824ABE111009E3131 /* Constants.swift */,
+				7F7462C324AC5716007E5C03 /* Helpers.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -112,7 +101,6 @@
 		7F742CBF24A594EC00C11E79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7F742CC924A5999400C11E79 /* Day.swift */,
 				7F742CCB24A599DA00C11E79 /* Goal.swift */,
 				7F742CCD24A599E400C11E79 /* Badge.swift */,
 			);
@@ -144,8 +132,6 @@
 			children = (
 				7F10E72A24ABE5DA009E3131 /* ProfileRow.swift */,
 				7F09AC0024ABED6100FA412E /* GoalCell.swift */,
-				7F09AC0D24AC0BD100FA412E /* GridCell.swift */,
-				7F09AC0F24AC20A500FA412E /* DayCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -153,7 +139,6 @@
 		7F89E7DF24A6BAA3006EB824 /* Migrations */ = {
 			isa = PBXGroup;
 			children = (
-				7F89E7E024A6BAB9006EB824 /* createDays.swift */,
 				7F30378924A6C90200E50950 /* createGoals.swift */,
 				7F30378B24A6E73100E50950 /* createBadges.swift */,
 			);
@@ -328,17 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F09AC0324ABEE0A00FA412E /* GoalsTable.swift in Sources */,
-				7F09AC0E24AC0BD100FA412E /* GridCell.swift in Sources */,
-				7F89E7E124A6BAB9006EB824 /* createDays.swift in Sources */,
+				7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */,
 				7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */,
-				7F09AC0624ABF25C00FA412E /* DaysCollection.swift in Sources */,
-				7F742CCA24A5999400C11E79 /* Day.swift in Sources */,
 				7F09AC2624AC3B0D00FA412E /* CalendarView.swift in Sources */,
 				7F10E72B24ABE5DA009E3131 /* ProfileRow.swift in Sources */,
 				7F30378A24A6C90200E50950 /* createGoals.swift in Sources */,
 				7F10E72924ABE111009E3131 /* Constants.swift in Sources */,
-				7F09AC1024AC20A500FA412E /* DayCell.swift in Sources */,
-				7F09AC0C24AC011D00FA412E /* GridView.swift in Sources */,
 				7F742CCE24A599E400C11E79 /* Badge.swift in Sources */,
 				7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */,
 				7F30378C24A6E73100E50950 /* createBadges.swift in Sources */,

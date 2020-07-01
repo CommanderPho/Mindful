@@ -12,20 +12,13 @@ struct Badge: ApplicationRecord {
     
     var id: Int64?
     var goalId: Int64?
-    var dayId: Int64?
+    
+    var title: String
     var description: String
     var imageName: String
+    var dateEarned: String
     
-    static let dayForeignKey = ForeignKey(["dayId"])
-    
-    static let goal = belongsTo(Goal.self)
-    static let dayEarned = belongsTo(Day.self)
-    
-    var goal: QueryInterfaceRequest<Goal> {
-        request(for: Badge.goal)
-    }
-    
-    var dayEarned: QueryInterfaceRequest<Day> {
-        request(for: Badge.dayEarned)
-    }
+    static let goalForeignKey = ForeignKey(["goalId"])
+    static let goal = belongsTo(Goal.self, using: goalForeignKey)
+    var goal: QueryInterfaceRequest<Goal> { request(for: Badge.goal) }
 }

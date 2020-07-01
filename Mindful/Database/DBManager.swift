@@ -62,11 +62,48 @@ class DBManager {
         guard let migrations = migrations else { throw DBError.migrationsError("Invalid Migrations")}
         
 //        try! DBManager.eraseDB()
+
         
         var migrator = DatabaseMigrator()
         for migration in migrations {
             try migration(&migrator)
         }
         try migrator.migrate(dbQueue)
+        
+//        try! DBM.seed(15)
+    }
+    
+    // seed database
+    private static func seed(_ numSeeds: Int) throws {
+        guard let dbQueue = dbQueue else { throw DBError.queueError("Invalid Database Connection") }
+        let idx = DBM.all(Goal.self).count
+        
+        try dbQueue.write({ db in
+            
+            
+            for i in idx..<(idx+numSeeds) {
+                let dayOffset: Int = 5
+
+                let goal = Goal(id: nil,
+                      title: "Title " + String(i),
+                      description: "Description " + String(i),
+                      status: "INCOMPLETE",
+                      dateCreated: Date().toStr(),
+                      dateCompleted: "",
+                      dateDue: Date().offsetBy(dayOffset, withUnit: .day).toStr())
+
+                try goal.insert(db)
+                let goalId = try Goal.fetchAll(db).last!.id
+                
+                let badge = Badge(id: nil,
+                      goalId: goalId,
+                      title: "Title " + String(i),
+                      description: "Description " + String(i),
+                      imageName: "badge",
+                      dateEarned: Date().offsetBy(dayOffset, withUnit: .day).toStr())
+                
+                try badge.insert(db)
+            }
+        })
     }
 }

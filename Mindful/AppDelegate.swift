@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent(dbName)
         
-        migrations = [createDays, createGoals, createBadges]
+        migrations = [
+//            createDays,
+            createGoals,
+            createBadges,
+        ]
         dbQueue = try! DBM.connectDB(atPath: databaseURL.path, withMigrations: migrations)
     }
 

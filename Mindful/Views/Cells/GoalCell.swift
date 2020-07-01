@@ -12,15 +12,25 @@ struct GoalCell: View {
     let goal: Goal
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text(goal.description)
-            Text(goal.status)
+        HStack {
+            Text(goal.title)
+            Spacer()
+            VStack(alignment: .center) {
+                Text(goal.description)
+                Text(goal.status)
+            }
         }
     }
 }
 
 struct GoalCell_Previews: PreviewProvider {
     static var previews: some View {
-        GoalCell(goal: Goal(id: nil, userId: nil, description: "Description", status: "COMPLETE", createdDayId: nil, completedDayId: nil, deadlineDayId: nil))
+        GoalCell(goal:
+            Goal(id: nil, title: "Goal Title", description: "Goal Description",
+                 status: "COMPLETE",
+                 dateCreated: Date().toStr(),
+                 dateCompleted: Date().offsetBy(-1, withUnit: .day).toStr(),
+                 dateDue: Date().offsetBy(1, withUnit: .day).toStr()
+            ))
     }
 }
