@@ -44,13 +44,13 @@ struct CalendarView: View {
 //                }
 //            }
 //             slow loading:
-                        ScrollView(showsIndicators: false){
-                                ForEach(self.monthStartDates, id: \.self) { date in
-                                    MonthView(focusDate: date, spacing: self.spacing)
-                                }.padding(.bottom, self.spacing * 2)
-                        }.navigationBarTitle( Text("Calendar") )
-            
-                        }
+            ScrollView(showsIndicators: false){
+                    ForEach(self.monthStartDates, id: \.self) { date in
+                        MonthView(focusDate: date, spacing: self.spacing)
+                    }.padding(.bottom, self.spacing * 2)
+            }.navigationBarTitle( Text("Calendar") )
+
+            }
     }
 }
 

@@ -42,6 +42,27 @@ class DBManager {
         return tableExists
     }
     
+    // inserts model into DB, returns true on successful store
+    static func insert<T: ApplicationRecord>(_ model: T) -> Bool {
+        var found: Bool = false
+        try? dbQueue?.write({ db in
+            let oldFetched = try T.fetchAll(db)
+            var id: Int64? = nil
+            if oldFetched.count > 0 {
+                id = oldFetched.last!.id
+            }
+            let oldLast = id
+            try model.insert(db)
+            let newLast = try T.fetchAll(db).last!.id
+            found = (oldLast != nil) && (oldLast! != newLast)
+            if !found {
+                print(newLast)
+            }
+        })
+        
+        return found
+    }
+    
     // returns an array of objects retrieved from DB via a hasMany association
     static func hasMany<T: ApplicationRecord>(_ hasMany: QueryInterfaceRequest<T>) -> [T]{
         var records: [T] = []
@@ -54,6 +75,15 @@ class DBManager {
         var records: [T] = []
         try? dbQueue?.read({ db in records = try T.fetchAll(db) })
         return records
+    }
+    
+    // finds the first object in DB that matches sql query string
+    static func findOne<T: ApplicationRecord>(_ model: T.Type, where sql: String) -> T? {
+        var record: T?
+        try? dbQueue?.read({ db in
+            record = try T.filter(sql: sql).fetchOne(db)
+        })
+        return record
     }
  
     // migrates an array of migrations ( Mindful/Models/Migrations )

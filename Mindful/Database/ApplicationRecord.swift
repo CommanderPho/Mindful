@@ -8,7 +8,9 @@
 
 import GRDB
 
-protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord, Identifiable, Hashable {}
+protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord, Identifiable, Hashable {
+    var id: Int64? { get set }
+}
 
 
 func hashModel<T: ApplicationRecord>(_ t: T) -> [String: Any] {

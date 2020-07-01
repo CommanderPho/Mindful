@@ -13,12 +13,12 @@ import GRDB
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func initializeDB(in application: UIApplication) {
+        
         let databaseURL = try! FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent(dbName)
         
         migrations = [
-//            createDays,
             createGoals,
             createBadges,
         ]

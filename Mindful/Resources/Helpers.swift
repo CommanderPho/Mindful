@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let dateFormat = "yyyy-MM-dd" //' 'HH:mm:ss"
+let dateFormat = "yyyy-MM-dd" //' 'HH:mm:ss
 
 extension Int {
     func month() -> String {
@@ -22,6 +22,10 @@ extension Int {
         calendar.locale = Locale.autoupdatingCurrent
         
         return calendar.shortWeekdaySymbols[(self - 1) % calendar.shortWeekdaySymbols.count]
+    }
+    
+    func str() -> String {
+        return String(self)
     }
 }
 
