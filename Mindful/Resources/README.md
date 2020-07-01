@@ -17,6 +17,11 @@
             Title
             IN-PROGRESS due May 12, 2020
             Description
+            
+## Calendar Feature
+    - Use Calendar to find 'n' number of days in a month
+    - Render 'n' days in one view
+    - Days line up with day of week [S,M,T,W,Th,F,Su]
     
 
 # Resources
