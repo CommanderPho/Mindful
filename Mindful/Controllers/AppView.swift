@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+private let daysNumCols: Int = 7
+private let daysSpacing: CGFloat = 5
+
 struct ContentView: View {
     
     var days: [Day] = []
@@ -25,14 +28,14 @@ struct ContentView: View {
                     Text("Profile")
             }
             
-            TableView(data: DBM.hasMany(days[0].badgesEarnedToday))
+//            TableView(data: DBM.hasMany(days[0].badgesEarnedToday))
+            GoalsTable(goals: DBM.all(Goal.self))
                 .tabItem {
                     Image(systemName: "rosette")
                     Text("Badges")
             }
             
-//            TableView(data: DBM.hasMany(days[0].goalsCreated))
-            GoalsTable(goals: DBM.all(Goal.self))
+            DaysCollection(numCols: daysNumCols, spacing: daysSpacing)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")

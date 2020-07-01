@@ -9,6 +9,7 @@
 import GRDB
 
 struct Badge: ApplicationRecord {
+    
     var id: Int64?
     var goalId: Int64?
     var dayId: Int64?

@@ -8,4 +8,15 @@
 
 import GRDB
 
-protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord, Identifiable {}
+protocol ApplicationRecord: Codable, PersistableRecord, FetchableRecord, Identifiable, Hashable {}
+
+
+func hashModel<T: ApplicationRecord>(_ t: T) -> [String: Any] {
+    var hash: [String: Any] = [:]
+    let mirrored = Mirror(reflecting: t)
+    for attr in mirrored.children {
+        hash[attr.label!] = attr.value
+    }
+    return hash
+}
+
