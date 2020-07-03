@@ -25,9 +25,7 @@ struct ContentView: View {
             // Badges
             // Timer
 
-            MonthView(focusDate: Date(), spacing: 0)
-//            CalendarView()
-            
+            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")

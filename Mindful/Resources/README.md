@@ -26,6 +26,10 @@
     - Fast with List, but navigation is different (each month is its own cell and the navigation is botched)
     - Currently optimal is using iOS 14 and wrapping a scrollview->ForEach with a LazyVStack
     
+    - Maybe make NewGoal view a presented view that can be dismissed?
+    - Clean up Calendar code
+    - Should only need MonthView, WeekView, DayView
+    
 
 # Resources
     - Storyboards

@@ -8,19 +8,17 @@
 
 import Foundation
 
-let dateFormat = "yyyy-MM-dd" //' 'HH:mm:ss
+let dateFormat = "yyyy-MM-dd"
+let dateLength = dateFormat.count
 
 extension Int {
     func month() -> String {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.autoupdatingCurrent
+        let calendar = Calendar.current
         return calendar.monthSymbols[(self - 1) % calendar.monthSymbols.count]
     }
     
     func weekday() -> String {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.autoupdatingCurrent
-        
+        let calendar = Calendar.current
         return calendar.shortWeekdaySymbols[(self - 1) % calendar.shortWeekdaySymbols.count]
     }
     
@@ -32,37 +30,55 @@ extension Int {
 extension String {
     func toDate() -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.date(from: self)!
     }
 }
 
 extension Date {
-    func firstInMonth() -> Date {
-        let offset = 1-self.components().day!
-        let firstDayInMonth = self.offsetBy(offset, withUnit: .day)
-        return firstDayInMonth
+    static var weekdays: [String] {
+        let calendar = Calendar.current
+        return calendar.shortWeekdaySymbols
     }
     
-    func numDays(in component: Calendar.Component) -> Int {
-        let cal = Calendar(identifier: .gregorian)
-        let range = cal.range(of: .day, in: component, for: self)
-        return range!.count
-    }
-    
-    func components() -> DateComponents {
+    var components: DateComponents {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second, .weekday, .weekdayOrdinal], from: self)
         return components
     }
     
+    var weekday: String {
+        return self.components.weekday!.weekday()
+    }
+    
+    var month: String {
+        return self.components.month!.month()
+    }
+    
+    var year: Int {
+        return self.components.year!
+    }
+    
+    func firstInMonth() -> Date {
+        let offset = -(self.components.day! - 1)
+        let firstDayInMonth = self.offsetBy(offset, withUnit: .day)
+        return firstDayInMonth
+    }
+    
+    func numDays(in component: Calendar.Component) -> Int {
+        let range = Calendar.current.range(of: .day, in: component, for: self)
+        return range!.count
+    }
+    
     func str() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        
+        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.string(from: self)
     }
+    
     
     func offsetBy(_ value: Int, withUnit: Calendar.Component) -> Date {
         return Calendar.current.date(byAdding: withUnit, value: value, to: self)!
@@ -81,11 +97,49 @@ extension Date {
     }
     
     func formatted() -> String {
-        let components = self.components()
+        let components = self.components
         let weekday = components.weekday!.weekday()
         let month = components.month!.month()
         let dayInMonth = components.day!
         let year = components.year!
         return weekday + ", " + month + " " + String(dayInMonth) + ", " + String(year)
+    }
+    
+    func createMonthArray2D() -> [[Date]] {
+        // createMonth() = [Week[Day]]
+        
+        var dates: [[Date]] = [[Date]()]
+
+        let daysInMonth = self.numDays(in: .month)
+        
+        var day = self.firstInMonth()
+        
+        let calendar = Calendar.current
+        while day.weekday != calendar.shortWeekdaySymbols[0] {
+            let lastIdx = dates.count - 1
+            dates[lastIdx].append(day)
+            day = day.offsetBy(1, withUnit: .day)
+        }
+        
+        let numFirstWeekDays = dates[0].count
+        
+        if numFirstWeekDays > 0 { dates.append([]) }
+        
+        let numWeekDays = Date.weekdays.count
+        
+        let remainingDays = daysInMonth-numFirstWeekDays
+        for _ in 0..<remainingDays {
+            var lastIdx = dates.count - 1
+            
+            if dates[lastIdx].count >= numWeekDays {
+                dates.append([])
+                lastIdx = dates.count - 1
+            }
+            dates[lastIdx].append(day)
+            
+            day = day.offsetBy(1, withUnit: .day)
+        }
+        
+        return dates
     }
 }

@@ -28,10 +28,10 @@ let createBadges: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
             tableDefinition.column("goalId", .integer).references(Goal.databaseTableName).notNull()
-            tableDefinition.column("title", .text).notNull()
-            tableDefinition.column("description", .text).notNull()
-            tableDefinition.column("imageName", .text).defaults(to: "badge")
-            tableDefinition.column("dateEarned", .text).notNull()
+            tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("imageName", .text).notNull().defaults(to: "badge")
+            tableDefinition.column("dateEarned", .text)
         }
     }
 }

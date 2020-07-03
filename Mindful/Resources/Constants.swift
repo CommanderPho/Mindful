@@ -9,6 +9,10 @@
 
 import UIKit
 
-let screenSize = UIScreen.main.bounds
-let screenWidth = screenSize.width
-let screenHeight = screenSize.height
+let SCREEN_SIZE: CGRect = UIScreen.main.bounds
+let SCREEN_WIDTH: CGFloat = SCREEN_SIZE.width
+let SCREEN_HEIGHT: CGFloat = SCREEN_SIZE.height
+
+let CALENDAR_CELL_DIM: CGFloat = SCREEN_WIDTH / CGFloat(Date.weekdays.count)
+let CALENDAR_CELL_CORNER_RADIUS: CGFloat = 10
+let CALENDAR_CELL_SPACING: CGFloat = 5

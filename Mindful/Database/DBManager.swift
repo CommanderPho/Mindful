@@ -44,20 +44,15 @@ class DBManager {
     
     // inserts model into DB, returns true on successful store
     static func insert<T: ApplicationRecord>(_ model: T) -> Bool {
-        var found: Bool = false
+        var success: Bool = false
         try? dbQueue?.write({ db in
-            let oldFetched = try T.fetchAll(db)
-            var id: Int64? = nil
-            if oldFetched.count > 0 {
-                id = oldFetched.last!.id
+            db.afterNextTransactionCommit { db in
+                success = true
             }
-            let oldLast = id
             try model.insert(db)
-            let newLast = try T.fetchAll(db).last!.id
-            found = (oldLast != nil) && (oldLast! != newLast)
         })
         
-        return found
+        return success
     }
     
     // returns an array of objects retrieved from DB via a hasMany association
@@ -88,7 +83,7 @@ class DBManager {
         guard let dbQueue = dbQueue else { throw DBError.queueError("Invalid Database Connection")}
         guard let migrations = migrations else { throw DBError.migrationsError("Invalid Migrations")}
         
-//        try! DBManager.eraseDB()
+        try! DBManager.eraseDB()
 
         
         var migrator = DatabaseMigrator()

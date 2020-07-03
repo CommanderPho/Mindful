@@ -1,49 +1,33 @@
 //
-//  GoalsTable.swift
+//  NewGoalView.swift
 //  Mindful
 //
-//  Created by William Shelley on 6/30/20.
+//  Created by William Shelley on 7/3/20.
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
 import SwiftUI
 
-struct GoalsView: View {
-    @State var date: Date
-    private var goals: [Goal] {
-        return date.goals()
-    }
-    
-    var body: some View {
-        List(self.goals) { goal in
-            GoalCell(goal: goal)
-        }
-        .navigationBarTitle(Text(date.formatted()), displayMode: .inline)
-        .navigationBarItems(trailing:
-            NavigationLink(destination: NewGoalView(date: self.date)){
-                Text("Add a Goal")
-        });
-    }
-}
-
 struct NewGoalView: View {
+    
     let date: Date
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var title: String = ""
     @State private var description: String = ""
+    @State private var errorMessage: String = ""
     
     var body: some View {
         VStack {
+            Text(self.errorMessage).foregroundColor(.red)
+            Section {
             TextField("Enter a title: ", text: $title).frame(height: 50, alignment: .center)
-                .background(Color.gray)
-                .border(Color.black)
-                .padding(.bottom, 5)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             
             TextField("Enter a description: ", text: $description).frame(height: 50, alignment: .center)
-                .background(Color.gray)
-                .border(Color.black)
-                .padding(.bottom, 5)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
             
+            Section {
             Button("Create Goal", action: {
                 let goal: Goal = Goal(
                     id: nil,
@@ -55,15 +39,21 @@ struct NewGoalView: View {
                     dateDue: self.date.str())
                 
                 if DBM.insert(goal) {
+                    self.errorMessage = ""
                     self.presentationMode.wrappedValue.dismiss()
-//                    self.presentationMode.
                 } else {
-                    self.title = "Non-empty Title"
-                    self.description = "Non-empty Title"
-                    print("INSERTION ERROR")
+                    // was unable to insert
+                    self.errorMessage = "Cannot have any empty fields"
                 }
-//                print(DBM.all(Goal.self))
             })
-        }.background(Color.green)
+            }
+            Spacer()
+        }
+    }
+}
+
+struct NewGoalView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewGoalView(date: Date())
     }
 }

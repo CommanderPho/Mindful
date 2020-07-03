@@ -15,7 +15,7 @@ struct ProfileView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("Profile")
-                .frame(height: screenHeight / 2)
+                .frame(height: SCREEN_HEIGHT / 2)
             Divider()
             NavigationView {
                 VStack {

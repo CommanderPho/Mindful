@@ -20,12 +20,12 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
         
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
-            tableDefinition.column("title", .text).notNull()
-            tableDefinition.column("dateCreated", .text).notNull()
+            tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("status", .text).defaults(to: "IN-PROGRESS").notNull().check { length($0) > 0 }
+            tableDefinition.column("dateCreated", .text).notNull().check { length($0) == dateLength }
             tableDefinition.column("dateCompleted", .text)
-            tableDefinition.column("dateDue", .text).notNull()
-            tableDefinition.column("description", .text).notNull()
-            tableDefinition.column("status", .text).defaults(to: "INCOMPLETE").notNull()
+            tableDefinition.column("dateDue", .text).notNull().check { length($0) == dateLength }
         }
     }
 }
