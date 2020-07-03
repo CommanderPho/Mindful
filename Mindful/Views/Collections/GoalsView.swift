@@ -20,52 +20,49 @@ struct GoalsView: View {
         }
         .navigationBarTitle(Text(date.formatted()), displayMode: .inline)
         .navigationBarItems(trailing:
-            NavigationLink(destination: NewGoalView()){
+            NavigationLink(destination: NewGoalView(date: self.date)){
                 Text("Add a Goal")
         });
     }
 }
 
 struct NewGoalView: View {
+    let date: Date
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var goal: Goal = Goal(id: nil,
-                                         title: "",
-                                         description: "",
-                                         status: "INCOMPLETE",
-                                         dateCreated: Date().str(),
-                                         dateCompleted: "",
-                                         dateDue: "")
+    @State private var title: String = ""
+    @State private var description: String = ""
+    
     var body: some View {
         VStack {
-            Text("Title: " + self.goal.title)
-            TextField("Enter a title: ", text: $goal.title).frame(height: 50, alignment: .center)
+            TextField("Enter a title: ", text: $title).frame(height: 50, alignment: .center)
                 .background(Color.gray)
                 .border(Color.black)
                 .padding(.bottom, 5)
             
-            Text("Description: " + self.goal.description)
-            TextField("Enter a description: ", text: $goal.description).frame(height: 50, alignment: .center)
-                .background(Color.gray)
-                .border(Color.black)
-                .padding(.bottom, 5)
-            
-            Text("Due Date (" + dateFormat + "): " + self.goal.dateDue)
-            TextField("Enter a due date: ", text: $goal.dateDue).frame(height: 50, alignment: .center)
+            TextField("Enter a description: ", text: $description).frame(height: 50, alignment: .center)
                 .background(Color.gray)
                 .border(Color.black)
                 .padding(.bottom, 5)
             
             Button("Create Goal", action: {
-                if DBM.insert(self.goal) {
-//                    self.presentationMode.wrappedValue.dismiss()
+                let goal: Goal = Goal(
+                    id: nil,
+                    title: self.title,
+                    description: self.description,
+                    status: "IN-PROGRESS",
+                    dateCreated: Date().str(),
+                    dateCompleted: "",
+                    dateDue: self.date.str())
+                
+                if DBM.insert(goal) {
+                    self.presentationMode.wrappedValue.dismiss()
 //                    self.presentationMode.
                 } else {
-                    self.goal.title = ""
-                    self.goal.description = ""
-                    self.goal.dateDue = ""
+                    self.title = "Non-empty Title"
+                    self.description = "Non-empty Title"
                     print("INSERTION ERROR")
                 }
-                print(DBM.all(Goal.self))
+//                print(DBM.all(Goal.self))
             })
         }.background(Color.green)
     }

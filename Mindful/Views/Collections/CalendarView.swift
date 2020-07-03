@@ -13,9 +13,21 @@ struct CalendarView: View {
     // each month has 5 rows with 7 columns (5 weeks and 7 days per week)
     // each week will have 7 slots [Sa,M,T,W,Th,F,Su]
     // each day will be 1 unit
+    
     // possible fix to slow loading:
     //  have currentWeeks be a @State variable [[Date]]
     //  on scroll up, remove last week and add previous week ?
+    
+    // *** Try this
+    // another possible fix for slow loading:
+    //  only render one month at a time, have arrows going to or from the next month or last
+    //  generate each month on button press, pass date.offsetBy(1, withUnit: .month) as date parameter
+    //  benefits: faster, less space, can go forward or back easily
+    //  downsides: no continous scrolling
+    // ***
+    
+    // anoth possible fix for slow loading:
+    //  use uicollectionView as swiftui view
     
     let focusDate: Date = Date()
     let rangeOfMonths: Int = 12 // n / 2 behind, n / 2 forward -> ideally, now it is just n in the future
@@ -49,13 +61,12 @@ struct CalendarView: View {
                         MonthView(focusDate: date, spacing: self.spacing)
                     }.padding(.bottom, self.spacing * 2)
             }.navigationBarTitle( Text("Calendar") )
-
             }
     }
 }
 
 struct MonthView: View {
-    let focusDate: Date
+    @State var focusDate: Date
     let spacing: CGFloat
     
     private var month: [[Date]] {
@@ -86,15 +97,30 @@ struct MonthView: View {
     }
     
     var body: some View {
-        VStack(alignment: .center){
-            Text(String(focusDate.components().month!.month())).padding(.bottom, self.spacing).foregroundColor(.black)
-            VStack(alignment: .trailing) {
-                WeekView(week: self.month.first!, spacing: self.spacing)
-                VStack(alignment: .leading, spacing: self.spacing) {
-                    ForEach(self.month[1..<self.month.count], id: \.self) { week in
-                        WeekView(week: week, spacing: self.spacing)
+        NavigationView {
+            ScrollView(showsIndicators: false){
+                VStack(alignment: .center){
+                    Spacer()
+                    Text(focusDate.components().month!.month()).padding(.bottom, self.spacing).foregroundColor(.black)
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        WeekView(week: self.month.first!, spacing: self.spacing)
+                        VStack(alignment: .leading, spacing: self.spacing) {
+                            ForEach(self.month[1..<self.month.count], id: \.self) { week in
+                                WeekView(week: week, spacing: self.spacing)
+                            }
+                        }
                     }
+                    Spacer()
                 }
+                .navigationBarTitle(focusDate.components().year!.str())
+                .navigationBarItems(
+                    leading: Button("Last Month", action: {
+                        self.focusDate = self.focusDate.offsetBy(-1, withUnit: .month)
+                    }),
+                    trailing: Button("Next Month", action: {
+                        self.focusDate = self.focusDate.offsetBy(1, withUnit: .month)
+                    }))
             }
         }
     }

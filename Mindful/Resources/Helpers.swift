@@ -73,8 +73,8 @@ extension Date {
         let string = self.str()
         try? dbQueue?.read({ db in
             found = try Goal
-                .filter(sql: "(dateCreated = ?) OR (dateCompleted = ?) OR (dateDue = ?)",
-                        arguments: [string, string, string])
+                .filter(sql: "dateDue = ?",
+                        arguments: [string])
                 .fetchAll(db)
         })
         return found

@@ -55,9 +55,6 @@ class DBManager {
             try model.insert(db)
             let newLast = try T.fetchAll(db).last!.id
             found = (oldLast != nil) && (oldLast! != newLast)
-            if !found {
-                print(newLast)
-            }
         })
         
         return found
