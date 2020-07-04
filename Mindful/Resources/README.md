@@ -30,6 +30,10 @@
     - Clean up Calendar code
     - Should only need MonthView, WeekView, DayView
     
+## Goal Features
+    - Edit a goal
+    - remove a goal
+    - Create a badge for a goal?
 
 # Resources
     - Storyboards

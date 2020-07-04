@@ -10,7 +10,9 @@ import SwiftUI
 
 // lists all the goals defined by Date.goals()
 struct DayView: View {
-    @State var date: Date
+    @State private var showingNewGoalModal: Bool = false
+    
+    var date: Date
     private var goals: [Goal] {
         return date.goals()
     }
@@ -19,10 +21,12 @@ struct DayView: View {
         List(self.goals) { goal in
             GoalCell(goal: goal)
         }
-        .navigationBarTitle(Text(date.formatted()), displayMode: .inline)
+        .navigationBarTitle(Text(self.date.formatted()), displayMode: .inline)
         .navigationBarItems(trailing:
-            NavigationLink(destination: NewGoalView(date: self.date)){
-                Text("Add a Goal")
-        });
+            Text("Add a Goal")
+            .onTapGesture { self.showingNewGoalModal.toggle() }
+            .foregroundColor(.accentColor)
+            .sheet(isPresented: self.$showingNewGoalModal, content: { NewGoalView(dateDue: self.date)}))
+        
     }
 }

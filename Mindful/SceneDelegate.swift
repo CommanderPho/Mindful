@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appView = ContentView()
         
         window.rootViewController = UIHostingController(rootView: appView)
+        
         self.window = window
+        
         window.makeKeyAndVisible()
     }
 

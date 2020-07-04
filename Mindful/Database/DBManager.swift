@@ -83,7 +83,7 @@ class DBManager {
         guard let dbQueue = dbQueue else { throw DBError.queueError("Invalid Database Connection")}
         guard let migrations = migrations else { throw DBError.migrationsError("Invalid Migrations")}
         
-        try! DBManager.eraseDB()
+        if SHOULD_ERASE_DB { try! DBManager.eraseDB() }
 
         
         var migrator = DatabaseMigrator()
@@ -93,7 +93,7 @@ class DBManager {
         try migrator.migrate(dbQueue)
         
         
-//        try! DBM.seed(Date().numDays(in: .month), nTimes: 5)
+        if SHOULD_SEED_DB { try! DBM.seed(Date().numDays(in: .month), nTimes: 5) }
         
     }
     
@@ -109,7 +109,7 @@ class DBManager {
                     let goal = Goal(id: nil,
                           title: "Title " + String(i),
                           description: "Description " + String(i),
-                          status: "INCOMPLETE",
+                          status: BADGE_INCOMPLETE_MESSAGE,
                           dateCreated: Date().offsetBy(dayOffset, withUnit: .day).str(),
                           dateCompleted: "",
                           dateDue: Date().offsetBy(dayOffset, withUnit: .day).str())
@@ -122,7 +122,7 @@ class DBManager {
                           title: "Title " + String(i),
                           description: "Description " + String(i),
                           imageName: "badge",
-                          dateEarned: Date().offsetBy(dayOffset, withUnit: .day).str())
+                          dateEarned: (i % 2 == 0) ? Date().offsetBy(dayOffset, withUnit: .day).str() : "")
                     
                     try badge.insert(db)
                 }

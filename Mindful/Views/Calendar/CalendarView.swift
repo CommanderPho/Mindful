@@ -20,15 +20,28 @@ struct CalendarView: View {
         return self.focusDate.firstInMonth().offsetBy(-1, withUnit: .month)
     }
     
+    private func lastMonth() {
+        withAnimation(.easeInOut(duration: CALENDAR_ANIMATION_DURATION)) {
+            self.focusDate = lastMonthDate
+        }
+    }
+    
+    private func nextMonth() {
+        withAnimation(.easeInOut(duration: CALENDAR_ANIMATION_DURATION)) {
+            self.focusDate = nextMonthDate
+        }
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false){
                 VStack(alignment: .center){
-                    Text(focusDate.month).padding(.bottom, self.spacing).foregroundColor(.black)
+                    Text(focusDate.month).padding(.bottom, self.spacing)
                         .font(.largeTitle)
+                    
                     Divider()
                     
-                    WeekHeader(spacing: self.spacing)
+                    WeekHeaderView(spacing: self.spacing)
                     
                     Divider()
                     
@@ -36,13 +49,20 @@ struct CalendarView: View {
                 }
                 .navigationBarTitle(focusDate.year.str())
                 .navigationBarItems(
-                    leading: Button(self.lastMonthDate.month, action: {
-                        self.focusDate = self.lastMonthDate
-                    }),
-                    trailing: Button(self.nextMonthDate.month, action: {
-                        self.focusDate = self.nextMonthDate
-                    }))
+                    leading: Button(self.lastMonthDate.month) { self.lastMonth() },
+                    trailing: Button(self.nextMonthDate.month) { self.nextMonth() }
+                )
             }
+            .gesture(DragGesture()
+                .onEnded({swipe in
+                    if swipe.location.x > swipe.startLocation.x {
+                        // left
+                        self.lastMonth()
+                    } else if swipe.location.x < swipe.startLocation.x {
+                        // right
+                        self.nextMonth()
+                    }})
+            )
         }
     }
 }

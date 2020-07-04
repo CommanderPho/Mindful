@@ -14,7 +14,7 @@ private let daysSpacing: CGFloat = 5
 struct ContentView: View {
     
     var goals: [Goal] = DBM.all(Goal.self)
-    var badges: [Badge] = DBM.all(Badge.self)
+    @State var badges: [[Badge]] = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS)
     let chosenDay: Date = Date()
     
     var body: some View {
@@ -24,27 +24,25 @@ struct ContentView: View {
             // Calendar
             // Badges
             // Timer
+            
+            BadgesView(badges: self.badges, spacing: BADGES_CELL_SPACING)
+                .tabItem {
+                    Image(systemName: "rosette")
+                    Text("Badges")
+            }
+            .onAppear() { self.badges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS) }
 
             CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")
             }
-            
+
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
             }
-            
-//            GoalsView(date: chosenDay)
-//                .tabItem {
-//                    Image(systemName: "rosette")
-//                    Text("Badges")
-//            }
-//
-            
         }
-        .foregroundColor(.blue)
     }
 }

@@ -1,16 +1,16 @@
 //
-//  NewGoalView.swift
+//  CreateBadgeView.swift
 //  Mindful
 //
-//  Created by William Shelley on 7/3/20.
+//  Created by William Shelley on 7/4/20.
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
 import SwiftUI
 
-struct NewGoalView: View {
+struct NewBadgeView: View {
+    let goal: Goal
     
-    let date: Date
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var title: String = ""
     @State private var description: String = ""
@@ -18,27 +18,26 @@ struct NewGoalView: View {
     
     var body: some View {
         VStack {
-            Text(self.errorMessage).foregroundColor(.red)
-            Section {
-            TextField("Enter a title: ", text: $title).frame(height: 50, alignment: .center)
+            Spacer()
+            
+            TextField("Enter a title ...", text: self.$title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            TextField("Enter a description: ", text: $description).frame(height: 50, alignment: .center)
+            TextField("Enter a description ...", text: self.$description)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
             
-            Section {
-            Button("Create Goal", action: {
-                let goal: Goal = Goal(
+            Spacer()
+            
+            Button("Create Badge", action: {
+                let badge: Badge = Badge(
                     id: nil,
+                    goalId: self.goal.id,
                     title: self.title,
                     description: self.description,
-                    status: "IN-PROGRESS",
-                    dateCreated: Date().str(),
-                    dateCompleted: "",
-                    dateDue: self.date.str())
-                
-                if DBM.insert(goal) {
+                    imageName: "badge",
+                    dateEarned: "")
+                    
+                if DBM.insert(badge) {
                     self.errorMessage = ""
                     self.presentationMode.wrappedValue.dismiss()
                 } else {
@@ -46,14 +45,8 @@ struct NewGoalView: View {
                     self.errorMessage = "Cannot have any empty fields"
                 }
             })
-            }
+            
             Spacer()
         }
-    }
-}
-
-struct NewGoalView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewGoalView(date: Date())
     }
 }

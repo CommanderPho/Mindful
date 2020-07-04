@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WeekHeader: View {
+struct WeekHeaderView: View {
     let spacing: CGFloat
     var body: some View {
         HStack(spacing: self.spacing) {
@@ -17,5 +17,4 @@ struct WeekHeader: View {
             }
         }
     }
-
 }

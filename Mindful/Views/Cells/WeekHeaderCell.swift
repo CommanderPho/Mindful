@@ -19,7 +19,7 @@ struct WeekHeaderCell: View {
         .frame(width: self.dim, height: self.dim)
         .overlay(
             RoundedRectangle(cornerRadius: CALENDAR_CELL_CORNER_RADIUS)
-                .stroke(Color.black, lineWidth: 1)
+                .stroke(lineWidth: 1)
         )
     }
 }

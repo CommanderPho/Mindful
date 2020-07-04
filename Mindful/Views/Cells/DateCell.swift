@@ -11,9 +11,11 @@ import SwiftUI
 struct DateCell: View {
     @State var date: Date
     @State var isEmpty: Bool = true
+    @Environment(\.colorScheme) var colorScheme
+    
     let spacing: CGFloat
     private var dim: CGFloat {
-        return CALENDAR_CELL_DIM - spacing
+        return CALENDAR_CELL_DIM - self.spacing
     }
     
     var body: some View {
@@ -23,7 +25,8 @@ struct DateCell: View {
         .foregroundColor(self.isEmpty ? .red : .blue)
         .overlay(
             RoundedRectangle(cornerRadius: CALENDAR_CELL_CORNER_RADIUS)
-                .stroke(Color.black, lineWidth: 1)
+                .stroke(lineWidth: 1)
         )
+        .foregroundColor(colorScheme == .dark ? .white : .secondary)
     }
 }
