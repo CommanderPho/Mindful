@@ -105,7 +105,6 @@
 			children = (
 				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
-				7F742CC224A5961900C11E79 /* README.md */,
 				7F10E72824ABE111009E3131 /* Constants.swift */,
 				7F7462C324AC5716007E5C03 /* Helpers.swift */,
 			);
@@ -207,6 +206,7 @@
 		7FF1B5AE24895E9A00A3CC95 = {
 			isa = PBXGroup;
 			children = (
+				7F742CC224A5961900C11E79 /* README.md */,
 				7FF1B5B924895E9A00A3CC95 /* Mindful */,
 				7FF1B5B824895E9A00A3CC95 /* Products */,
 				8A59622D214A0EC62F110CAE /* Pods */,
