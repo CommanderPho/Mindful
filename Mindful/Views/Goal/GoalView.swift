@@ -26,7 +26,7 @@ struct GoalView: View {
             Spacer()
             
             Text("Badges")
-            BadgesView(badges: Badge.make2D(DBM.hasMany(goal.badges), columns: BADGES_COLLECTION_COLUMNS), spacing: BADGES_CELL_SPACING)
+            BadgeGridView(badges: Badge.make2D(DBM.hasMany(goal.badges), columns: BADGES_COLLECTION_COLUMNS), spacing: BADGES_CELL_SPACING)
         }
         .aspectRatio(contentMode: .fit)
         .foregroundColor(.blue)

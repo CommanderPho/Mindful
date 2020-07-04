@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BadgesView: View {
+struct BadgeGridView: View {
     let badges: [[Badge]]
     let spacing: CGFloat
     

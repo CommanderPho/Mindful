@@ -25,7 +25,7 @@ struct ContentView: View {
             // Badges
             // Timer
             
-            BadgesView(badges: self.badges, spacing: BADGES_CELL_SPACING)
+            BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
                 .tabItem {
                     Image(systemName: "rosette")
                     Text("Badges")
