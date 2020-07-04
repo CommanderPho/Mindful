@@ -9,30 +9,30 @@
 import SwiftUI
 
 struct BadgeCell: View {
+    @Environment(\.colorScheme) var colorScheme
     let badge: Badge
     let spacing: CGFloat
     
-    @Environment(\.colorScheme) var colorScheme
-    
-    private var dim: CGFloat {
-        return BADGES_CELL_DIM - self.spacing
-    }
+    private var dim: CGFloat { return BADGES_CELL_DIM - self.spacing }
+    private let height: CGFloat = BADGES_CELL_HEIGHT
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        VStack {
             Image(badge.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .saturation(badge.dateEarned.isEmpty ? 0 : 1)
+                .padding()
             
             Text(badge.title)
                 .font(.footnote)
         }
-        .frame(width: self.dim, height: self.dim)
+        .frame(width: self.dim, height: self.height)
         .overlay(
-            RoundedRectangle(cornerRadius: BADGES_CELL_CORNER_RADIUS)
-                .stroke(lineWidth: 1)
-                .foregroundColor(colorScheme == .dark ? .white : .secondary)
-        )
+            BADGES_CELL_BORDER_SHOWING
+            ? RoundedRectangle(cornerRadius: BADGES_CELL_CORNER_RADIUS)
+                .stroke(lineWidth: BADGES_CELL_BORDER_LINE_WIDTH)
+//                .foregroundColor(colorScheme == .dark ? .white : .secondary)
+            : nil)
     }
 }

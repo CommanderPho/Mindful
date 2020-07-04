@@ -13,15 +13,17 @@ struct MonthView: View {
     let spacing: CGFloat
 
     var body: some View {
-        VStack(alignment: .trailing) {
+        VStack(alignment: .trailing, spacing: self.spacing) {
             WeekView(week: self.month.first!, spacing: self.spacing)
-                .padding(.bottom, self.spacing)
+            Divider()
             VStack(alignment: .leading, spacing: self.spacing) {
                 ForEach(self.month[1..<self.month.count], id: \.self) { week in
-                    WeekView(week: week, spacing: self.spacing)
+                    VStack(alignment: .leading, spacing: self.spacing) {
+                        WeekView(week: week, spacing: self.spacing)
+                        Divider()
+                    }
                 }
             }
         }
-        
     }
 }

@@ -9,23 +9,34 @@
 import SwiftUI
 
 struct DateCell: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var date: Date
     @State var isEmpty: Bool = true
-    @Environment(\.colorScheme) var colorScheme
     
     let spacing: CGFloat
-    private var dim: CGFloat {
-        return CALENDAR_CELL_DIM - self.spacing
-    }
+    private var dim: CGFloat { return CALENDAR_CELL_DIM - self.spacing }
+    private let height: CGFloat = CALENDAR_CELL_HEIGHT
+    private let dotScale: CGFloat = 0.5
+    private let verticalItemSpacing: CGFloat = 0
     
     var body: some View {
-        Text(self.date.components.day!.str())
-        .frame(width: self.dim, height: self.dim)
+        VStack(alignment: .center, spacing: self.verticalItemSpacing) {
+            Spacer()
+            Text(self.date.components.day!.str())
+                .frame(width: self.dim)
+            Spacer()
+            Image.init(systemName: "circle.fill")
+                .foregroundColor(self.isEmpty ? .clear : .accentColor)
+                .scaleEffect(self.dotScale)
+            Spacer()
+        }
+        .frame(width: self.dim, height: self.height)
         .onAppear(perform: { self.isEmpty = self.date.goals().isEmpty })
-        .foregroundColor(self.isEmpty ? .red : .blue)
         .overlay(
-            RoundedRectangle(cornerRadius: CALENDAR_CELL_CORNER_RADIUS)
-                .stroke(lineWidth: 1)
+            CALENDAR_CELL_BORDER_SHOWING
+                ? RoundedRectangle(cornerRadius: CALENDAR_CELL_CORNER_RADIUS)
+                    .stroke(lineWidth: CALENDAR_CELL_BORDER_LINE_WIDTH)
+                : nil
         )
         .foregroundColor(colorScheme == .dark ? .white : .secondary)
     }

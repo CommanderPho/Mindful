@@ -20,6 +20,8 @@ struct NewBadgeView: View {
         VStack {
             Spacer()
             
+            Text(self.errorMessage).foregroundColor(.red)
+            
             TextField("Enter a title ...", text: self.$title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             

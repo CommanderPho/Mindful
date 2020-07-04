@@ -25,6 +25,18 @@ struct ContentView: View {
             // Badges
             // Timer
             
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+            }
+            
+            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+            }
+            
             BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
                 .tabItem {
                     Image(systemName: "rosette")
@@ -32,17 +44,6 @@ struct ContentView: View {
             }
             .onAppear() { self.badges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS) }
 
-            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-            }
-
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
-            }
         }
     }
 }

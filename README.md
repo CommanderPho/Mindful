@@ -3,8 +3,16 @@
 ---------------------------------------------------------------------------------------------------------
 ### Edit Badges
 ### Edit Goals
+### Remove Badges
+### Remove Goals
 ### Badge earned conditions
 ### Goal completed conditions
+### Remove past goals
+### Statistics Page
+### Calendar Search
+### Toggle goal completed status
+### Toggle badge earned status
+### Point System
 ---------------------------------------------------------------------------------------------------------
 
 

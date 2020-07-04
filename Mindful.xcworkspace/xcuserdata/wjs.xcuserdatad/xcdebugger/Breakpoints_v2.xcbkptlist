@@ -15,8 +15,8 @@
             filePath = "Mindful/Views/Calendar/WeekView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "body"
             landmarkType = "24">
             <Actions>
@@ -39,8 +39,8 @@
             filePath = "Mindful/Resources/Helpers.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "createMonthArray2D()"
             landmarkType = "7">
          </BreakpointContent>

@@ -19,7 +19,7 @@ struct ProfileView: View {
             Divider()
             NavigationView {
                 VStack {
-                    ProfileRow(left: "Points", middle: String(points))
+                    ProfileRow(left: "Points")
                     ProfileRow(left: "Badges")
                     ProfileRow(left: "Goals")
                 }

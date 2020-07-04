@@ -18,15 +18,20 @@ struct DayView: View {
     }
     
     var body: some View {
-        List(self.goals) { goal in
-            GoalCell(goal: goal)
+        VStack {
+            Spacer()
+            Text("Goals")
+                .font(.largeTitle)
+            List(self.goals) { goal in
+                GoalCell(goal: goal)
+            }
+            .navigationBarTitle(Text(self.date.formatted()), displayMode: .inline)
+            .navigationBarItems(trailing:
+                Text("Add a Goal")
+                    .onTapGesture { self.showingNewGoalModal.toggle() }
+                    .foregroundColor(.accentColor)
+                    .sheet(isPresented: self.$showingNewGoalModal, content: { NewGoalView(dateDue: self.date)}))
+            
         }
-        .navigationBarTitle(Text(self.date.formatted()), displayMode: .inline)
-        .navigationBarItems(trailing:
-            Text("Add a Goal")
-            .onTapGesture { self.showingNewGoalModal.toggle() }
-            .foregroundColor(.accentColor)
-            .sheet(isPresented: self.$showingNewGoalModal, content: { NewGoalView(dateDue: self.date)}))
-        
     }
 }

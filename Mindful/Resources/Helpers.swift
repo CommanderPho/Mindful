@@ -42,6 +42,11 @@ extension Date {
         return calendar.shortWeekdaySymbols
     }
     
+    static var shortWeekdays: [String] {
+        let calendar = Calendar.current
+        return calendar.veryShortWeekdaySymbols
+    }
+    
     var components: DateComponents {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second, .weekday, .weekdayOrdinal], from: self)

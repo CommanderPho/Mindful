@@ -10,9 +10,11 @@ import SwiftUI
 
 struct WeekHeaderView: View {
     let spacing: CGFloat
+    private let weekdays: [String] = Date.shortWeekdays
+    
     var body: some View {
         HStack(spacing: self.spacing) {
-            ForEach(Date.weekdays, id: \.self) { day in
+            ForEach(self.weekdays, id: \.self) { day in
                 WeekHeaderCell(weekday: day, spacing: self.spacing)
             }
         }
