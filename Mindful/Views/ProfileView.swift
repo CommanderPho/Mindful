@@ -13,17 +13,21 @@ struct ProfileView: View {
     var points: Int = 623
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Profile")
-                .frame(height: SCREEN_HEIGHT / 2)
-            Divider()
-            NavigationView {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .center) {
+                Text("Profile")
+                    .frame(height: SCREEN_HEIGHT / 2)
+                Divider()
+                ProfileChartView()
+                Divider()
+                
                 VStack {
-                    ProfileRow(left: "Points")
-                    ProfileRow(left: "Badges")
-                    ProfileRow(left: "Goals")
+                    ProfileRowView(left: "Points")
+                    ProfileRowView(left: "Badges")
+                    ProfileRowView(left: "Goals")
                 }
                 Spacer()
+                
             }
         }
     }

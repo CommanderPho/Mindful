@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ProfileRow: View {
+struct ProfileRowView: View {
     
     var left: String = "Left"
     

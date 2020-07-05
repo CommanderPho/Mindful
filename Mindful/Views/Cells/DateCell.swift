@@ -17,13 +17,22 @@ struct DateCell: View {
     private var dim: CGFloat { return CALENDAR_CELL_DIM - self.spacing }
     private let height: CGFloat = CALENDAR_CELL_HEIGHT
     private let dotScale: CGFloat = 0.5
+    private let highlightScale: CGFloat = 1.5
     private let verticalItemSpacing: CGFloat = 0
+    private var isToday: Bool { return self.date.str() == Date().str() }
+    private var fontColor: Color { return colorScheme == .dark ? .white : .secondary }
     
     var body: some View {
         VStack(alignment: .center, spacing: self.verticalItemSpacing) {
             Spacer()
-            Text(self.date.components.day!.str())
-                .frame(width: self.dim)
+            ZStack(alignment: .center) {
+                Image.init(systemName: "circle.fill")
+                    .foregroundColor(self.isToday ? .red : .clear)
+                    .scaleEffect(self.highlightScale)
+                Text(self.date.components.day!.str())
+                    .frame(width: self.dim)
+                    .foregroundColor(self.isToday ? .white : self.fontColor)
+            }
             Spacer()
             Image.init(systemName: "circle.fill")
                 .foregroundColor(self.isEmpty ? .clear : .accentColor)
@@ -38,6 +47,6 @@ struct DateCell: View {
                     .stroke(lineWidth: CALENDAR_CELL_BORDER_LINE_WIDTH)
                 : nil
         )
-        .foregroundColor(colorScheme == .dark ? .white : .secondary)
+            .foregroundColor(self.fontColor)
     }
 }

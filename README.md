@@ -13,6 +13,9 @@
 ### Toggle goal completed status
 ### Toggle badge earned status
 ### Point System
+### Set repeating goals and badges
+### Have a 'Today' button that sets the focusDate to Date()
+### Potentially remove buttons for last and next month
 ---------------------------------------------------------------------------------------------------------
 
 
