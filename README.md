@@ -3,8 +3,8 @@
 ---------------------------------------------------------------------------------------------------------
 ### Edit Badges
 ### Edit Goals
-### Remove Badges
-### Remove Goals
+### Delete Badges
+### Delete Goals
 ### Badge earned conditions
 ### Goal completed conditions
 ### Remove past goals
