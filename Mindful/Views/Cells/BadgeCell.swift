@@ -10,7 +10,8 @@ import SwiftUI
 
 struct BadgeCell: View {
     @Environment(\.colorScheme) var colorScheme
-    let badge: Badge
+    @State var badge: Badge
+    @State private var presentingBadge: Bool = false
     let spacing: CGFloat
     
     private var dim: CGFloat { return BADGES_CELL_DIM - self.spacing }
@@ -30,9 +31,10 @@ struct BadgeCell: View {
         .frame(width: self.dim, height: self.height)
         .overlay(
             BADGES_CELL_BORDER_SHOWING
-            ? RoundedRectangle(cornerRadius: BADGES_CELL_CORNER_RADIUS)
-                .stroke(lineWidth: BADGES_CELL_BORDER_LINE_WIDTH)
-//                .foregroundColor(colorScheme == .dark ? .white : .secondary)
-            : nil)
+                ? RoundedRectangle(cornerRadius: BADGES_CELL_CORNER_RADIUS)
+                    .stroke(lineWidth: BADGES_CELL_BORDER_LINE_WIDTH)
+                : nil)
+            .onTapGesture(perform: { self.presentingBadge.toggle() })
+            .sheet(isPresented: self.$presentingBadge) { BadgeView(badge: self.$badge, isComplete: self.badge.isEarned()) }
     }
 }

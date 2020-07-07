@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct GoalCell: View {
-    let goal: Goal
+    @State var goal: Goal
     
     var body: some View {
-        NavigationLink(destination: GoalView(goal: goal)){
+        NavigationLink(destination: GoalView(goal: self.$goal, isComplete: self.goal.isComplete())){
             HStack {
                 Text(goal.title)
                 Spacer()

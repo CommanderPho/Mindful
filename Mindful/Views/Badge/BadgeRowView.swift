@@ -17,8 +17,6 @@ struct BadgeRowView: View {
         HStack(spacing: self.spacing) {
             ForEach(row, id: \.self) { badge in
                 BadgeCell(badge: badge, spacing: self.spacing)
-                    .onTapGesture { self.modalShowBadge = badge }
-                    .sheet(item: self.$modalShowBadge, content: { b in BadgeView(badge: b) })
             }
         }
     }

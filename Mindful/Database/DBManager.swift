@@ -61,7 +61,7 @@ class DBManager {
             db.afterNextTransactionCommit { db in
                 success = true
             }
-            try model.save(db)
+            try model.update(db)
         })
         
         return success

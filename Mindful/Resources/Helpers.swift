@@ -167,6 +167,10 @@ extension Badge {
         }
         return rows
     }
+    
+    func isEarned() -> Bool {
+        return !self.dateEarned.isEmpty
+    }
 }
 
 extension Goal {
