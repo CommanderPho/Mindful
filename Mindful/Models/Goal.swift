@@ -14,7 +14,6 @@ struct Goal: ApplicationRecord {
     
     var title: String
     var description: String
-    var status: String
     var dateCreated: String
     var dateCompleted: String
     var dateDue: String

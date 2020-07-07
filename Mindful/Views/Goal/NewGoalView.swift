@@ -34,7 +34,6 @@ struct NewGoalView: View {
                     id: nil,
                     title: self.title,
                     description: self.description,
-                    status: BADGE_INCOMPLETE_MESSAGE,
                     dateCreated: Date().str(),
                     dateCompleted: "",
                     dateDue: self.dateDue.str())

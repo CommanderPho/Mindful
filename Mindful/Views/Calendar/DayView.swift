@@ -13,21 +13,20 @@ struct DayView: View {
     @State private var showingNewGoalModal: Bool = false
     
     var date: Date
-    private var goals: [Goal] {
-        return date.goals()
-    }
+    private var goals: [Goal] { return date.goals() }
     
     var body: some View {
         VStack {
             Spacer()
             Text("Goals")
                 .font(.largeTitle)
+            
             List(self.goals) { goal in
                 GoalCell(goal: goal)
             }
             .navigationBarTitle(Text(self.date.formatted()), displayMode: .inline)
             .navigationBarItems(trailing:
-                Text("Add a Goal")
+                Image(systemName: "plus")
                     .onTapGesture { self.showingNewGoalModal.toggle() }
                     .foregroundColor(.accentColor)
                     .sheet(isPresented: self.$showingNewGoalModal, content: { NewGoalView(dateDue: self.date)}))

@@ -168,3 +168,9 @@ extension Badge {
         return rows
     }
 }
+
+extension Goal {
+    func isComplete() -> Bool {
+        return !self.dateCompleted.isEmpty
+    }
+}

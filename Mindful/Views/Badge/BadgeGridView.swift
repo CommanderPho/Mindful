@@ -13,12 +13,10 @@ struct BadgeGridView: View {
     let spacing: CGFloat
     
     var body: some View {
-        ScrollView(showsIndicators: false){
-            ZStack {
-                VStack(alignment: .leading, spacing: self.spacing) {
-                    ForEach(self.badges, id: \.self) { row in
-                        BadgeRowView(row: row, spacing: self.spacing)
-                    }
+        ZStack {
+            VStack(alignment: .leading, spacing: self.spacing) {
+                ForEach(self.badges, id: \.self) { row in
+                    BadgeRowView(row: row, spacing: self.spacing)
                 }
             }
         }

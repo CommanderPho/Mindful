@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct ProfileChartView: View {
-    let pointsPerDay: [CGFloat] = [5,2,20,4,35,6,3]
-    let spacing: CGFloat = 10
+    let pointsPerDay: [CGFloat]
+    let spacing: CGFloat
     let columns: Int = Date.weekdays.count
+    
     private var maxPoints: CGFloat { return self.pointsPerDay.max() ?? 0}
-    private let unitHeight: CGFloat = 50
+    private let unitHeight: CGFloat = SCREEN_HEIGHT / 4
     private var unitWidth: CGFloat { return SCREEN_WIDTH / CGFloat(self.columns) - self.spacing }
     
     private var normalizedHeights: [CGFloat] {
@@ -41,6 +42,6 @@ struct ProfileChartView: View {
 
 struct ProfileChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileChartView()
+        ProfileChartView(pointsPerDay: [5,2,20,4,35,6,3], spacing: 10)
     }
 }

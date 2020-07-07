@@ -18,7 +18,7 @@ struct GoalCell: View {
                 Spacer()
                 VStack(alignment: .center) {
                     Text(goal.description)
-                    Text(goal.status)
+                    Text(goal.dateCompleted)
                 }
             }
         }

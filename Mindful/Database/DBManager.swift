@@ -55,6 +55,18 @@ class DBManager {
         return success
     }
     
+    static func save<T: ApplicationRecord>(_ model: T) -> Bool {
+        var success: Bool = false
+        try? dbQueue?.write({ db in
+            db.afterNextTransactionCommit { db in
+                success = true
+            }
+            try model.save(db)
+        })
+        
+        return success
+    }
+    
     // returns an array of objects retrieved from DB via a hasMany association
     static func hasMany<T: ApplicationRecord>(_ hasMany: QueryInterfaceRequest<T>) -> [T]{
         var records: [T] = []
@@ -74,6 +86,15 @@ class DBManager {
         var record: T?
         try? dbQueue?.read({ db in
             record = try T.filter(sql: sql).fetchOne(db)
+        })
+        return record
+    }
+    
+    // find the first object in DB that matches the given primary key (id)
+    static func findById<T: ApplicationRecord>(_ model: T.Type, id: Int64?) -> T? {
+        var record: T?
+        try? dbQueue?.read({ db in
+            record = try T.filter(sql: "id = " + String(id!)).fetchOne(db)
         })
         return record
     }
@@ -109,7 +130,6 @@ class DBManager {
                     let goal = Goal(id: nil,
                           title: "Title " + String(i),
                           description: "Description " + String(i),
-                          status: BADGE_INCOMPLETE_MESSAGE,
                           dateCreated: Date().offsetBy(dayOffset, withUnit: .day).str(),
                           dateCompleted: "",
                           dateDue: Date().offsetBy(dayOffset, withUnit: .day).str())
