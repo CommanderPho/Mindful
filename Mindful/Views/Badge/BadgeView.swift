@@ -46,7 +46,7 @@ struct BadgeView: View {
                                            imageName: self.badge.imageName,
                                            dateEarned: !self.badge.isEarned() ? Date().str() : "")
                         
-                        if DBM.save(self.badge) { self.errorMessage = "" }
+                        if DBM.update(self.badge) { self.errorMessage = "" }
                         else { self.errorMessage = "Unable to save to DB" }
                     }
                 })

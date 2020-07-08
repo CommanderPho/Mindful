@@ -36,13 +36,15 @@ struct ContentView: View {
                     Text("Calendar")
             }
             
-            BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
-                .tabItem {
-                    Image(systemName: "rosette")
-                    Text("Badges")
+            ScrollView(showsIndicators: false){
+                BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
+            }
+            .tabItem {
+                Image(systemName: "rosette")
+                Text("Badges")
             }
             .onAppear() { self.badges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS) }
-
+            
         }
     }
 }

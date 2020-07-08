@@ -55,7 +55,7 @@ class DBManager {
         return success
     }
     
-    static func save<T: ApplicationRecord>(_ model: T) -> Bool {
+    static func update<T: ApplicationRecord>(_ model: T) -> Bool {
         var success: Bool = false
         try? dbQueue?.write({ db in
             db.afterNextTransactionCommit { db in
@@ -94,9 +94,18 @@ class DBManager {
     static func findById<T: ApplicationRecord>(_ model: T.Type, id: Int64?) -> T? {
         var record: T?
         try? dbQueue?.read({ db in
-            record = try T.filter(sql: "id = " + String(id!)).fetchOne(db)
+            record = try T.filter(key: ["id": id]).fetchOne(db)
         })
         return record
+    }
+    
+    // delete item from DB
+    static func delete<T: ApplicationRecord>(_ model: T) -> Bool {
+        var success: Bool = false
+        try? dbQueue?.write({ db in
+            success = try model.delete(db)
+        })
+        return success
     }
  
     // migrates an array of migrations ( Mindful/Models/Migrations )

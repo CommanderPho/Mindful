@@ -11,8 +11,6 @@
 ### Remove past goals
 ### Statistics Page
 ### Calendar Search
-### Toggle goal completed status
-### Toggle badge earned status
 ### Point System
 ### Set repeating goals and badges
 ### Have a 'Today' button that sets the focusDate to Date()

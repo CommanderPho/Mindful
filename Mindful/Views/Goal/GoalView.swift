@@ -54,7 +54,7 @@ struct GoalView: View {
                                                  dateCompleted: !self.goal.isComplete() ? Date().str() : "",
                                                  dateDue: self.goal.dateDue)
                                 
-                                if DBM.save(self.goal) { self.errorMessage = "" }
+                                if DBM.update(self.goal) { self.errorMessage = "" }
                                 else { self.errorMessage = "Unable to save to DB" }
                             }
                         })
