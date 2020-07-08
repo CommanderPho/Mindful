@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// lists all the goals defined by Date.goals()
 struct DayView: View {
     @State private var showingNewGoalModal: Bool = false
     

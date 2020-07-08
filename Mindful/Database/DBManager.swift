@@ -55,6 +55,7 @@ class DBManager {
         return success
     }
     
+    // updates row in DB
     static func update<T: ApplicationRecord>(_ model: T) -> Bool {
         var success: Bool = false
         try? dbQueue?.write({ db in

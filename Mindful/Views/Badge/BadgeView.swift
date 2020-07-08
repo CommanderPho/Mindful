@@ -21,10 +21,7 @@ struct BadgeView: View {
                 Text(errorMessage)
                 
                 Button("Delete this badge") {
-                    if DBM.delete(self.badge) {
-                        print("badge deleted")
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                    if DBM.delete(self.badge) { self.presentationMode.wrappedValue.dismiss() }
                 }
                 
                 Spacer()

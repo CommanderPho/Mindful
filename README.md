@@ -4,8 +4,6 @@
 ### Awareness zones
 ### Edit Badges
 ### Edit Goals
-### Delete Badges
-### Delete Goals
 ### Badge earned conditions
 ### Goal completed conditions
 ### Remove past goals

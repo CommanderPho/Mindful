@@ -8,9 +8,6 @@
 
 import SwiftUI
 
-private let daysNumCols: Int = 7
-private let daysSpacing: CGFloat = 5
-
 struct ContentView: View {
     
     var goals: [Goal] = DBM.all(Goal.self)
@@ -38,13 +35,16 @@ struct ContentView: View {
             
             ScrollView(showsIndicators: false){
                 BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
+                    .onReceive([self.badges].publisher.first(), perform: { value in
+                        let retrievedBadges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS)
+                        if self.badges != retrievedBadges { self.badges = retrievedBadges }
+                    })
+                    .frame(width: SCREEN_WIDTH, alignment: .topLeading)
             }
             .tabItem {
                 Image(systemName: "rosette")
                 Text("Badges")
             }
-            .onAppear() { self.badges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS) }
-            
         }
     }
 }
