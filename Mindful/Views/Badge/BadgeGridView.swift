@@ -20,6 +20,7 @@ struct BadgeGridView: View {
                 }
             }
         }
+        .foregroundColor(.accentColor)
     }
 }
 
