@@ -39,13 +39,7 @@ struct BadgeView: View {
             Toggle("Completed?", isOn: self.$isComplete)
                 .onReceive([self.isComplete].publisher.first(), perform: { value in
                     if self.badge.isEarned() != value {
-                        self.badge = Badge(id: self.badge.id,
-                                           goalId: self.badge.goalId,
-                                           title: self.badge.title,
-                                           description: self.badge.description,
-                                           imageName: self.badge.imageName,
-                                           dateEarned: !self.badge.isEarned() ? Date().str() : "")
-                        
+                        self.badge.dateEarned = !self.badge.isEarned() ? Date().str() : "" 
                         if DBM.update(self.badge) { self.errorMessage = "" }
                         else { self.errorMessage = "Unable to save to DB" }
                     }

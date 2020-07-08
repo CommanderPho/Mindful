@@ -47,13 +47,7 @@ struct GoalView: View {
                     Toggle("Completed?", isOn: self.$isComplete)
                         .onReceive([self.isComplete].publisher.first(), perform: { value in
                             if self.goal.isComplete() != value {
-                                self.goal = Goal(id: self.goal.id,
-                                                 title: self.goal.title,
-                                                 description: self.goal.description,
-                                                 dateCreated: self.goal.dateCreated,
-                                                 dateCompleted: !self.goal.isComplete() ? Date().str() : "",
-                                                 dateDue: self.goal.dateDue)
-                                
+                                self.goal.dateCompleted = !self.goal.isComplete() ? Date().str() : ""
                                 if DBM.update(self.goal) { self.errorMessage = "" }
                                 else { self.errorMessage = "Unable to save to DB" }
                             }
@@ -69,7 +63,7 @@ struct GoalView: View {
                 
                 Spacer()
                 
-                HStack(alignment: .center, spacing: 10) {
+                HStack(alignment: .center, spacing: self.spacing) {
                     
                     Text("Badges")
                         .foregroundColor(.secondary)
