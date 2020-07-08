@@ -24,11 +24,14 @@ struct CheckboxToggleStyle: ToggleStyle {
 }
 
 struct GoalView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var goal: Goal
     @State var isComplete: Bool
     
     @State private var presentingCreateBadge: Bool = false
     @State private var errorMessage: String = ""
+    @State private var badges: [Badge] = []
+    @State private var presentingBadge: Bool = false
     
     let spacing: CGFloat = 10
     
@@ -74,9 +77,12 @@ struct GoalView: View {
                         .sheet(isPresented: self.$presentingCreateBadge, content: { NewBadgeView(goal: self.goal)})
                 }
                 
-                BadgeGridView(badges: Badge.make2D(DBM.hasMany(goal.badges), columns: BADGES_COLLECTION_COLUMNS),
+                BadgeGridView(badges: Badge.make2D(self.badges, columns: BADGES_COLLECTION_COLUMNS),
                               spacing: BADGES_CELL_SPACING)
-                
+                    .onReceive([self.badges].publisher.first(), perform: { value in
+                        let retrievedBadges = DBM.hasMany(self.goal.badges)
+                        if self.badges != retrievedBadges { self.badges = retrievedBadges }
+                    })
                 Spacer()
                 
             }

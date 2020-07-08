@@ -11,8 +11,9 @@ import SwiftUI
 struct BadgeCell: View {
     @Environment(\.colorScheme) var colorScheme
     @State var badge: Badge
-    @State private var presentingBadge: Bool = false
     let spacing: CGFloat
+    @Binding var isPresenting: Bool
+    @State private var presentingBadge: Bool = false
     
     private var dim: CGFloat { return BADGES_CELL_DIM - self.spacing }
     private let height: CGFloat = BADGES_CELL_HEIGHT

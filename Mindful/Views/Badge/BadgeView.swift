@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct BadgeView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var badge: Badge
     @State var isComplete: Bool
     private let spacing: CGFloat = 10
@@ -18,6 +19,13 @@ struct BadgeView: View {
         VStack(alignment: .center, spacing: self.spacing) {
             VStack(alignment: .center, spacing: self.spacing) {
                 Text(errorMessage)
+                
+                Button("Delete this badge") {
+                    if DBM.delete(self.badge) {
+                        print("badge deleted")
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }
                 
                 Spacer()
                 
