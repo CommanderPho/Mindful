@@ -9,10 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    var goals: [Goal] = DBM.all(Goal.self)
-    @State var badges: [[Badge]] = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS)
-    let chosenDay: Date = Date()
+//    @State private var badges: [[Badge]] = []
     
     var body: some View {
         TabView {
@@ -33,14 +30,7 @@ struct ContentView: View {
                     Text("Calendar")
             }
             
-            ScrollView(showsIndicators: false){
-                BadgeGridView(badges: self.badges, spacing: BADGES_CELL_SPACING)
-                    .onReceive([self.badges].publisher.first(), perform: { value in
-                        let retrievedBadges = Badge.all2DArray(columns: BADGES_COLLECTION_COLUMNS)
-                        if self.badges != retrievedBadges { self.badges = retrievedBadges }
-                    })
-                    .frame(width: SCREEN_WIDTH, alignment: .topLeading)
-            }
+            AllBadgesView()
             .tabItem {
                 Image(systemName: "rosette")
                 Text("Badges")

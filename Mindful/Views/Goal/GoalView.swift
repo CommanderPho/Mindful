@@ -8,20 +8,6 @@
 
 import SwiftUI
 
-struct CheckboxToggleStyle: ToggleStyle {
-    let spacing: CGFloat
-    func makeBody(configuration: Configuration) -> some View {
-        HStack(alignment: .center, spacing: self.spacing) {
-            Spacer()
-            configuration.label
-            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                .resizable()
-                .frame(width: CHECKBOX_DIM, height: CHECKBOX_DIM)
-                .onTapGesture { configuration.isOn.toggle() }
-            Spacer()
-        }
-    }
-}
 
 struct GoalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -30,13 +16,11 @@ struct GoalView: View {
     
     @State private var presentingCreateBadge: Bool = false
     @State private var errorMessage: String = ""
-    @State private var badges: [Badge] = []
-    @State private var presentingBadge: Bool = false
+    @State private var badges: [[Badge]] = []
     
     let spacing: CGFloat = 10
     
     var body: some View {
-        
         return ScrollView(showsIndicators: false) {
             VStack(alignment: .center, spacing: self.spacing) {
                 Text(self.errorMessage)
@@ -45,7 +29,7 @@ struct GoalView: View {
                 Spacer()
                 
                 VStack(alignment: .center, spacing: self.spacing) {
-                    Text(goal.description)
+                    Text(self.goal.description)
                     
                     Toggle("Completed?", isOn: self.$isComplete)
                         .onReceive([self.isComplete].publisher.first(), perform: { value in
@@ -58,9 +42,9 @@ struct GoalView: View {
                         .toggleStyle(CheckboxToggleStyle(spacing: self.spacing))
                         
                     
-                    Text("Created At: " + goal.dateCreated)
-                    Text("Completed At: " + (goal.dateCompleted.isEmpty ? "---" : goal.dateCompleted))
-                    Text("Due: " + goal.dateDue)
+                    Text("Created At: " + self.goal.dateCreated)
+                    Text("Completed At: " + (self.goal.dateCompleted.isEmpty ? "---" : self.goal.dateCompleted))
+                    Text("Due: " + self.goal.dateDue)
                 }
                 .foregroundColor(.secondary)
                 
@@ -77,14 +61,13 @@ struct GoalView: View {
                         .sheet(isPresented: self.$presentingCreateBadge, content: { NewBadgeView(goal: self.goal)})
                 }
                 
-                BadgeGridView(badges: Badge.make2D(self.badges, columns: BADGES_COLLECTION_COLUMNS),
-                              spacing: BADGES_CELL_SPACING)
+                BadgeGridView(badges: self.$badges, spacing: BADGES_CELL_SPACING)
                     .onReceive([self.badges].publisher.first(), perform: { value in
-                        let retrievedBadges = DBM.hasMany(self.goal.badges)
-                        if self.badges != retrievedBadges { self.badges = retrievedBadges }
+                        let retrievedBadges = Badge.make2D(DBM.hasMany(self.goal.badges), columns: BADGES_COLLECTION_COLUMNS)
+                        if self.badges != retrievedBadges {
+                            self.badges = retrievedBadges }
                     })
                 Spacer()
-                
             }
         }
         .aspectRatio(contentMode: .fit)

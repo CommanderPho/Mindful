@@ -24,10 +24,12 @@
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
 		7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7462C324AC5716007E5C03 /* Helpers.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
+		7FB0F81F24B6808200A57BEF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0F81E24B6808200A57BEF /* Styles.swift */; };
 		7FB1881D24B0595F00AC0769 /* NewBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */; };
 		7FBBCDEB24AFB8D0004FD5EF /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCDEA24AFB8D0004FD5EF /* WeekView.swift */; };
 		7FBBCDED24AFBD1C004FD5EF /* NewGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCDEC24AFBD1C004FD5EF /* NewGoalView.swift */; };
 		7FBF6E2924B2813800CC0FF2 /* ProfileChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF6E2824B2813800CC0FF2 /* ProfileChartView.swift */; };
+		7FDCE89E24B75A8200E1C808 /* AllBadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCE89D24B75A8200E1C808 /* AllBadgesView.swift */; };
 		7FE8705124AFD8350061A022 /* WeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8705024AFD8350061A022 /* WeekHeaderView.swift */; };
 		7FE8705324AFD92A0061A022 /* WeekHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8705224AFD92A0061A022 /* WeekHeaderCell.swift */; };
 		7FE8705524AFE06F0061A022 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8705424AFE06F0061A022 /* CalendarView.swift */; };
@@ -61,10 +63,12 @@
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7F7462C324AC5716007E5C03 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
+		7FB0F81E24B6808200A57BEF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBadgeView.swift; sourceTree = "<group>"; };
 		7FBBCDEA24AFB8D0004FD5EF /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		7FBBCDEC24AFBD1C004FD5EF /* NewGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalView.swift; sourceTree = "<group>"; };
 		7FBF6E2824B2813800CC0FF2 /* ProfileChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChartView.swift; sourceTree = "<group>"; };
+		7FDCE89D24B75A8200E1C808 /* AllBadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBadgesView.swift; sourceTree = "<group>"; };
 		7FE8705024AFD8350061A022 /* WeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderView.swift; sourceTree = "<group>"; };
 		7FE8705224AFD92A0061A022 /* WeekHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHeaderCell.swift; sourceTree = "<group>"; };
 		7FE8705424AFE06F0061A022 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7F10E72824ABE111009E3131 /* Constants.swift */,
 				7F7462C324AC5716007E5C03 /* Helpers.swift */,
+				7FB0F81E24B6808200A57BEF /* Styles.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				7FE8705F24B03CD70061A022 /* BadgeView.swift */,
 				7FE8706324B0449B0061A022 /* BadgeRowView.swift */,
 				7FE8705D24B02E400061A022 /* BadgeGridView.swift */,
+				7FDCE89D24B75A8200E1C808 /* AllBadgesView.swift */,
 			);
 			path = Badge;
 			sourceTree = "<group>";
@@ -385,6 +391,8 @@
 				7F10E72524ABD57A009E3131 /* AppView.swift in Sources */,
 				7F6AEC9C24ACC0A3007537C0 /* DateCell.swift in Sources */,
 				7FE8706424B0449B0061A022 /* BadgeRowView.swift in Sources */,
+				7FB0F81F24B6808200A57BEF /* Styles.swift in Sources */,
+				7FDCE89E24B75A8200E1C808 /* AllBadgesView.swift in Sources */,
 				7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */,
 				7FBF6E2924B2813800CC0FF2 /* ProfileChartView.swift in Sources */,
 				7FB1881D24B0595F00AC0769 /* NewBadgeView.swift in Sources */,

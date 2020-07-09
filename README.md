@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------------
 # Features to add
 ---------------------------------------------------------------------------------------------------------
+### Model DayView after iOS calendar app
 ### Awareness zones
+### Add Awareness Zone Model
 ### Edit Badges
 ### Edit Goals
 ### Badge earned conditions
@@ -16,6 +18,12 @@
 ---------------------------------------------------------------------------------------------------------
 
 
+### Awareness Zone Model
+- id
+- start time: "yyyy-mm-dd hh-mm" floor(mm)
+- end time
+- minutes of phone use between start and end: defaults to 0
+- notes: not null
 
 
 ---------------------------------------------------------------------------------------------------------

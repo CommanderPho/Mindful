@@ -13,6 +13,7 @@ struct BadgeView: View {
     @Binding var badge: Badge
     @State var isComplete: Bool
     private let spacing: CGFloat = 10
+    
     @State private var errorMessage: String = ""
     
     var body: some View {

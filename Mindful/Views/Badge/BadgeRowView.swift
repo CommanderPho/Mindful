@@ -11,8 +11,7 @@ import SwiftUI
 struct BadgeRowView: View {
     let row: [Badge]
     let spacing: CGFloat
-    @State var modalShowBadge: Badge?
-    @Binding var isPresenting: Bool
+    @State var isPresenting: Bool = false
     
     var body: some View {
         HStack(spacing: self.spacing) {

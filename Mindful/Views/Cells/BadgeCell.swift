@@ -13,6 +13,7 @@ struct BadgeCell: View {
     @State var badge: Badge
     let spacing: CGFloat
     @Binding var isPresenting: Bool
+    
     @State private var presentingBadge: Bool = false
     
     private var dim: CGFloat { return BADGES_CELL_DIM - self.spacing }

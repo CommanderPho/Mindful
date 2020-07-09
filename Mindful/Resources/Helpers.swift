@@ -151,7 +151,7 @@ extension Date {
 
 extension Badge {
     static func all2DArray(columns: Int) -> [[Badge]] {
-        return Badge.make2D(Badge.getAll(), columns: columns)
+        return Badge.make2D(DBM.all(Badge.self), columns: columns)
     }
     
     static func make2D(_ badges: [Badge], columns: Int) -> [[Badge]] {
