@@ -10,8 +10,21 @@
 import UIKit
 import SwiftUI
 
-let SHOULD_SEED_DB: Bool = true
-let SHOULD_ERASE_DB: Bool = true
+private var AVAILABLE_14: Bool {
+    if #available(iOS 14, *) { return true }
+    else { return false }
+}
+
+private let USE_14: Bool = AVAILABLE_14
+
+#if USE_14
+    typealias VStack = LazyVStack
+    typealias HStack = LazyHStack
+#else
+#endif
+
+let SHOULD_SEED_DB: Bool = false
+let SHOULD_ERASE_DB: Bool = false
 let SHOW_ALL_BORDERS: Bool = false
 
 let SCREEN_SIZE: CGRect = UIScreen.main.bounds

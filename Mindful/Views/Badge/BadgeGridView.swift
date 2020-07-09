@@ -14,7 +14,7 @@ struct BadgeGridView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .leading, spacing: self.spacing) {
+            VStack {
                 ForEach(self.badges, id: \.self) { row in
                     BadgeRowView(row: row, spacing: self.spacing)
                 }
