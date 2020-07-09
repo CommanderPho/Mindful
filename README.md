@@ -18,7 +18,7 @@
 ---------------------------------------------------------------------------------------------------------
 
 
-### Awareness Zone Model
+### Awareness Zone Model (Zone)
 - id
 - start time: "yyyy-mm-dd hh-mm" floor(mm)
 - end time

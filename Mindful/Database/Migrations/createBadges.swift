@@ -9,14 +9,6 @@
 import Foundation
 import GRDB
 
-//var id: Int64?
-//var goalId: Int64?
-//
-//var title: String
-//var description: String
-//var imageName: String
-//var dateEarned: String
-
 let createBadges: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator in
     let tableName = Badge.databaseTableName
     

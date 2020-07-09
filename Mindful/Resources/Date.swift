@@ -1,40 +1,12 @@
 //
-//  Helpers.swift
+//  Date.swift
 //  Mindful
 //
-//  Created by William Shelley on 7/1/20.
+//  Created by William Shelley on 7/9/20.
 //  Copyright © 2020 William Shelley. All rights reserved.
 //
 
 import Foundation
-
-let dateFormat = "yyyy-MM-dd"
-let dateLength = dateFormat.count
-
-extension Int {
-    func month() -> String {
-        let calendar = Calendar.current
-        return calendar.monthSymbols[(self - 1) % calendar.monthSymbols.count]
-    }
-    
-    func weekday() -> String {
-        let calendar = Calendar.current
-        return calendar.shortWeekdaySymbols[(self - 1) % calendar.shortWeekdaySymbols.count]
-    }
-    
-    func str() -> String {
-        return String(self)
-    }
-}
-
-extension String {
-    func toDate() -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
-        dateFormatter.dateFormat = dateFormat
-        return dateFormatter.date(from: self)!
-    }
-}
 
 extension Date {
     static var weekdays: [String] {
@@ -80,7 +52,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         
         dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
-        dateFormatter.dateFormat = dateFormat
+        dateFormatter.dateFormat = DATE_FORMAT
         return dateFormatter.string(from: self)
     }
     
@@ -146,35 +118,5 @@ extension Date {
         }
         
         return dates
-    }
-}
-
-extension Badge {
-    static func all2DArray(columns: Int) -> [[Badge]] {
-        return Badge.make2D(DBM.all(Badge.self), columns: columns)
-    }
-    
-    static func make2D(_ badges: [Badge], columns: Int) -> [[Badge]] {
-        var rows:[[Badge]] = [[Badge]()]
-        
-        for badge in badges {
-            var lastRowIdx: Int = rows.count - 1
-            if rows[lastRowIdx].count >= columns {
-                rows.append([])
-                lastRowIdx = rows.count - 1
-            }
-            rows[lastRowIdx].append(badge)
-        }
-        return rows
-    }
-    
-    func isEarned() -> Bool {
-        return !self.dateEarned.isEmpty
-    }
-}
-
-extension Goal {
-    func isComplete() -> Bool {
-        return !self.dateCompleted.isEmpty
     }
 }

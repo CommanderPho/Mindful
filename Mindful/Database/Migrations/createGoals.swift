@@ -22,9 +22,9 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
             tableDefinition.column("id", .integer).primaryKey()
             tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
             tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
-            tableDefinition.column("dateCreated", .text).notNull().check { length($0) == dateLength }
+            tableDefinition.column("dateCreated", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }
             tableDefinition.column("dateCompleted", .text)
-            tableDefinition.column("dateDue", .text).notNull().check { length($0) == dateLength }
+            tableDefinition.column("dateDue", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }
         }
     }
 }

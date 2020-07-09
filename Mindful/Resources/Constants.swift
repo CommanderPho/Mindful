@@ -31,6 +31,12 @@ let SCREEN_SIZE: CGRect = UIScreen.main.bounds
 let SCREEN_WIDTH: CGFloat = SCREEN_SIZE.width
 let SCREEN_HEIGHT: CGFloat = SCREEN_SIZE.height
 
+
+let DATE_FORMAT = "yyyy-MM-dd"
+let DATE_FORMAT_LENGTH = DATE_FORMAT.count
+
+
+
 let CALENDAR_ANIMATION_DURATION: Double = 0.25
 
 let CALENDAR_CELL_DIM: CGFloat = SCREEN_WIDTH / CGFloat(Date.weekdays.count)

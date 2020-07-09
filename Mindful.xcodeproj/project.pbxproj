@@ -17,14 +17,18 @@
 		7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F10E72C24ABEA4F009E3131 /* GoalView.swift */; };
 		7F30378A24A6C90200E50950 /* createGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378924A6C90200E50950 /* createGoals.swift */; };
 		7F30378C24A6E73100E50950 /* createBadges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30378B24A6E73100E50950 /* createBadges.swift */; };
+		7F4F8B5A24B7720000054ECA /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F8B5924B7720000054ECA /* Zone.swift */; };
+		7F4F8B5C24B772D300054ECA /* createZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F8B5B24B772D300054ECA /* createZones.swift */; };
 		7F6AEC9C24ACC0A3007537C0 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6AEC9B24ACC0A3007537C0 /* DateCell.swift */; };
 		7F742CC324A5961900C11E79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F742CC224A5961900C11E79 /* README.md */; };
 		7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCB24A599DA00C11E79 /* Goal.swift */; };
 		7F742CCE24A599E400C11E79 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CCD24A599E400C11E79 /* Badge.swift */; };
 		7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F742CD424A5B3D300C11E79 /* DBManager.swift */; };
-		7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7462C324AC5716007E5C03 /* Helpers.swift */; };
+		7F7462C424AC5716007E5C03 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7462C324AC5716007E5C03 /* Int.swift */; };
+		7F7892D524B77566002E2583 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7892D424B77566002E2583 /* Date.swift */; };
+		7F7892D724B77582002E2583 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7892D624B77582002E2583 /* String.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
-		7FB0F81F24B6808200A57BEF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0F81E24B6808200A57BEF /* Styles.swift */; };
+		7FB0F81F24B6808200A57BEF /* CheckbozToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */; };
 		7FB1881D24B0595F00AC0769 /* NewBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */; };
 		7FBBCDEB24AFB8D0004FD5EF /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCDEA24AFB8D0004FD5EF /* WeekView.swift */; };
 		7FBBCDED24AFBD1C004FD5EF /* NewGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBCDEC24AFBD1C004FD5EF /* NewGoalView.swift */; };
@@ -56,14 +60,18 @@
 		7F10E72C24ABEA4F009E3131 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7F30378924A6C90200E50950 /* createGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createGoals.swift; sourceTree = "<group>"; };
 		7F30378B24A6E73100E50950 /* createBadges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createBadges.swift; sourceTree = "<group>"; };
+		7F4F8B5924B7720000054ECA /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		7F4F8B5B24B772D300054ECA /* createZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createZones.swift; sourceTree = "<group>"; };
 		7F6AEC9B24ACC0A3007537C0 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		7F742CC224A5961900C11E79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7F742CCB24A599DA00C11E79 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		7F742CCD24A599E400C11E79 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		7F742CD424A5B3D300C11E79 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		7F7462C324AC5716007E5C03 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		7F7462C324AC5716007E5C03 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		7F7892D424B77566002E2583 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7F7892D624B77582002E2583 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
-		7FB0F81E24B6808200A57BEF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckbozToggleStyle.swift; sourceTree = "<group>"; };
 		7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBadgeView.swift; sourceTree = "<group>"; };
 		7FBBCDEA24AFB8D0004FD5EF /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		7FBBCDEC24AFBD1C004FD5EF /* NewGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalView.swift; sourceTree = "<group>"; };
@@ -112,8 +120,10 @@
 				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7F10E72824ABE111009E3131 /* Constants.swift */,
-				7F7462C324AC5716007E5C03 /* Helpers.swift */,
-				7FB0F81E24B6808200A57BEF /* Styles.swift */,
+				7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */,
+				7F7462C324AC5716007E5C03 /* Int.swift */,
+				7F7892D424B77566002E2583 /* Date.swift */,
+				7F7892D624B77582002E2583 /* String.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -123,6 +133,7 @@
 			children = (
 				7F742CCB24A599DA00C11E79 /* Goal.swift */,
 				7F742CCD24A599E400C11E79 /* Badge.swift */,
+				7F4F8B5924B7720000054ECA /* Zone.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 			children = (
 				7F30378924A6C90200E50950 /* createGoals.swift */,
 				7F30378B24A6E73100E50950 /* createBadges.swift */,
+				7F4F8B5B24B772D300054ECA /* createZones.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -375,7 +387,7 @@
 				7FBBCDEB24AFB8D0004FD5EF /* WeekView.swift in Sources */,
 				7FE8706224B0406E0061A022 /* BadgeCell.swift in Sources */,
 				7FE8705E24B02E400061A022 /* BadgeGridView.swift in Sources */,
-				7F7462C424AC5716007E5C03 /* Helpers.swift in Sources */,
+				7F7462C424AC5716007E5C03 /* Int.swift in Sources */,
 				7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */,
 				7F09AC2624AC3B0D00FA412E /* MonthView.swift in Sources */,
 				7F10E72B24ABE5DA009E3131 /* ProfileRowView.swift in Sources */,
@@ -389,9 +401,12 @@
 				7FE8705124AFD8350061A022 /* WeekHeaderView.swift in Sources */,
 				7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */,
 				7F10E72524ABD57A009E3131 /* AppView.swift in Sources */,
+				7F4F8B5A24B7720000054ECA /* Zone.swift in Sources */,
 				7F6AEC9C24ACC0A3007537C0 /* DateCell.swift in Sources */,
+				7F4F8B5C24B772D300054ECA /* createZones.swift in Sources */,
 				7FE8706424B0449B0061A022 /* BadgeRowView.swift in Sources */,
-				7FB0F81F24B6808200A57BEF /* Styles.swift in Sources */,
+				7F7892D524B77566002E2583 /* Date.swift in Sources */,
+				7FB0F81F24B6808200A57BEF /* CheckbozToggleStyle.swift in Sources */,
 				7FDCE89E24B75A8200E1C808 /* AllBadgesView.swift in Sources */,
 				7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */,
 				7FBF6E2924B2813800CC0FF2 /* ProfileChartView.swift in Sources */,
@@ -399,6 +414,7 @@
 				7FE8705324AFD92A0061A022 /* WeekHeaderCell.swift in Sources */,
 				7FE8706024B03CD70061A022 /* BadgeView.swift in Sources */,
 				7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */,
+				7F7892D724B77582002E2583 /* String.swift in Sources */,
 				7F10E72724ABDE28009E3131 /* ProfileView.swift in Sources */,
 				7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */,
 			);

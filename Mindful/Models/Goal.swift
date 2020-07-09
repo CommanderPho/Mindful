@@ -20,4 +20,8 @@ struct Goal: ApplicationRecord {
     
     static let badges = hasMany(Badge.self, using: Badge.goalForeignKey)
     var badges: QueryInterfaceRequest<Badge> { request(for: Goal.badges) }
+    
+    func isComplete() -> Bool {
+        return !self.dateCompleted.isEmpty
+    }
 }
