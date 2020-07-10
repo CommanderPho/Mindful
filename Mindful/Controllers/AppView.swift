@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-//    @State private var badges: [[Badge]] = []
-    
+struct ContentView: View {    
     var body: some View {
         TabView {
             // Profile

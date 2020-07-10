@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+class Obj: ObservableObject {
+    var title: String = "Str"
+}
+
 
 struct GoalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
