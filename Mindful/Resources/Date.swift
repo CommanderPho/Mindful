@@ -37,6 +37,31 @@ extension Date {
         return self.components.year!
     }
     
+    static func minsBetween(start: String, end: String) -> Int {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm"
+//        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
+        let dateFormatter = Date.createFormatter(format: "HH:mm")
+
+        let s = dateFormatter.date(from: start)
+        let e = dateFormatter.date(from: end)
+
+        let timeInterval = e!.timeIntervalSince(s!)
+        return Int(timeInterval / 60)
+    }
+    
+    static func createFormatter(format: String) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
+        return dateFormatter
+    }
+    
+    func timeStr() -> String {
+        let dateFormatter = Date.createFormatter(format: "HH:mm")
+        return dateFormatter.string(from: self)
+    }
+    
     func firstInMonth() -> Date {
         let offset = -(self.components.day! - 1)
         let firstDayInMonth = self.offsetBy(offset, withUnit: .day)
@@ -49,10 +74,10 @@ extension Date {
     }
     
     func str() -> String {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
-        dateFormatter.dateFormat = DATE_FORMAT
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
+//        dateFormatter.dateFormat = DATE_FORMAT
+        let dateFormatter = Date.createFormatter(format: DATE_FORMAT)
         return dateFormatter.string(from: self)
     }
     

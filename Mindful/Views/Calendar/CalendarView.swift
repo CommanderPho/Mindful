@@ -34,35 +34,41 @@ struct CalendarView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false){
-                VStack(alignment: .center){
-                    Text(focusDate.month).padding(.bottom, self.spacing)
-                        .font(.largeTitle)
-                    
-                    Divider()
-                    
-                    WeekHeaderView(spacing: self.spacing)
-                    
-                    Divider()
-                    
-                    MonthView(month: focusDate.createMonthArray2D(), spacing: self.spacing)
-                }
-                .navigationBarTitle(focusDate.year.str())
-                .navigationBarItems(
-                    leading: Button(self.lastMonthDate.month) { self.lastMonth() },
-                    trailing: Button(self.nextMonthDate.month) { self.nextMonth() }
-                )
+            VStack(alignment: .center){
+                Text(focusDate.month).padding(.bottom, self.spacing)
+                    .font(.largeTitle)
+                
+                Divider()
+                
+                WeekHeaderView(spacing: self.spacing)
+                
+                Divider()
+                
+                MonthView(month: focusDate.createMonthArray2D(), spacing: self.spacing)
             }
-            .gesture(DragGesture()
-                .onEnded({swipe in
-                    if swipe.location.x > swipe.startLocation.x {
-                        // left
-                        self.lastMonth()
-                    } else if swipe.location.x < swipe.startLocation.x {
-                        // right
-                        self.nextMonth()
-                    }})
+            .navigationBarTitle(focusDate.year.str())
+            .navigationBarItems(
+                leading: Button(self.lastMonthDate.month) { self.lastMonth() },
+                trailing: Button(self.nextMonthDate.month) { self.nextMonth() }
             )
+                .gesture(DragGesture().onEnded({swipe in
+                    //                let swipeDistance: CGFloat = swipe.location.x - swipe.startLocation.x
+                    let swipeDistance: CGFloat = swipe.location.y - swipe.startLocation.y
+                    let minSwipeDistance: CGFloat = 100
+                    let minDistanceMet: Bool = abs(swipeDistance) > minSwipeDistance
+                    
+                    if minDistanceMet {
+                        if swipeDistance > 0 {
+                            // left
+                            self.lastMonth()
+                        } else if swipeDistance < 0 && abs(swipeDistance) > minSwipeDistance {
+                            // right
+                            self.nextMonth()
+                        }
+                    }
+                }))
+                .transition(.slide)
         }
+        
     }
 }

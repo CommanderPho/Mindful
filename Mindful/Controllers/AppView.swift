@@ -16,6 +16,11 @@ struct ContentView: View {
             // Badges
             // Timer
             
+            ZoneCell(zone: Zone(id: nil, startTime: "", endTime: "", date: "", notes: "", minutesUsed: 0))
+                .tabItem {
+                    Image(systemName: "cloud.sun.bolt")
+                    Text("Awareness")
+            }
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
