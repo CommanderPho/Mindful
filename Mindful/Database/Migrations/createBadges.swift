@@ -14,7 +14,7 @@ let createBadges: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator
     
     if try DBM.inDatabase(table: tableName) { return }
     
-    print("createBadges migration performed")
+    print("create" + tableName.capitalized + "s migration performed")
     
     migrator.registerMigration("create" + tableName.capitalized) { db in
         try db.create(table: tableName) { tableDefinition in

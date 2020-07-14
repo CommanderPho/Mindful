@@ -29,6 +29,7 @@
 		7F7892D524B77566002E2583 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7892D424B77566002E2583 /* Date.swift */; };
 		7F7892D724B77582002E2583 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7892D624B77582002E2583 /* String.swift */; };
 		7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */; };
+		7FA5F22424BD339100BD00CA /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5F22324BD339100BD00CA /* TestView.swift */; };
 		7FA6D80324B82B4F00DC636F /* ZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6D80224B82B4F00DC636F /* ZoneCell.swift */; };
 		7FB0F81F24B6808200A57BEF /* CheckbozToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */; };
 		7FB1881D24B0595F00AC0769 /* NewBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */; };
@@ -43,6 +44,10 @@
 		7FE8706024B03CD70061A022 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8705F24B03CD70061A022 /* BadgeView.swift */; };
 		7FE8706224B0406E0061A022 /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8706124B0406E0061A022 /* BadgeCell.swift */; };
 		7FE8706424B0449B0061A022 /* BadgeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8706324B0449B0061A022 /* BadgeRowView.swift */; };
+		7FEA3A8F24BCB09800D86D6E /* ZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3A8E24BCB09800D86D6E /* ZoneView.swift */; };
+		7FEA3A9124BCB0D000D86D6E /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3A9024BCB0D000D86D6E /* GoalsListView.swift */; };
+		7FEA3A9324BCB13900D86D6E /* ZonesGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3A9224BCB13900D86D6E /* ZonesGroupView.swift */; };
+		7FEA3A9524BCB6E300D86D6E /* NewZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3A9424BCB6E300D86D6E /* NewZoneView.swift */; };
 		7FF1B5BB24895E9A00A3CC95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */; };
 		7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */; };
 		7FF1B5C424895E9C00A3CC95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */; };
@@ -74,6 +79,7 @@
 		7F7892D424B77566002E2583 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		7F7892D624B77582002E2583 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7F8D011224A6683F001B5A86 /* ApplicationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRecord.swift; sourceTree = "<group>"; };
+		7FA5F22324BD339100BD00CA /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		7FA6D80224B82B4F00DC636F /* ZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCell.swift; sourceTree = "<group>"; };
 		7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckbozToggleStyle.swift; sourceTree = "<group>"; };
 		7FB1881C24B0595F00AC0769 /* NewBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBadgeView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 		7FE8705F24B03CD70061A022 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		7FE8706124B0406E0061A022 /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		7FE8706324B0449B0061A022 /* BadgeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeRowView.swift; sourceTree = "<group>"; };
+		7FEA3A8E24BCB09800D86D6E /* ZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneView.swift; sourceTree = "<group>"; };
+		7FEA3A9024BCB0D000D86D6E /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
+		7FEA3A9224BCB13900D86D6E /* ZonesGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesGroupView.swift; sourceTree = "<group>"; };
+		7FEA3A9424BCB6E300D86D6E /* NewZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewZoneView.swift; sourceTree = "<group>"; };
 		7FF1B5B724895E9A00A3CC95 /* Mindful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF1B5BA24895E9A00A3CC95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF1B5BC24895E9A00A3CC95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 		7F742CC024A594F000C11E79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FEA3A8D24BCB08100D86D6E /* Zone */,
 				7FE8706624B057660061A022 /* Goal */,
 				7FE8706524B057500061A022 /* Badge */,
 				7FBBCDEE24AFC03D004FD5EF /* Calendar */,
@@ -226,13 +237,25 @@
 			children = (
 				7FBBCDEC24AFBD1C004FD5EF /* NewGoalView.swift */,
 				7F10E72C24ABEA4F009E3131 /* GoalView.swift */,
+				7FEA3A9024BCB0D000D86D6E /* GoalsListView.swift */,
 			);
 			path = Goal;
+			sourceTree = "<group>";
+		};
+		7FEA3A8D24BCB08100D86D6E /* Zone */ = {
+			isa = PBXGroup;
+			children = (
+				7FEA3A9424BCB6E300D86D6E /* NewZoneView.swift */,
+				7FEA3A8E24BCB09800D86D6E /* ZoneView.swift */,
+				7FEA3A9224BCB13900D86D6E /* ZonesGroupView.swift */,
+			);
+			path = Zone;
 			sourceTree = "<group>";
 		};
 		7FF1B5AE24895E9A00A3CC95 = {
 			isa = PBXGroup;
 			children = (
+				7FA5F22324BD339100BD00CA /* TestView.swift */,
 				7F742CC224A5961900C11E79 /* README.md */,
 				7FF1B5B924895E9A00A3CC95 /* Mindful */,
 				7FF1B5B824895E9A00A3CC95 /* Products */,
@@ -388,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA5F22424BD339100BD00CA /* TestView.swift in Sources */,
 				7F09AC0324ABEE0A00FA412E /* DayView.swift in Sources */,
 				7FE8705524AFE06F0061A022 /* CalendarView.swift in Sources */,
 				7FBBCDEB24AFB8D0004FD5EF /* WeekView.swift in Sources */,
@@ -395,6 +419,7 @@
 				7FE8705E24B02E400061A022 /* BadgeGridView.swift in Sources */,
 				7F7462C424AC5716007E5C03 /* Int.swift in Sources */,
 				7F10E72D24ABEA4F009E3131 /* GoalView.swift in Sources */,
+				7FEA3A9524BCB6E300D86D6E /* NewZoneView.swift in Sources */,
 				7F09AC2624AC3B0D00FA412E /* MonthView.swift in Sources */,
 				7F10E72B24ABE5DA009E3131 /* ProfileRowView.swift in Sources */,
 				7F30378A24A6C90200E50950 /* createGoals.swift in Sources */,
@@ -402,6 +427,7 @@
 				7F742CCE24A599E400C11E79 /* Badge.swift in Sources */,
 				7FBBCDED24AFBD1C004FD5EF /* NewGoalView.swift in Sources */,
 				7F0EB1C824B8DA2800CAB7F6 /* CollectionViewTest.swift in Sources */,
+				7FEA3A9324BCB13900D86D6E /* ZonesGroupView.swift in Sources */,
 				7F742CD524A5B3D300C11E79 /* DBManager.swift in Sources */,
 				7F30378C24A6E73100E50950 /* createBadges.swift in Sources */,
 				7F8D011324A6683F001B5A86 /* ApplicationRecord.swift in Sources */,
@@ -416,6 +442,7 @@
 				7FB0F81F24B6808200A57BEF /* CheckbozToggleStyle.swift in Sources */,
 				7FDCE89E24B75A8200E1C808 /* AllBadgesView.swift in Sources */,
 				7F09AC0124ABED6100FA412E /* GoalCell.swift in Sources */,
+				7FEA3A8F24BCB09800D86D6E /* ZoneView.swift in Sources */,
 				7FBF6E2924B2813800CC0FF2 /* ProfileChartView.swift in Sources */,
 				7FB1881D24B0595F00AC0769 /* NewBadgeView.swift in Sources */,
 				7FA6D80324B82B4F00DC636F /* ZoneCell.swift in Sources */,
@@ -424,6 +451,7 @@
 				7F742CCC24A599DA00C11E79 /* Goal.swift in Sources */,
 				7F7892D724B77582002E2583 /* String.swift in Sources */,
 				7F10E72724ABDE28009E3131 /* ProfileView.swift in Sources */,
+				7FEA3A9124BCB0D000D86D6E /* GoalsListView.swift in Sources */,
 				7FF1B5BD24895E9A00A3CC95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

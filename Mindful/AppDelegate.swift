@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         migrations = [
             createGoals,
             createBadges,
+            createZones,
         ]
         dbQueue = try! DBM.connectDB(atPath: databaseURL.path, withMigrations: migrations)
     }

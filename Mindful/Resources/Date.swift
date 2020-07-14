@@ -38,10 +38,7 @@ extension Date {
     }
     
     static func minsBetween(start: String, end: String) -> Int {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "HH:mm"
-//        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
-        let dateFormatter = Date.createFormatter(format: "HH:mm")
+        let dateFormatter = Date.createFormatter(format: TIME_FORMAT)
 
         let s = dateFormatter.date(from: start)
         let e = dateFormatter.date(from: end)
@@ -58,7 +55,7 @@ extension Date {
     }
     
     func timeStr() -> String {
-        let dateFormatter = Date.createFormatter(format: "HH:mm")
+        let dateFormatter = Date.createFormatter(format: TIME_FORMAT)
         return dateFormatter.string(from: self)
     }
     
@@ -74,9 +71,6 @@ extension Date {
     }
     
     func str() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
-//        dateFormatter.dateFormat = DATE_FORMAT
         let dateFormatter = Date.createFormatter(format: DATE_FORMAT)
         return dateFormatter.string(from: self)
     }
@@ -84,18 +78,6 @@ extension Date {
     
     func offsetBy(_ value: Int, withUnit: Calendar.Component) -> Date {
         return Calendar.current.date(byAdding: withUnit, value: value, to: self)!
-    }
-    
-    func goals() -> [Goal] {
-        var found: [Goal] = []
-        let string = self.str()
-        try? dbQueue?.read({ db in
-            found = try Goal
-                .filter(sql: "dateDue = ?",
-                        arguments: [string])
-                .fetchAll(db)
-        })
-        return found
     }
     
     func formatted() -> String {
@@ -143,5 +125,29 @@ extension Date {
         }
         
         return dates
+    }
+    
+    func goals() -> [Goal] {
+        var found: [Goal] = []
+        let string = self.str()
+        try? dbQueue?.read({ db in
+            found = try Goal
+                .filter(sql: "dateDue = ?",
+                        arguments: [string])
+                .fetchAll(db)
+        })
+        return found
+    }
+    
+    func zones() -> [Zone] {
+        var found: [Zone] = []
+        let string = self.str()
+        try? dbQueue?.read({ db in
+            found = try Zone
+                .filter(sql: "date = ?",
+                        arguments: [string])
+                .fetchAll(db)
+        })
+        return found
     }
 }

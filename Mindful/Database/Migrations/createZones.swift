@@ -14,14 +14,14 @@ let createZones: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
     
     if try DBM.inDatabase(table: tableName) { return }
     
-    print("createBadges migration performed")
+    print("create" + tableName.capitalized + "s migration performed")
     
     migrator.registerMigration("create" + tableName.capitalized) { db in
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
             
-            tableDefinition.column("startTime", .text).notNull().check { length($0) > 0 }
-            tableDefinition.column("endTime", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("startTime", .text).notNull().check { length($0) == TIME_FORMAT_LENGTH }
+            tableDefinition.column("endTime", .text).notNull().check { length($0) == TIME_FORMAT_LENGTH }
             tableDefinition.column("date", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }
             tableDefinition.column("notes", .text)
             tableDefinition.column("minutesUsed", .integer).notNull().defaults(to: 0)

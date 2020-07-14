@@ -16,22 +16,28 @@ struct ContentView: View {
             // Badges
             // Timer
             
-            ZoneCell(zone: Zone(id: nil, startTime: "", endTime: "", date: "", notes: "", minutesUsed: 0))
+//            ZoneCell(zone: Zone(id: nil, startTime: "", endTime: "", date: "", notes: "", minutesUsed: 0))
+//                .tabItem {
+//                    Image(systemName: "cloud.sun.bolt")
+//                    Text("Awareness")
+//            }
+            TestView()
                 .tabItem {
-                    Image(systemName: "cloud.sun.bolt")
-                    Text("Awareness")
+                    Image(systemName: "cloud")
+                    Text("Test")
             }
+            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+            }
+            
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
             }
             
-            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-            }
             
             AllBadgesView()
             .tabItem {

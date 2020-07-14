@@ -15,4 +15,11 @@ extension String {
         dateFormatter.dateFormat = DATE_FORMAT
         return dateFormatter.date(from: self)!
     }
+    
+    func toDateTime() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: Calendar.current.locale?.identifier ?? "en_US_POSIX")
+        dateFormatter.dateFormat = TIME_FORMAT
+        return dateFormatter.date(from: self)!
+    }
 }

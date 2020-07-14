@@ -14,7 +14,7 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
     
     if try DBM.inDatabase(table: tableName) { return }
     
-    print("createGoals migration performed")
+    print("create" + tableName.capitalized + "s migration performed")
     
     migrator.registerMigration("create" + tableName.capitalized) { db in
         

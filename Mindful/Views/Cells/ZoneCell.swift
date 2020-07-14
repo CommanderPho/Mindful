@@ -8,45 +8,41 @@
 
 import SwiftUI
 
+// consider using outside library
+// https://iosexample.com/ios-calendar-week-day-view-in-swift/
+
 struct ZoneCell: View {
     var zone: Zone
-    let first = "08:00"
-    let second = "23:00"
-    @State private var startTime: Date = Date()
-    @State private var endTime: Date = Date()
-    var body: some View {
-        VStack {
-            
-            Text("Create Awareness Zone")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-                .lineLimit(nil)
-                .frame(width: SCREEN_WIDTH / 2, height: SCREEN_WIDTH / 2, alignment: .center)
-                .foregroundColor(.blue)
-            
-            
-            Form {
-                Section{
-                    HStack{
-                        Text("Start")
-                        DatePicker("", selection: self.$startTime, displayedComponents: .hourAndMinute)
-                    }
-                }
-                Section{
-                    HStack {
-                        Text("End")
-                        DatePicker("", selection: self.$endTime, displayedComponents: .hourAndMinute)
-                    }
-                }
-            }
-            
-            Text(Date.minsBetween(start: startTime.timeStr(), end: endTime.timeStr()).str())
-        }
+    
+    private let hourHeight: CGFloat = 50
+    
+    private var color: Color {
+        let colors: [Color] = [.red, .green, .blue, .purple, .pink, .orange, .yellow]
+        let color: Color = colors[Int.random(in: 0...100) % colors.count]
+        return color
     }
-}
-
-struct ZoneCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ZoneCell(zone: Zone(id: 0, startTime: "", endTime: "", date: "", notes: "", minutesUsed: 0))
+    
+    private var mins: Int {
+        return Date.minsBetween(start: self.zone.startTime, end: self.zone.endTime)
+    }
+    
+    private var heightMod: CGFloat {
+        return CGFloat(mins) / 60
+    }
+    
+    private var yPos: CGFloat {
+        let numMins: Int = Date.minsBetween(start: "00:00", end: self.zone.startTime)
+        let hours: CGFloat = CGFloat(numMins) / 60
+        return hourHeight + hours * hourHeight
+    }
+    
+    var body: some View {
+        GeometryReader { g in
+            Rectangle()
+        }
+        .frame(width: 200, height: self.hourHeight * self.heightMod, alignment: .center)
+        .position(x: SCREEN_WIDTH / 2, y: self.yPos)
+        .foregroundColor(self.color)
+    .zIndex(1)
     }
 }
