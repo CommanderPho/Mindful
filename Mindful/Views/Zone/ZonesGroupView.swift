@@ -14,48 +14,47 @@ struct ZonesGroupView: View {
     var date: Date
     @State private var zones: [Zone] = []
     
-    private let hrs: [Int] = Array(0...24)
+    private let hrs: [Int] = Array(1...24)
+    private let hourHeight: CGFloat = 60
+    
     var body: some View {
-        VStack {
-            
-            Text("Zones")
-                .font(.largeTitle)
-            Text(zones.count.str())
-            
+        VStack(spacing: 0) {
             ScrollView {
-                ZStack(alignment: .top) {
-                    VStack {
+                ZStack {
+                    VStack(alignment: .leading, spacing: 0) {
                         ForEach(self.hrs, id: \.self) { hr in
-                            HStack(alignment: .center, spacing: 0) {
-                                Text(hr.str())
-                                VStack(alignment: .center, spacing: 0) {
-                                    Divider()
-                                }
-                        }
-                        }.frame(height: 50)
-                    }
-                    
-                    Section {
-                        ForEach(self.zones, id: \.self) { zone in
-                            NavigationLink(destination: ZoneView(zone: zone)){
-                                ZoneCell(zone: zone)
+                            
+                            VStack (alignment: .leading, spacing: 0){
+                                Divider()
+                                Text(hr.toHourStr())
+
+                                Spacer()
                             }
+                            .frame(height: self.hourHeight)
+                            .border(Color.black)
                         }
                     }
                     
-                    }
-                
-                .navigationBarItems(trailing:
-                    Image(systemName: "plus")
-                        .onTapGesture { self.showingNewZoneModal.toggle() }
-                        .foregroundColor(.accentColor)
-                        .sheet(isPresented: self.$showingNewZoneModal, content: { NewZoneView(date: self.date)}))
-                    .onReceive([self.zones].publisher.first(), perform: { value in
-                        if self.zones != self.date.zones() {
-                            self.zones = self.date.zones()
+                    ZStack {
+                        ForEach(self.zones, id: \.self) { zone in
+                            ZoneCell(zone: zone, hourHeight: self.hourHeight)
                         }
-                    })
+                    }
+                }
+                
             }
         }
+        .navigationBarTitle(date.formatted())
+        .navigationBarItems(trailing:
+            Image(systemName: "plus")
+                .onTapGesture { self.showingNewZoneModal.toggle() }
+                .foregroundColor(.accentColor)
+                .sheet(isPresented: self.$showingNewZoneModal, content: { NewZoneView(date: self.date)}))
+            .onReceive([self.zones].publisher.first(), perform: { value in
+                if self.zones != self.date.zones() {
+                    self.zones = self.date.zones()
+                }
+            })
     }
+    
 }

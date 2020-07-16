@@ -23,6 +23,7 @@ struct DateCell: View {
     private var fontColor: Color { return colorScheme == .dark ? .white : .secondary }
     
     var body: some View {
+        NavigationLink(destination: DayView(date: self.date)) {
         VStack(alignment: .center, spacing: self.verticalItemSpacing) {
             Spacer()
             ZStack(alignment: .center) {
@@ -48,5 +49,6 @@ struct DateCell: View {
                 : nil
         )
             .foregroundColor(self.fontColor)
+        }
     }
 }

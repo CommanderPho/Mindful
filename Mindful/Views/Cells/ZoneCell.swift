@@ -13,36 +13,34 @@ import SwiftUI
 
 struct ZoneCell: View {
     var zone: Zone
-    
-    private let hourHeight: CGFloat = 50
+    let hourHeight: CGFloat
     
     private var color: Color {
-        let colors: [Color] = [.red, .green, .blue, .purple, .pink, .orange, .yellow]
+        let colors: [Color] = [.red, .green, .purple, .pink, .orange, .yellow]
         let color: Color = colors[Int.random(in: 0...100) % colors.count]
         return color
     }
     
-    private var mins: Int {
-        return Date.minsBetween(start: self.zone.startTime, end: self.zone.endTime)
-    }
-    
-    private var heightMod: CGFloat {
-        return CGFloat(mins) / 60
+    private var height: CGFloat {
+        let mins: Int =  abs(Date.minsBetween(start: self.zone.startTime, end: self.zone.endTime))
+        let h: CGFloat = (CGFloat(mins) / 60) * hourHeight
+        
+        return h
     }
     
     private var yPos: CGFloat {
-        let numMins: Int = Date.minsBetween(start: "00:00", end: self.zone.startTime)
-        let hours: CGFloat = CGFloat(numMins) / 60
-        return hourHeight + hours * hourHeight
+        let mins: Int = Date.minsBetween(start: "00:00", end: self.zone.startTime)
+        let y: CGFloat = (CGFloat(mins) / 60) * hourHeight
+        return y - self.height / 2 //+ self.hourHeight / 2
     }
     
     var body: some View {
-        GeometryReader { g in
-            Rectangle()
-        }
-        .frame(width: 200, height: self.hourHeight * self.heightMod, alignment: .center)
-        .position(x: SCREEN_WIDTH / 2, y: self.yPos)
-        .foregroundColor(self.color)
-    .zIndex(1)
+
+            NavigationLink(destination: ZoneView(zone: self.zone)){
+                Rectangle()
+            }
+            .frame(width: SCREEN_WIDTH / 2, height: self.height)
+            .position(x: SCREEN_WIDTH / 2, y: self.yPos)
+            .foregroundColor(self.color)
     }
 }
