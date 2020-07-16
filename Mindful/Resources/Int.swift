@@ -22,5 +22,23 @@ extension Int {
     func str() -> String {
         return String(self)
     }
+    
+    func toHourStr() -> String {
+        let halfDay: Int = 12
+        let fullDay: Int = halfDay * 2
+        if (self == 0) {
+            return "Morning"
+        } else if (self < halfDay && self > 0) {
+            return self.str() + " AM"
+        } else if (self == halfDay) {
+            return "Noon"
+        } else if (self > halfDay && self < fullDay) {
+            return (self - halfDay).str() + " PM"
+        } else if (self == fullDay) {
+            return "Midnight"
+        } else {
+            return "Time does not exist."
+        }
+    }
 }
 

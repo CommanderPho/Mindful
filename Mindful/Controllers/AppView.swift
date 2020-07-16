@@ -21,11 +21,13 @@ struct ContentView: View {
 //                    Image(systemName: "cloud.sun.bolt")
 //                    Text("Awareness")
 //            }
-            TestView()
-                .tabItem {
-                    Image(systemName: "cloud")
-                    Text("Test")
-            }
+//            TestView()
+//            ZonesGroupView(date: Date())
+//                .tabItem {
+//                    Image(systemName: "cloud")
+//                    Text("Test")
+//            }
+            
             CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
                 .tabItem {
                     Image(systemName: "calendar")

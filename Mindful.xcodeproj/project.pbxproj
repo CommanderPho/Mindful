@@ -131,7 +131,6 @@
 		7F742CBE24A594E500C11E79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FF1B5C524895E9C00A3CC95 /* LaunchScreen.storyboard */,
 				7F10E72824ABE111009E3131 /* Constants.swift */,
 				7FB0F81E24B6808200A57BEF /* CheckbozToggleStyle.swift */,
@@ -255,6 +254,7 @@
 		7FF1B5AE24895E9A00A3CC95 = {
 			isa = PBXGroup;
 			children = (
+				7FF1B5C324895E9C00A3CC95 /* Assets.xcassets */,
 				7FA5F22324BD339100BD00CA /* TestView.swift */,
 				7F742CC224A5961900C11E79 /* README.md */,
 				7FF1B5B924895E9A00A3CC95 /* Mindful */,
@@ -314,6 +314,8 @@
 			dependencies = (
 			);
 			name = Mindful;
+			packageProductDependencies = (
+			);
 			productName = Mindful;
 			productReference = 7FF1B5B724895E9A00A3CC95 /* Mindful.app */;
 			productType = "com.apple.product-type.application";
@@ -342,6 +344,8 @@
 				Base,
 			);
 			mainGroup = 7FF1B5AE24895E9A00A3CC95;
+			packageReferences = (
+			);
 			productRefGroup = 7FF1B5B824895E9A00A3CC95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
