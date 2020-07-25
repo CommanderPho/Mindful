@@ -14,10 +14,8 @@ struct WeekView: View {
     var body: some View {
         HStack(spacing: self.spacing) {
             ForEach(self.week, id: \.self) { day in
-                
-                    DateCell(date: day, spacing: self.spacing)
-                }
+                DateCell(date: day, spacing: self.spacing)
             }
-//        }
+        }
     }
 }

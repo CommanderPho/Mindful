@@ -148,6 +148,9 @@ extension Date {
                         arguments: [string])
                 .fetchAll(db)
         })
-        return found
+        
+        
+        
+        return found.sorted {$0.startTime < $1.startTime}
     }
 }

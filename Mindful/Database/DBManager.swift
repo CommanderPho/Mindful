@@ -155,6 +155,10 @@ class DBManager {
                           dateEarned: (i % 2 == 0) ? Date().offsetBy(dayOffset, withUnit: .day).str() : "")
                     
                     try badge.insert(db)
+//                    
+//                    let zone = Zone(id: nil,
+//                                    startTime: (i % 24).toHourStr(), endTime: (24 - i % 24).toHourStr(), date: Date().offsetBy(1, withUnit: .day).str(), notes: "notes", minutesUsed: 0)
+//                    try zone.insert(db)
                 }
             })
         }

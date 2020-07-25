@@ -37,7 +37,7 @@ struct ZonesGroupView: View {
                     
                     ZStack {
                         ForEach(self.zones, id: \.self) { zone in
-                            ZoneCell(zone: zone, hourHeight: self.hourHeight)
+                            ZoneCell(zone: zone)
                         }
                     }
                 }

@@ -41,7 +41,8 @@ struct DateCell: View {
             Spacer()
         }
         .frame(width: self.dim, height: self.height)
-        .onAppear(perform: { self.isEmpty = self.date.goals().isEmpty })
+//        .onAppear(perform: { self.isEmpty = self.date.goals().isEmpty })
+        .onAppear(perform: { self.isEmpty = self.date.zones().isEmpty })
         .overlay(
             CALENDAR_CELL_BORDER_SHOWING
                 ? RoundedRectangle(cornerRadius: CALENDAR_CELL_CORNER_RADIUS)

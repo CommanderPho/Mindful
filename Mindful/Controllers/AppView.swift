@@ -28,17 +28,19 @@ struct ContentView: View {
 //                    Text("Test")
 //            }
             
-            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-            }
             
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
             }
+            
+            CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Calendar")
+            }
+            
             
             
             AllBadgesView()

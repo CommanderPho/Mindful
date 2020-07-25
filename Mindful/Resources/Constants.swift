@@ -23,8 +23,8 @@ private let USE_14: Bool = AVAILABLE_14
 #else
 #endif
 
-let SHOULD_SEED_DB: Bool = false
-let SHOULD_ERASE_DB: Bool = false
+let SHOULD_SEED_DB: Bool = true
+let SHOULD_ERASE_DB: Bool = true
 let SHOW_ALL_BORDERS: Bool = false
 
 let SCREEN_SIZE: CGRect = UIScreen.main.bounds

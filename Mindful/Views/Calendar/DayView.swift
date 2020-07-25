@@ -16,6 +16,7 @@ struct DayView: View {
     
     var body: some View {
 //        GoalsListView(date: self.date)
-        ZonesGroupView(date: self.date)
+//        ZonesGroupView(date: self.date)
+        ZonesListView(date: self.date)
     }
 }
