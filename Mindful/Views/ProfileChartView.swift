@@ -9,6 +9,14 @@
 import SwiftUI
 
 struct ProfileChartView: View {
+    
+    var todayPoints: Int = 10
+    var totalPoints: Int { return Int(pointsPerDay.reduce(0, +)) }
+    let bigCircleDim: CGFloat = SCREEN_WIDTH / 3
+    let medCircleDim: CGFloat = SCREEN_WIDTH / 4
+    let chartSpacing: CGFloat = 5
+    
+    
     let pointsPerDay: [CGFloat]
     let spacing: CGFloat
     let columns: Int = Date.weekdays.count
@@ -24,6 +32,34 @@ struct ProfileChartView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: self.spacing) {
+            VStack(spacing: self.spacing){
+                Text("Points Earned Today")
+                    .font(.title)
+                Spacer()
+                ZStack(alignment: .center) {
+                    RoundedRectangle(cornerRadius: 100)
+                        .stroke(lineWidth: 5)
+                        .foregroundColor(.blue)
+                        .frame(width: self.bigCircleDim, height: self.bigCircleDim)
+                    
+                    Text(todayPoints.str())
+                        .font(.largeTitle)
+                }
+            }
+            Spacer()
+            VStack(spacing: self.spacing) {
+                Text("Total Points")
+                    .font(.title)
+                ZStack(alignment: .center) {
+                    RoundedRectangle(cornerRadius: 100)
+                        .stroke(lineWidth: 5)
+                        .foregroundColor(.blue)
+                        .frame(width: self.medCircleDim, height: self.medCircleDim)
+                    
+                    Text(totalPoints.str())
+                        .font(.largeTitle)
+                }
+            }
             HStack(alignment: .bottom, spacing: self.spacing) {
                 ForEach(self.normalizedHeights, id: \.self) { heightBase in
                     VStack(spacing: self.spacing) {

@@ -8,6 +8,25 @@
 
 import SwiftUI
 
+struct GoalsListFromGoalsView: View {
+    
+    @State var goals: [Goal]
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("Goals")
+                .font(.largeTitle)
+            
+            List{
+                ForEach(self.goals) { goal in
+                    GoalCell(goal: goal)
+                }
+            .navigationBarTitle(Text("Goals"), displayMode: .inline)
+        }
+    }
+}
+}
+
 struct GoalsListView: View {
     @State private var showingNewGoalModal: Bool = false
     

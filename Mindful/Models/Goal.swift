@@ -11,6 +11,7 @@ import GRDB
 struct Goal: ApplicationRecord {
     
     var id: Int64?
+    var zoneId: Int64?
     
     var title: String
     var description: String
@@ -24,4 +25,8 @@ struct Goal: ApplicationRecord {
     func isComplete() -> Bool {
         return !self.dateCompleted.isEmpty
     }
+    
+    static let zoneForeignKey = ForeignKey(["zoneId"])
+    static let zone = belongsTo(Zone.self, using: zoneForeignKey)
+    var zone: QueryInterfaceRequest<Zone> { request(for: Goal.zone) }
 }

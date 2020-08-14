@@ -20,6 +20,7 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
         
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
+            tableDefinition.column("zoneId", .integer).references(Zone.databaseTableName, onDelete: .cascade)
             tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
             tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
             tableDefinition.column("dateCreated", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }

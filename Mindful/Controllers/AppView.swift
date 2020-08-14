@@ -8,31 +8,16 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var showYesterdayGoalsModal: Bool = true
+    @State var showToday: Bool = true
     var body: some View {
         TabView {
-            // Profile
-            // Calendar
-            // Badges
-            // Timer
-            
-//            ZoneCell(zone: Zone(id: nil, startTime: "", endTime: "", date: "", notes: "", minutesUsed: 0))
-//                .tabItem {
-//                    Image(systemName: "cloud.sun.bolt")
-//                    Text("Awareness")
-//            }
-//            TestView()
-//            ZonesGroupView(date: Date())
-//                .tabItem {
-//                    Image(systemName: "cloud")
-//                    Text("Test")
-//            }
-            
-            
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
-                    Text("Profile")
+                    Text("Progress")
             }
             
             CalendarView(focusDate: Date(), spacing: CALENDAR_CELL_SPACING)
@@ -40,14 +25,10 @@ struct ContentView: View {
                     Image(systemName: "calendar")
                     Text("Calendar")
             }
+            .sheet(isPresented: self.$showToday, content: { DayView(date: Date()) })
             
-            
-            
-            AllBadgesView()
-            .tabItem {
-                Image(systemName: "rosette")
-                Text("Badges")
-            }
         }
+        .sheet(isPresented: self.$showYesterdayGoalsModal, content: { GoalsListFromGoalsView(goals: Date().offsetBy(-1, withUnit: .day).goals()) })
+    
     }
 }

@@ -100,6 +100,15 @@ class DBManager {
         return record
     }
     
+    static func findByKey<T: ApplicationRecord>(_ model: T.Type, keyName: String, keyValue: DatabaseValueConvertible?) -> T? {
+        var record: T?
+        try? dbQueue?.read({ db in
+            record = try T.fetchOne(db, key: [keyName: keyValue])
+        })
+        return record
+    }
+
+    
     // delete item from DB
     static func delete<T: ApplicationRecord>(_ model: T) -> Bool {
         var success: Bool = false
@@ -138,6 +147,7 @@ class DBManager {
                 for i in idx..<(idx+numSeeds) {
                 let dayOffset: Int = i - idx
                     let goal = Goal(id: nil,
+                        zoneId: nil,
                           title: "Title " + String(i),
                           description: "Description " + String(i),
                           dateCreated: Date().offsetBy(dayOffset, withUnit: .day).str(),

@@ -11,6 +11,7 @@ import SwiftUI
 struct NewGoalView: View {
     
     let dateDue: Date
+    var uuid: String = ""
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var title: String = ""
@@ -30,8 +31,11 @@ struct NewGoalView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button("Create Goal", action: {
+                let zone = DBM.findByKey(Zone.self, keyName: "uuid", keyValue: self.uuid)
+                let zoneId = ((zone != nil) && self.uuid.count > 0) ? zone!.id : nil
                 let goal: Goal = Goal(
                     id: nil,
+                    zoneId: zoneId,
                     title: self.title,
                     description: self.description,
                     dateCreated: Date().str(),

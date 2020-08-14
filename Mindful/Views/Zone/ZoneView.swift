@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ZoneView: View {
     var zone: Zone
+    var goals: [Goal] { return DBM.hasMany(self.zone.goals) }
     var body: some View {
         VStack {
             Text("Zone View")
@@ -18,6 +19,11 @@ struct ZoneView: View {
             Text("end: " + self.zone.endTime.toDateTime().timeStr())
             Text("notes: " + self.zone.notes)
             Text("minutesUsed: " + self.zone.minutesUsed.str())
+            List {
+                ForEach(self.goals) { goal in
+                    GoalCell(goal: goal)
+                }
+            }
         }
     }
 }
