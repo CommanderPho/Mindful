@@ -10,8 +10,19 @@ import SwiftUI
 
 struct ProfileChartView: View {
     
-    var todayPoints: Int = 10
-    var totalPoints: Int { return Int(pointsPerDay.reduce(0, +)) }
+    var earnedTodayGoals: [Goal] {
+        return DBM.all(Goal.self).filter { goal in goal.dateCompleted == Date().str() }
+    }
+    
+    var goalPointMod: Int = 10
+//    var todayPoints: Int = 10
+    var todayPoints: Int {
+        return self.earnedTodayGoals.count * goalPointMod
+    }
+//    var totalPoints: Int { return Int(pointsPerDay.reduce(0, +)) }
+    var totalPoints: Int {
+        return DBM.all(Goal.self).filter { goal in goal.dateCompleted.count > 0 }.count * goalPointMod
+    }
     let bigCircleDim: CGFloat = SCREEN_WIDTH / 3
     let medCircleDim: CGFloat = SCREEN_WIDTH / 4
     let chartSpacing: CGFloat = 5
@@ -26,16 +37,16 @@ struct ProfileChartView: View {
     private var unitWidth: CGFloat { return SCREEN_WIDTH / CGFloat(self.columns) - self.spacing }
     
     private var normalizedHeights: [CGFloat] {
-        let max = self.maxPoints
-        return pointsPerDay.map { $0 / max }
+        let max = self.maxPoints > 0 ? self.maxPoints : 30
+        return pointsPerDay.map { (($0 > 0.0) ? ($0 + 1.0) : 1) / max }
     }
     
     var body: some View {
         VStack(alignment: .center, spacing: self.spacing) {
-            VStack(spacing: self.spacing){
+            VStack(spacing: 10){
                 Text("Points Earned Today")
                     .font(.title)
-                Spacer()
+//                Spacer()
                 ZStack(alignment: .center) {
                     RoundedRectangle(cornerRadius: 100)
                         .stroke(lineWidth: 5)
@@ -46,7 +57,7 @@ struct ProfileChartView: View {
                         .font(.largeTitle)
                 }
             }
-            Spacer()
+//            Spacer()
             VStack(spacing: self.spacing) {
                 Text("Total Points")
                     .font(.title)
@@ -60,6 +71,7 @@ struct ProfileChartView: View {
                         .font(.largeTitle)
                 }
             }
+            Spacer()
             HStack(alignment: .bottom, spacing: self.spacing) {
                 ForEach(self.normalizedHeights, id: \.self) { heightBase in
                     VStack(spacing: self.spacing) {

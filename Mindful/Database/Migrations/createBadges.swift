@@ -21,7 +21,7 @@ let createBadges: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator
             tableDefinition.column("id", .integer).primaryKey()
             tableDefinition.column("goalId", .integer).references(Goal.databaseTableName, onDelete: .cascade).notNull()
             tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
-            tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("description", .text)
             tableDefinition.column("imageName", .text).notNull().defaults(to: "badge")
             tableDefinition.column("dateEarned", .text)
         }

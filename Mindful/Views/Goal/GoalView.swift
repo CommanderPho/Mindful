@@ -22,6 +22,7 @@ struct GoalView: View {
     @State private var errorMessage: String = ""
     @State private var badges: [[Badge]] = []
     
+    
     let spacing: CGFloat = 10
     
     var body: some View {
@@ -31,6 +32,8 @@ struct GoalView: View {
                     .foregroundColor(.red)
                 
                 Spacer()
+                Text(self.goal.title)
+                    
                 
                 VStack(alignment: .center, spacing: self.spacing) {
                     Text(self.goal.description)
@@ -41,6 +44,11 @@ struct GoalView: View {
                                 self.goal.dateCompleted = !self.goal.isComplete() ? Date().str() : ""
                                 if DBM.update(self.goal) { self.errorMessage = "" }
                                 else { self.errorMessage = "Unable to save to DB" }
+                            }
+                            
+                            if self.goal.isComplete() && DBM.hasMany(self.goal.badges).count <= 0 {
+                                let newBadge = Badge(id: nil, goalId: self.goal.id, title: "Completed goal!", description: "You completed a goal on " + Date().str() + "!", imageName: "2day", dateEarned: Date().str())
+                                _ = DBM.insert(newBadge)
                             }
                         })
                         .toggleStyle(CheckboxToggleStyle(spacing: self.spacing))

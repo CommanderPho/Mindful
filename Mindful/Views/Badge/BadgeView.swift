@@ -33,7 +33,9 @@ struct BadgeView: View {
                 Spacer()
                 
                 Image(badge.imageName)
-                    .scaleEffect(3)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: SCREEN_WIDTH / 2, height: SCREEN_WIDTH / 2)
                 
                 Spacer()
                 

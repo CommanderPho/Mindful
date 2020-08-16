@@ -24,8 +24,9 @@ private let USE_14: Bool = AVAILABLE_14
 #endif
 
 let SHOULD_SEED_DB: Bool = false
-let SHOULD_ERASE_DB: Bool = true
+let SHOULD_ERASE_DB: Bool = false
 let SHOW_ALL_BORDERS: Bool = false
+let GOAL_TITLE_CHAR_LIMIT: Int = 200
 
 let SCREEN_SIZE: CGRect = UIScreen.main.bounds
 let SCREEN_WIDTH: CGFloat = SCREEN_SIZE.width
@@ -65,3 +66,18 @@ let INCOMPLETE_MESSAGE = "IN-PROGRESS"
 let COMPLETE_MESSAGE = "COMPLETE"
 
 let CHECKBOX_DIM: CGFloat = SCREEN_WIDTH / 20
+
+
+let SYSTEM_BADGE_TITLES = [
+    "Created first awareness zone",
+    "First day feedback",
+    "Completed third day feedback",
+    "Met goal for an awareness zone",
+    "Met goals for 5 different awareness zones",
+    "Met goals for 10 different awareness zones",
+    "Used awareness zones for 7 days in a row"
+]
+
+func checkForSystemBadge(title: String) {
+    
+}

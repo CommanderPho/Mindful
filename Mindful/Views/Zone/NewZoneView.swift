@@ -11,18 +11,19 @@ import SwiftUI
 struct NewZoneView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var date: Date
-    @State private var startTime: Date = "00:00".toDateTime()
-    @State private var endTime: Date = "12:00".toDateTime()
+    @State private var startTime: Date = Date().time().toDateTime()
+    @State private var endTime: Date = Date().time(offsetByMinutes: 30).toDateTime()
     @State private var notes: String = ""
     @State private var errorMessage: String = ""
     private var minutesUsed: Int { return Date.minsBetween(start: self.startTime.timeStr(), end: self.endTime.timeStr())}
     
-    @State var selection: Int? = nil
+//    @State var selection: Int? = nil
     @State var uuid: String = UUID().uuidString
-    @State var shouldDismiss: Bool = false
+//    @State var shouldDismiss: Bool = false
+    @State var selectedGoals: [Goal] = []
     
-    @State private var selectedGoalIdx = -1
-    private var goals: [Goal] {
+    @State var goals: [Goal] = []
+    var fetchedGoals: [Goal] {
         let allGoals: [Goal] = DBM.all(Goal.self)
         var uniqueGoals: [Goal] = []
         var uniqueTitles: Set<String> = []
@@ -33,29 +34,17 @@ struct NewZoneView: View {
             }
         }
         
-        
         return uniqueGoals
     }
     
     var body: some View {
         NavigationView {
-            
-            
             VStack {
-                Text(self.errorMessage)
-                
                 Text(self.date.formatted())
                     .font(.largeTitle)
-                
-                Text("Create Awareness Zone")
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
-                    .frame(width: SCREEN_WIDTH / 2, height: SCREEN_WIDTH / 2, alignment: .center)
-                    .foregroundColor(.blue)
-                
-                
                 Form {
+                    
+                    
                     Section{
                         HStack{
                             Text("Start")
@@ -72,63 +61,100 @@ struct NewZoneView: View {
                         TextField("Notes", text: self.$notes)
                     }
                     
-                    Picker(self.selectedGoalIdx >= 0 && self.selectedGoalIdx < self.goals.count ? self.goals[selectedGoalIdx].title : "Pick a Goal", selection: self.$selectedGoalIdx) {
-                        ForEach(self.goals) { goal in
-                            Text(goal.title)
+                    Section {
+                        MultipleSelectionList(items: self.$goals, selections: self.$selectedGoals)
+                    }
+                    
+                    
+                }
+                .onAppear() {
+                    self.goals = self.fetchedGoals
+                }
+                
+//                Text(Date.minsBetween(start: startTime.timeStr(), end: endTime.timeStr()).str())
+                
+                NavigationLink(destination: NewGoalView(dateDue: self.date, uuid: self.uuid)){
+                    Text("New Goal")
+                }
+                Spacer()
+                
+                Button("Create Zone", action: {
+                    
+                    let zone: Zone = Zone(
+                        id: nil,
+                        uuid: self.uuid,
+                        startTime: self.startTime.timeStr(),
+                        endTime: self.endTime.timeStr(),
+                        date: self.date.str(),
+                        notes: self.notes,
+                        minutesUsed: self.minutesUsed)
+                    
+                    if DBM.insert(zone) {
+                        
+                        self.errorMessage = ""
+                        
+                        var i = 0
+                        let fetchedZone = DBM.findByKey(Zone.self, keyName: "uuid", keyValue: self.uuid)
+                        
+                        while i < self.selectedGoals.count {
+                            self.selectedGoals[i].zoneId = fetchedZone?.id
+                            self.selectedGoals[i].id = nil
+                            
+                            _ = DBM.insert(self.selectedGoals[i])
+                            i+=1
                         }
+                        self.presentationMode.wrappedValue.dismiss()
+                    } else {
+                        // was unable to insert
+                        self.errorMessage = "Could not save zone"
+                    }
+                })
+                
+                
+            }
+        }
+        
+    }
+}
+
+struct MultipleSelectionList: View {
+    //    @State var items: [String] = ["Apples", "Oranges", "Bananas", "Pears", "Mangos", "Grapefruit"]
+    @Binding var items: [Goal]
+    @Binding var selections: [Goal]
+    
+    var body: some View {
+        List {
+            ForEach(self.items, id: \.self) { goal in
+                MultipleSelectionRow(title: goal.title, isSelected: self.selections.contains(goal)) {
+                    if self.selections.contains(goal) {
+                        self.selections.removeAll(where: { $0 == goal })
+                    }
+                    else {
+                        
+                        self.selections.append(goal)
+                        self.selections[self.selections.count - 1].dateCompleted = ""
                     }
                 }
-                
-                Text(Date.minsBetween(start: startTime.timeStr(), end: endTime.timeStr()).str())
-                
-                NavigationLink(destination: NewGoalView(dateDue: self.date, uuid: self.uuid), tag: 1, selection: self.$selection){
-                    
-                    Button("Create Zone", action: {
-                        
-                        let zone: Zone = Zone(
-                            id: nil,
-                            uuid: self.uuid,
-                            startTime: self.startTime.timeStr(),
-                            endTime: self.endTime.timeStr(),
-                            date: self.date.str(),
-                            notes: self.notes,
-                            minutesUsed: self.minutesUsed)
-                        
-                        if self.selectedGoalIdx < self.goals.count && self.selectedGoalIdx >= 0{
-                
-                            let goal = self.goals[self.selectedGoalIdx]
-                            
-                            if DBM.insert(goal) {
-                                print("created goal")
-                            }
-                        }
-                        
-                        
-                        if DBM.insert(zone) {
-                            self.selection = 1
-                            self.shouldDismiss = true
-                            self.errorMessage = ""
-                            
-                            //                    print(zone.fetchSelf())
-                            
-                            //                    self.presentationMode.wrappedValue.dismiss()
-                        } else {
-                            // was unable to insert
-                            self.errorMessage = "Could not save zone"
-                        }
-                    })
-                }
-                
             }
         }
-        .onReceive([self.selection].publisher.first()) { value in
-            if (value == nil && self.shouldDismiss) {
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        }.onReceive([self.selectedGoalIdx].publisher.first()) { value in
-            print(value)
-        }
-    
+    }
+}
 
+
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
+    
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+            }
+        }
     }
 }

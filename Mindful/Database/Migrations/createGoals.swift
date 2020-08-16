@@ -21,11 +21,11 @@ let createGoals: (_ migrator: inout DatabaseMigrator) throws -> () = { migrator 
         try db.create(table: tableName) { tableDefinition in
             tableDefinition.column("id", .integer).primaryKey()
             tableDefinition.column("zoneId", .integer).references(Zone.databaseTableName, onDelete: .cascade)
-            tableDefinition.column("title", .text).notNull().check { length($0) > 0 }
-            tableDefinition.column("description", .text).notNull().check { length($0) > 0 }
+            tableDefinition.column("title", .text).notNull().check { length($0) > 0 && length($0) < GOAL_TITLE_CHAR_LIMIT}
+            tableDefinition.column("description", .text)
             tableDefinition.column("dateCreated", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }
             tableDefinition.column("dateCompleted", .text)
-            tableDefinition.column("dateDue", .text).notNull().check { length($0) == DATE_FORMAT_LENGTH }
+            tableDefinition.column("dateDue", .text)
         }
     }
 }

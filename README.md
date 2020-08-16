@@ -1,20 +1,23 @@
 ---------------------------------------------------------------------------------------------------------
 # Features to add
 ---------------------------------------------------------------------------------------------------------
-### Model DayView after iOS calendar app
-### Awareness zones
-### Add Awareness Zone Model
-### Edit Badges
-### Edit Goals
-### Badge earned conditions
-### Goal completed conditions
-### Remove past goals
-### Statistics Page
-### Calendar Search
-### Point System
-### Set repeating goals and badges
-### Have a 'Today' button that sets the focusDate to Date()
-### Potentially remove buttons for last and next month
+
+- Model DayView after iOS calendar app
+- Awareness zones
+- Add Awareness Zone Model
+- Edit Badges
+- Edit Goals
+- Badge earned conditions
+- Goal completed conditions
+- Remove past goals
+- Statistics Page
+- Calendar Search
+- Point System
+- Set repeating goals and badges
+- Have a 'Today' button that sets the focusDate to Date()
+- Potentially remove buttons for last and next month
+
+
 ---------------------------------------------------------------------------------------------------------
 
 

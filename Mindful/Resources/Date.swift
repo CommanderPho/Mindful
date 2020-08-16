@@ -37,6 +37,15 @@ extension Date {
         return self.components.year!
     }
     
+    func time(offsetByHours: Int = 0, offsetByMinutes: Int = 0) -> String {
+        var useDate = self
+        useDate = useDate.offsetBy(offsetByHours, withUnit: .hour)
+        useDate = useDate.offsetBy(offsetByMinutes, withUnit: .minute)
+        let minutes = useDate.components.minute
+        let hours = useDate.components.hour
+        return hours!.str() + ":" + minutes!.str()
+    }
+    
     static func minsBetween(start: String, end: String) -> Int {
         let dateFormatter = Date.createFormatter(format: TIME_FORMAT)
 

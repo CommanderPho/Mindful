@@ -16,7 +16,7 @@ struct ZonesListView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Zones")
+            Text("Awareness Zones")
                 .font(.largeTitle)
             
             List{

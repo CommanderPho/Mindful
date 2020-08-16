@@ -34,25 +34,20 @@ struct ZoneCell: View {
 //        return y - self.height / 2 //+ self.hourHeight / 2
 //    }
     
+    var goals: [Goal] { return DBM.hasMany(self.zone.goals) }
+    var goalsCompleted: [Bool] { return goals.map { $0.dateCompleted.count > 0 }.filter { included in included == true } }
+    @State var numGoalsCompleted: Int = 0
+    @State var numGoals: Int = 0
     var body: some View {
-
-//            NavigationLink(destination: ZoneView(zone: self.zone)){
-//                Rectangle()
-//            }
-//            .frame(width: SCREEN_WIDTH / 2, height: self.height)
-//            .position(x: SCREEN_WIDTH / 2, y: self.yPos)
-//            .foregroundColor(self.color)
-        
         NavigationLink(destination: ZoneView(zone: self.zone)){
             HStack {
-                Text(zone.date)
+                Text(zone.startTime + "-" + zone.endTime)
                 Spacer()
-                VStack(alignment: .center) {
-                    Text(zone.notes)
-                    Text(zone.startTime)
-                    Text(zone.endTime)
-                }
+                Text(self.numGoalsCompleted.str() + "/" + self.numGoals.str())
             }
+        }.onAppear {
+            self.numGoalsCompleted = self.goalsCompleted.count
+            self.numGoals = self.goals.count
         }
     }
 }

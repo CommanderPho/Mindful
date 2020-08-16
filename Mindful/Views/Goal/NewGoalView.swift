@@ -47,7 +47,7 @@ struct NewGoalView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 } else {
                     // was unable to insert
-                    self.errorMessage = "Cannot have any empty fields"
+                    self.errorMessage = "Cannot have any empty fields and title cannot be more than " + GOAL_TITLE_CHAR_LIMIT.str() + "characters"
                 }
             })
             

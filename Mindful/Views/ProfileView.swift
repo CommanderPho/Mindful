@@ -10,9 +10,28 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    let pointsPerDay: [CGFloat] = [5,2,20,4,35,6,3]
-    var todayPoints: Int = 10
-    var totalPoints: Int { return Int(pointsPerDay.reduce(0, +)) }
+    var pointsEarnedPerGoalComplete: CGFloat = 10
+    
+    var pointsPerDay: [CGFloat] {
+        var dates: [Date] = []
+        var idx = 1
+        while idx < 8 {
+            dates.append(Date().offsetBy(idx, withUnit: .day))
+            idx += 1
+        }
+        var pointsArr: [CGFloat] = []
+        for date in dates {
+            let filteredGoals: [Goal] = date.goals().filter { goal in goal.dateCompleted == date.str() }
+            
+            pointsArr.append(CGFloat(filteredGoals.count) * pointsEarnedPerGoalComplete)
+        }
+        
+        return pointsArr
+    }
+    
+//    let pointsPerDay: [CGFloat] = [5,2,20,4,35,6,3]
+    var todayPoints: CGFloat { return CGFloat(Date().goals().filter { goal in goal.dateCompleted == Date().str() }.count) * self.pointsEarnedPerGoalComplete }
+    var totalPoints: Int { return Int( todayPoints + pointsPerDay.reduce(0, +)) }
     let bigCircleDim: CGFloat = SCREEN_WIDTH / 3
     let medCircleDim: CGFloat = SCREEN_WIDTH / 4
     let spacing: CGFloat = 10
@@ -52,7 +71,6 @@ struct ProfileView: View {
                             }.padding(self.insets)
                         }
                         Divider()
-                        //                    NavigationLink(destination: GoalsListView(date: Date())) {
                         NavigationLink(destination: GoalsListFromGoalsView(goals: self.goals)) {
                             HStack(spacing: self.spacing) {
                                 Text("Goals")
@@ -67,7 +85,16 @@ struct ProfileView: View {
             }
         }
         .onAppear() {
-            self.goals = DBM.all(Goal.self)
+            let allGoals = DBM.all(Goal.self)
+            var uniqueTitles = Set<String>()
+            var uniqueGoals: [Goal] = []
+            for goal in allGoals {
+                if !uniqueTitles.contains(goal.title) {
+                    uniqueTitles.insert(goal.title)
+                    uniqueGoals.append(goal)
+                }
+            }
+            self.goals = uniqueGoals
         }
     }
 }

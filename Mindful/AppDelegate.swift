@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             createBadges,
         ]
         dbQueue = try! DBM.connectDB(atPath: databaseURL.path, withMigrations: migrations)
+        
+        // check if first open
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
