@@ -17,6 +17,26 @@
 - Have a 'Today' button that sets the focusDate to Date()
 - Potentially remove buttons for last and next month
 
+### Demo Images
+
+```Main Views```
+
+| Home | Schedule | Progress |
+| :---: | :---: | :---: |
+| <img src="https://user-images.githubusercontent.com/38144750/90966875-b8d62480-e4a5-11ea-85c8-919ce46aa149.png" width=200> |<img src="https://user-images.githubusercontent.com/38144750/90966873-b83d8e00-e4a5-11ea-8acd-e7978ccbe4af.png" width=200> | <img src="https://user-images.githubusercontent.com/38144750/90966874-b83d8e00-e4a5-11ea-81f0-30e4a7bc3122.png" width=200> | 
+
+```Awareness Zones```
+
+| List of Awareness Zones | Create a Zone | Select Goals for Current Zone |
+| :---: | :---: | :---: |
+| <img src="https://user-images.githubusercontent.com/38144750/90966867-b673ca80-e4a5-11ea-9cf4-33577f16ad6f.png" width=200> | <img src="https://user-images.githubusercontent.com/38144750/90966868-b70c6100-e4a5-11ea-9726-e0e2a68d8223.png" width=200> | <img src="https://user-images.githubusercontent.com/38144750/90966871-b7a4f780-e4a5-11ea-9c7c-2ecc365ecf90.png" width=200> | 
+
+
+```Goals```
+
+| List of Goals in an Awareness Zone | View a Goal | Create a Goal |
+| :---: | :---: | :---: |
+| <img src="https://user-images.githubusercontent.com/38144750/90966870-b7a4f780-e4a5-11ea-8114-2c58be7a77f3.png" width=200> | <img src="https://user-images.githubusercontent.com/38144750/90966869-b70c6100-e4a5-11ea-8a69-fb6205216805.png" width=200> | <img src="https://user-images.githubusercontent.com/38144750/90966872-b7a4f780-e4a5-11ea-9aa4-3ea3effa3725.png" width=200> | 
 
 ---------------------------------------------------------------------------------------------------------
 
