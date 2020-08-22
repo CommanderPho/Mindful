@@ -1,3 +1,5 @@
+Mindful is an iOS app as a tool to assist in increasing the awareness of a user's phone usage by scheduling times where their phones should not be open. Users can create schedules, add goals, and receive rewards for sticking to their goals.
+
 ---------------------------------------------------------------------------------------------------------
 # Features to add
 ---------------------------------------------------------------------------------------------------------
